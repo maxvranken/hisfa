@@ -11,9 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// route naar dashboard
+Route::get('/', 'Controller@index');
 
-Route::get('/students', 'StudentsController@index');
-Route::get('/students/create', 'StudentsController@create');
+// route naar login
+Route::get('/login', 'Controller@login');
+
+// route naar blocks focus
+Route::get('/blocks', 'BlocksController@index');
+
+// route naar primesilos focus
+Route::get('/primesilos', 'PrimeSilosController@index');
+
+// route naar wastesilos focus
+Route::get('/wastesilos', 'WasteSilosController@index');
+
+// route naar logs focus
+Route::get('/logs', 'LogsController@index');

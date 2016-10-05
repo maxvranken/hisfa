@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class StudentsController extends Controller
+class LogsController extends Controller
 {
     public function index(){
-        echo "Hello!";
+        return view('focus/logs');
     }
 }
