@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
 class FoamTypesTableSeeder extends Seeder
 {
     /**
@@ -11,6 +12,12 @@ class FoamTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker::create();
+        foreach (range(1,10) as $index) {
+            DB::table('foamTypes')->insert([
+                'name' => $faker->name,
+                'density' => $faker->numberBetween(1,50),
+            ]);
+        }
     }
 }
