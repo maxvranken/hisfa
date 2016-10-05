@@ -15,9 +15,8 @@ class ResourcesTableSeeder extends Seeder
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
             DB::table('resources')->insert([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'password' => bcrypt('secret'),
+                'name' => $faker->word,
+                'quantity' => $faker->numberBetween(1,100),
             ]);
         }
     }

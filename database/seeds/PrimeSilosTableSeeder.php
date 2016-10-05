@@ -16,6 +16,7 @@ class PrimeSilosTableSeeder extends Seeder
         foreach (range(1,10) as $index) {
             DB::table('primeSilos')->insert([
                 'quantity' => $faker->numberBetween(1,50),
+                'resource_id' => $faker->numberBetween(1,50),
             ]);
         }
     }

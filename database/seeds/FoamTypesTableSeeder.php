@@ -15,7 +15,7 @@ class FoamTypesTableSeeder extends Seeder
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
             DB::table('foamTypes')->insert([
-                'name' => $faker->name,
+                'name' => $faker->word,
                 'density' => $faker->numberBetween(1,50),
             ]);
         }
