@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Resource;
 
-use Faker\Factory as Faker;
 class ResourcesTableSeeder extends Seeder
 {
     /**
@@ -12,12 +12,6 @@ class ResourcesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach (range(1,10) as $index) {
-            DB::table('resources')->insert([
-                'name' => $faker->word,
-                'quantity' => $faker->numberBetween(1,100),
-            ]);
-        }
+        factory(Resource::class, 50)->create();
     }
 }

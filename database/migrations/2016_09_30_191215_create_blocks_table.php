@@ -16,9 +16,10 @@ class CreateBlocksTable extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('foamType_id')->unsigned();
-            $table->foreign('foamType_id')->references('id')->on('foamTypes');
+            $table->foreign('foamType_id')->references('id')->on('foam_types');
             $table->tinyInteger('length');
             $table->tinyInteger('quantity');
+            $table->timestamps();
         });
     }
 
