@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\FoamType;
 
-use Faker\Factory as Faker;
 class FoamTypesTableSeeder extends Seeder
 {
     /**
@@ -12,12 +12,6 @@ class FoamTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach (range(1,10) as $index) {
-            DB::table('foamTypes')->insert([
-                'name' => $faker->word,
-                'density' => $faker->numberBetween(1,50),
-            ]);
-        }
+        factory(FoamType::class, 20)->create();
     }
 }

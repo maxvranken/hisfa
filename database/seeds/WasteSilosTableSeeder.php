@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\WasteSilo;
 
-use Faker\Factory as Faker;
 class WasteSilosTableSeeder extends Seeder
 {
     /**
@@ -12,11 +12,6 @@ class WasteSilosTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach (range(1,10) as $index) {
-            DB::table('wasteSilos')->insert([
-                'percentage' => $faker->numberBetween(1,100),
-            ]);
-        }
+        factory(WasteSilo::class, 5)->create();
     }
 }

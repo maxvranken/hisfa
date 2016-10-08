@@ -13,7 +13,7 @@ class CreateWasteSilosTable extends Migration
      */
     public function up()
     {
-        Schema::create('wasteSilos', function (Blueprint $table) {
+        Schema::create('waste_silos', function (Blueprint $table) {
             $table->increments('id');
             $table->tinyInteger('percentage');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateWasteSilosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wasteSilos');
+        Schema::dropIfExists('waste_silos');
     }
 }

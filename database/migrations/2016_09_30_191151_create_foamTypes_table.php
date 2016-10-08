@@ -13,7 +13,7 @@ class CreateFoamTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('foamTypes', function (Blueprint $table) {
+        Schema::create('foam_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
             $table->decimal('density', 5, 2);
@@ -28,6 +28,6 @@ class CreateFoamTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foamTypes');
+        Schema::dropIfExists('foam_types');
     }
 }

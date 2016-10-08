@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Log;
 
-use Faker\Factory as Faker;
 class LogsTableSeeder extends Seeder
 {
     /**
@@ -12,15 +12,6 @@ class LogsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach (range(1,10) as $index) {
-            DB::table('logs')->insert([
-                'date' => $faker->dateTimeThisYear($max = 'now') ,
-                'data_type' => $faker->word,
-                'object_id' => $faker->numberBetween(1,50),
-                'quantity' => $faker->numberBetween(1,50),
-                'percentage' => $faker->numberBetween(1,100),
-            ]);
-        }
+        factory(Log::class, 50)->create();
     }
 }
