@@ -13,7 +13,7 @@ class CreatePrimeSilosTable extends Migration
      */
     public function up()
     {
-        Schema::create('primeSilos', function (Blueprint $table) {
+        Schema::create('prime_silos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resources');
@@ -29,6 +29,6 @@ class CreatePrimeSilosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('primeSilos');
+        Schema::dropIfExists('prime_silos');
     }
 }
