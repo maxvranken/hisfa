@@ -17,6 +17,10 @@
 // route naar login
 Route::get('/login', 'LoginController@login');
 
+//route naar profile
+Route::get('/profile', 'UserController@profile');
+Route::post('profile' , 'UserController@update_avatar');
+
 // route naar blocks focus
 Route::get('/blocks', 'BlocksController@index');
 
@@ -31,3 +35,4 @@ Route::get('/logs', 'LogsController@index');
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+
