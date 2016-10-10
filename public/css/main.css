@@ -50,6 +50,10 @@ hr{
     top: -7px;
 }
 
+.menu_user a{
+    color: inherit;
+}
+
 #profileimage{
     width: 25px;
     height: 25px;

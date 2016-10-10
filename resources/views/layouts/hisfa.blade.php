@@ -18,29 +18,29 @@
 <div class="menu">
     <div class="menu_container">
         <div class="menu_user">
-            <div id="user"><img src="/uploads/avatars/{{Auth::user()->avatar}}" id="profileimage"><p>{{ Auth::user()->name }}</p></div>
+            <a href="{{ url('/profile') }}"><div id="user"><img src="/uploads/avatars/{{Auth::user()->avatar}}" id="profileimage"><p>{{ Auth::user()->name }}</p></div></a>
         </div>
         <hr>
         <div class="menu_navlist">
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
-                <a href="#" class="nav_title">Primesilo's</a>
+                <a href="{{ url('/primesilos') }}" class="nav_title">Primesilo's</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
-                <a href="#" class="nav_title">Afvalsilo's</a>
+                <a href="{{ url('/wastesilos') }}" class="nav_title">Afvalsilo's</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>
-                <a href="#" class="nav_title">Foam stock</a>
+                <a href="{{ url('/blocks') }}" class="nav_title">Foam stock</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #2389ce;"></div>
-                <a href="#" class="nav_title">Resources</a>
+                <a href="{{ url('/blocks') }}" class="nav_title">Resources</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: purple;"></div>
-                <a href="#" class="nav_title">Logs</a>
+                <a href="{{ url('/logs') }}" class="nav_title">Logs</a>
             </div>
         </div>
         <hr>
