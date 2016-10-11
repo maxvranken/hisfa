@@ -12,8 +12,7 @@
 */
 
 // route naar dashboard
-//Route::get('/', 'Controller@index');
-Route::get('/', 'HomeController@index');
+Route::get('/', 'Controller@index');
 
 // route naar login
 Route::get('/login', 'LoginController@login');
