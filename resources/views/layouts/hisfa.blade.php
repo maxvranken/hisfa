@@ -23,6 +23,10 @@
         <hr>
         <div class="menu_navlist">
             <div class="nav_item">
+                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #00db4c;"></div>
+                <a href="{{ url('/') }}" class="nav_title">Dashboard</a>
+            </div>
+            <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
                 <a href="{{ url('/primesilos') }}" class="nav_title">Primesilo's</a>
             </div>
