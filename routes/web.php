@@ -30,6 +30,12 @@ Route::get('/primesilos', 'PrimeSilosController@index');
 // route naar wastesilos focus
 Route::get('/wastesilos', 'WasteSilosController@index');
 
+// route naar foam focus
+Route::get('/foam', 'FoamController@index');
+
+// route naar foam focus
+Route::get('/resources', 'ResourceController@index');
+
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');
 Auth::routes();

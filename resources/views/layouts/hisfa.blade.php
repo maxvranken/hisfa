@@ -32,11 +32,11 @@
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>
-                <a href="{{ url('/blocks') }}" class="nav_title">Foam stock</a>
+                <a href="{{ url('/foam') }}" class="nav_title">Foam stock</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #2389ce;"></div>
-                <a href="{{ url('/blocks') }}" class="nav_title">Resources</a>
+                <a href="{{ url('/resources') }}" class="nav_title">Resources</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: purple;"></div>
