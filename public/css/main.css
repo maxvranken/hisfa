@@ -317,6 +317,31 @@ hr{
     margin-top: 2%;
 }
 
+/* logs_focus */
+
+.log_focus{
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 95%;
+    max-height: 150px;
+    color:white;
+    margin-bottom: 100px;
+}
+
+.log_log_focus{
+    background-color: #54626d;
+    padding: 10px 0 10px 0;
+}
+
+.log_timestamp_focus{
+    font-weight: 400;
+    margin-left: 50px;
+}
+
+.log_text_focus{
+    margin-left: 50px;
+}
+
 
 
 
