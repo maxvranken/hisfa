@@ -28,7 +28,7 @@
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
-                <a href="{{ url('/wastesilos') }}" class="nav_title">Afvalsilo's</a>
+                <a href="{{ url('/wastesilos') }}" class="nav_title">Wastesilo's</a>
             </div>
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>

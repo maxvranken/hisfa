@@ -13,6 +13,7 @@
 
 // route naar dashboard
 //Route::get('/', 'Controller@index');
+Route::get('/', 'HomeController@index');
 
 // route naar login
 Route::get('/login', 'LoginController@login');
@@ -33,6 +34,4 @@ Route::get('/wastesilos', 'WasteSilosController@index');
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');
 Auth::routes();
-
-Route::get('/', 'HomeController@index');
 
