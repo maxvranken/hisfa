@@ -2,8 +2,13 @@
 
 @section('content')
 <div class="container">
+    <video autoplay  poster="" id="videobg" loop>
+        <source src="https://zippy.gfycat.com/SingleAgedKitty.webm" type="video/webm">
+
+        Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 horizontalcenter">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
