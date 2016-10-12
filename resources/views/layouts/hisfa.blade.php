@@ -8,8 +8,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/settings.css">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/main.js" defer></script>
+
+
 </head>
 <body>
 <div class="dash">
@@ -51,7 +54,7 @@
         </div>
         <hr>
         <div class="settings">
-            <a href="#" class="settings_link">
+            <a href="{{ url('/settings') }}" class="settings_link">
                 <div class="settings_icon"><img src="http://www.freeiconspng.com/uploads/settings-icon-13.png"
                                                 alt="settings" style="width: 20px; margin-right: 10px;"></div>
                 <div class="settings_text">Settings</div>
