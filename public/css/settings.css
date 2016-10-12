@@ -9,7 +9,7 @@
     color: white;
 }
 
-input[type="text"] {
+.addusertxt {
     display: block;
     margin: 0;
     width: 100%;

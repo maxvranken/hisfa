@@ -36,7 +36,9 @@ Route::get('/foam', 'FoamController@index');
 // route naar foam focus
 Route::get('/resources', 'ResourceController@index');
 Route::get('/resources/create', 'ResourceController@create');
+Route::get('/resources/edit', 'ResourceController@edit');
 Route::post('/store', 'ResourceController@addresource');
+Route::put('/edited', 'ResourceController@editresource');
 
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');
@@ -44,4 +46,5 @@ Route::get('/logs', 'LogsController@index');
 //route naar settings
 Route::get('/settings', 'SettingsController@index');
 Auth::routes();
+
 

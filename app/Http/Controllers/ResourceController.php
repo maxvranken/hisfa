@@ -24,6 +24,14 @@ class ResourceController extends Controller
 
     }
 
+    public function edit()
+    {
+        $resource = \App\Resource::findOrFail(Input::get('id'));
+        $data['resource'] = $resource;
+        return view('focus/editresource', $data);
+
+    }
+
     public function addresource()
     {
         // add resource
@@ -36,4 +44,17 @@ class ResourceController extends Controller
         $data['resources'] = $resources;
         return view('focus/resources', $data);
     }
+
+    public function editresource()
+    {
+        // edit resource
+        $resource = \App\Resource::findOrFail(Input::get('editedid'));
+        $resource->name = Input::get('resourcename');
+        $resource->save();
+
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+        return view('focus/resources', $data); //
+    }
 }
+
