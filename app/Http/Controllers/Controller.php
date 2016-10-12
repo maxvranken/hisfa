@@ -17,10 +17,6 @@ class Controller extends BaseController
     }
 
     public function index(){
-        // alle blokken meegeven
-        $blocks = \App\Block::all();
-        $data['blocks'] = $blocks;
-
         // alle foam types meegeven
         $foamtypes = \App\FoamType::all();
         $data['foamtypes'] = $foamtypes;
@@ -40,6 +36,10 @@ class Controller extends BaseController
         // alle logs meegeven
         $logs = \App\Log::all();
         $data['logs'] = $logs;
+
+        // eerste blokken meegeven
+        $blocks = \App\Block::where('foamType_id', 1)->get();
+        $data['blocks'] = $blocks;
 
         return view('dashboard', $data);
     }
