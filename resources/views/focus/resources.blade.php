@@ -11,16 +11,28 @@
                 <div class="resourcetype" id="resource {{ $resource->id }}">
                     <div class="rsrcetype">{{ $resource->name }}</div>
                 </div>
+
             @endforeach
+
+                <div class="resourcetype" >
+                    <div class="rsrcetype" id="addres">Add silo</div>
+                </div>
 
         </div>
         <div class="resource_stock_container">
             @foreach($resources as $resource)
                 <div class="stock">
                     <div class="resource_number_stock">{{$resource->quantity}}<span class="ton">ton</span></div>
+                    <form action="/resources" method="POST" enctype="multipart/form-data"></form>
+                    <div class="mngbutton" id="resourceplus{{ $resource->id }}">+</div>
+                    <input type="text" class="mngquantity" value="{{$resource->quantity}}" id="resourcenumber{{ $resource->id }}">
+                    <div class="mngbutton" id="resourceminus{{ $resource->id }}">-</div>
                 </div>
             @endforeach
-
+                <a href="/resources/create" class="additem" id="addresbtn">
+                    <div>+</div>
+                </a>
         </div>
+
     </div>
 @endsection

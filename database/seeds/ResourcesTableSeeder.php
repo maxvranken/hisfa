@@ -12,6 +12,6 @@ class ResourcesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Resource::class, 50)->create();
+        factory(Resource::class, 5)->create();
     }
 }

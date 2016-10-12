@@ -1,0 +1,81 @@
+
+
+.mngbutton{
+    width: 100%;
+    background-color: #54626d;
+    text-align: center;
+    font-family: Lato;
+    margin-top: 5px;
+    font-size: 4em;
+    cursor: pointer;
+}
+
+.mngquantity{
+    width: 99%;
+    background-color: #ccc;
+    border: none;
+    text-align: center;
+    font-size: 4.5em;
+    font-family: Lato;
+    margin-top: 5px;
+}
+
+.additem{
+    width: 33%;
+    background-color: #54626d;
+    font-size: 6em;
+    margin-left: 5px;
+    font-family: Lato;
+    margin-top: 5px;
+}
+
+#addres{
+
+
+}
+
+#addresbtn{
+    cursor: pointer;
+    line-height: 100%;
+    text-align:center;
+}
+
+.addform{
+    width:100%;
+    margin-bottom: 30px;
+}
+
+.addrow{
+    width: 100%;
+    display: flex;
+    margin-top: 5px;
+}
+
+.addlabel{
+    background-color: #54626d;
+    width: 25%;
+    margin-right: 0.5%;
+    color: white;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6em;
+}
+
+.addinput{
+    background-color: #ccc;
+    width: 74.5%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    border:none;
+    font-size: 2em;
+}
+
+.addsubmit{
+    background-color: #54626d;
+    width: 100%;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6em;
+    border: none;
+
+}
