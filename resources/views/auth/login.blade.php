@@ -2,8 +2,13 @@
 
 @section('content')
 <div class="container">
+    <video autoplay  poster="" id="videobg" loop>
+        <source src="https://res.cloudinary.com/ddd7cgte4/video/upload/v1476269767/HISFA/hisfa.webm" type="video/webm">
+
+        Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 horizontalcenter">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">

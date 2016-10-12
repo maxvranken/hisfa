@@ -1,0 +1,33 @@
+/*background img */
+/*
+.backgroundvid{
+    background:  url(http://www.pbh2.com/wordpress/wp-content/uploads/2014/03/the-alps.gif.webm) no-repeat center center fixed;
+    background-size: cover;
+}*/
+
+video#videobg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url("") no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.horizontalcenter{
+
+   margin-top: 150px;
+}
+.panel-body{
+
+}
+
+.panel-heading{
+
+}
