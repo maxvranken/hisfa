@@ -21,9 +21,6 @@ Route::get('/login', 'LoginController@login');
 Route::get('/profile', 'UserController@profile');
 Route::post('profile' , 'UserController@update_avatar');
 
-// route naar blocks focus
-Route::get('/blocks', 'BlocksController@index');
-
 // route naar primesilos focus
 Route::get('/primesilos', 'PrimeSilosController@index');
 
@@ -32,6 +29,7 @@ Route::get('/wastesilos', 'WasteSilosController@index');
 
 // route naar foam focus
 Route::get('/foam', 'FoamController@index');
+Route::get('/blocks', 'FoamController@ajax');
 
 // route naar foam focus
 Route::get('/resources', 'ResourceController@index');
