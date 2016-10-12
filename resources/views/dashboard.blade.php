@@ -10,37 +10,37 @@
             <div class="silo" id="silo1">
                 <div class="silo_number">1</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled1"></div>
                 </div>
             </div>
             <div class="silo" id="silo2">
                 <div class="silo_number">2</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled2"></div>
                 </div>
             </div>
             <div class="silo" id="silo3">
                 <div class="silo_number">3</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled3"></div>
                 </div>
             </div>
             <div class="silo" id="silo4">
                 <div class="silo_number">4</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled4"></div>
                 </div>
             </div>
             <div class="silo" id="silo5">
                 <div class="silo_number">5</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled5"></div>
                 </div>
             </div>
             <div class="silo" id="silo6">
                 <div class="silo_number">6</div>
                 <div class="silo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="silo_filled6"></div>
                 </div>
             </div>
         </div>
@@ -54,19 +54,19 @@
             <div class="wsilo" id="wsilo1">
                 <div class="silo_number">1</div>
                 <div class="wsilo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="wsilo_filled1"></div>
                 </div>
             </div>
             <div class="wsilo" id="wsilo2">
                 <div class="silo_number">2</div>
                 <div class="wsilo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="wsilo_filled2"></div>
                 </div>
             </div>
             <div class="wsilo" id="wsilo3">
                 <div class="silo_number">3</div>
                 <div class="wsilo_fill">
-                    <div class="silo_filled"></div>
+                    <div id="wsilo_filled3"></div>
                 </div>
             </div>
 

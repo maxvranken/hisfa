@@ -9,6 +9,8 @@ use App\Http\Requests;
 class ResourceController extends Controller
 {
     public function index(){
-        return view('focus/resources');
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+        return view('focus/resources', $data);
     }
 }
