@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/manage.css">
+    <link rel="stylesheet" href="/css/settings.css">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/main.js" defer></script>
-    <title>Hisfa</title>
 </head>
 <body>
 <div class="dash">
@@ -53,7 +53,7 @@
         </div>
         <hr>
         <div class="settings">
-            <a href="#" class="settings_link">
+            <a href="{{ url('/settings') }}" class="settings_link">
                 <div class="settings_icon"><img src="http://www.freeiconspng.com/uploads/settings-icon-13.png"
                                                 alt="settings" style="width: 20px; margin-right: 10px;"></div>
                 <div class="settings_text">Settings</div>

@@ -40,5 +40,8 @@ Route::post('/store', 'ResourceController@addresource');
 
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');
+
+//route naar settings
+Route::get('/settings', 'SettingsController@index');
 Auth::routes();
 
