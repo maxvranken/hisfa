@@ -363,13 +363,14 @@ hr{
     text-indent: -9999px;
     color: #fff;
     display: block;
-    height: 35px;
+    height: 30px;
     width: 100px;
     padding: 10px;
     background-image: url(../svg/down.svg);
     background-position: center right;
     background-repeat: no-repeat;
-    background-size: 35px;
+    background-size: 30px;
+    cursor: pointer;
 }
 
 .material_title form select::-ms-expand {
