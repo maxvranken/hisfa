@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <video autoplay  poster="" id="videobg" loop>
-        <source src="https://zippy.gfycat.com/SingleAgedKitty.webm" type="video/webm">
+        <source src="https://res.cloudinary.com/ddd7cgte4/video/upload/v1476269767/HISFA/hisfa.webm" type="video/webm">
 
         Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
