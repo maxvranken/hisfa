@@ -9,6 +9,14 @@ use App\Http\Requests;
 class FoamController extends Controller
 {
     public function index(){
-        return view('focus/foam');
+        // alle blokken meegeven
+        $blocks = \App\Block::all();
+        $data['blocks'] = $blocks;
+
+        // alle foam types meegeven
+        $foamtypes = \App\FoamType::all();
+        $data['foamtypes'] = $foamtypes;
+
+        return view('focus/foam', $data);
     }
 }

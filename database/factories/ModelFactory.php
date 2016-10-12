@@ -54,9 +54,7 @@ $factory->define(App\WasteSilo::class, function (Faker\Generator $faker) {
 $factory->define(App\PrimeSilo::class, function (Faker\Generator $faker) {
     return [
         'quantity' => $faker->numberBetween(1,50),
-        'resource_id' => function () {
-            return factory(App\Resource::class)->create()->id;
-        }
+        'resource_id' => $faker->numberBetween(1,5)
     ];
 });
 

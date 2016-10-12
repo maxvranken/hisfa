@@ -12,6 +12,6 @@ class WasteSilosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(WasteSilo::class, 5)->create();
+        factory(WasteSilo::class, 3)->create();
     }
 }

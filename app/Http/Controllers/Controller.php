@@ -46,14 +46,6 @@ class Controller extends BaseController
 }
 /*
 
-public function create(){
-    $allStudents = \App\Student::all();
-
-    $data['students'] = $allStudents;
-
-    return view('students/create', $data);
-}
-
 @foreach($students as $student)
         <p>{{ $student->email }}</p>
 @endforeach

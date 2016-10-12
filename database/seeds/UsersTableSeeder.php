@@ -12,6 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 50)->create();
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@hisfa',
+            'password' => bcrypt('hisfa'),
+            'admin' => true,
+            'remember_token' => str_random(10)
+        ]);
     }
 }

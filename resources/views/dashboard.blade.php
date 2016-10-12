@@ -72,11 +72,19 @@
 
         </div>
     </div>
-
     <div class="material">
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <p>P15</p>
+            <p class="selected_foamtype">P15</p>
+            <?php $foamtype_names = array (); ?>
+            @foreach($foamtypes as $foamtype)
+                <?php array_push($foamtype_names, $foamtype->name); ?>
+            @endforeach
+            {{ Form::open(array('url' => '', 'class' => 'material_form')) }}
+                {{
+                    Form::select('foamtypes', $foamtype_names)
+                }}
+            {{ Form::close() }}
         </div>
         <div class="length_container">
             <div class="length" id="length1">

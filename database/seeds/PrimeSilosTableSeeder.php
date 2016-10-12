@@ -12,6 +12,6 @@ class PrimeSilosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(PrimeSilo::class, 5)->create();
+        factory(PrimeSilo::class, 6)->create();
     }
 }

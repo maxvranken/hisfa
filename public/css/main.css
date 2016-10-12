@@ -342,7 +342,47 @@ hr{
     margin-left: 50px;
 }
 
+/* foam_stock */
 
+.material_title{
+    position: relative;
+}
 
+.material_title form{
+    position: absolute;
+    right: 20px;
+}
 
+.material_title form select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    text-indent: -9999px;
+    color: #fff;
+    display: block;
+    height: 35px;
+    width: 100px;
+    padding: 10px;
+    background-image: url(../svg/down.svg);
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 35px;
+}
 
+.material_title form select::-ms-expand {
+    display: none;
+}
+
+.material_title form select option{
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #54626d;
+    color: #fff;
+}
+
+.material_title form select option:hover{
+    background-color: red;
+}
