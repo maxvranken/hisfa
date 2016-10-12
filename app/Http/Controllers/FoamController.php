@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class FoamController extends Controller
@@ -18,5 +17,10 @@ class FoamController extends Controller
         $data['foamtypes'] = $foamtypes;
 
         return view('focus/foam', $data);
+    }
+
+    public function ajax(){
+        $foamtypes = \App\FoamType::find(1);
+        return response()->json($foamtypes);
     }
 }

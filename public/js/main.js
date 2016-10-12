@@ -10,8 +10,9 @@ function materialDisplay(){
     var material = $( '.material_form option:selected' ).text();
     $('.selected_foamtype').text(material);
 
-    $.post( "ajax/foam.php", { material: material})
+    $.get('/foam/5', { material: material})
         .done(function( response ){
-            console.log(response.foamtypes)
+            console.log( response);
+            //alert(response.name)
         });
 }

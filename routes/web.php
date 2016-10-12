@@ -32,6 +32,7 @@ Route::get('/wastesilos', 'WasteSilosController@index');
 
 // route naar foam focus
 Route::get('/foam', 'FoamController@index');
+Route::get('/foam/{id}', 'FoamController@ajax');
 
 // route naar foam focus
 Route::get('/resources', 'ResourceController@index');
