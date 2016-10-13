@@ -244,6 +244,7 @@ hr{
     width: 40%;
     color:white;
     margin-top: 2%;
+    position: relative;
 }
 
 .length_container, .resource_container {
@@ -385,6 +386,18 @@ hr{
 }
 
 /* foam_stock */
+
+.material_loader{
+    display: none;
+    top: 70px;
+    height: 160px;
+    width: 100%;
+    background-color: rgba(84, 98, 109, 0.7);
+    position: absolute;
+    background-image: url(../svg/loader.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .material_title{
     position: relative;

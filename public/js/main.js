@@ -15,6 +15,7 @@ $('.drop li').click(function(){
 });
 
 function materialAjax(id){
+    $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
         .done(function( response ){
             $('#length1 div').text(response[0].length + 'm');
@@ -31,5 +32,7 @@ function materialAjax(id){
             $('#stock2 div:last-child .number').text( Math.round(1.03 * 1.29 * response[1].length * response[1].quantity * 10) / 10 );
             $('#stock3 div:last-child .number').text( Math.round(1.03 * 1.29 * response[2].length * response[2].quantity * 10) / 10 );
             $('#stock4 div:last-child .number').text( Math.round(1.03 * 1.29 * response[3].length * response[3].quantity *  10) / 10 );
+
+            $('.material_loader').css('display', 'none');
         });
 }
