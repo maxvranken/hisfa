@@ -34,8 +34,10 @@
 
 #addresbtn{
     cursor: pointer;
-    line-height: 100%;
+    line-height: 400px;
     text-align:center;
+    text-decoration: none;
+    color: white;
 }
 
 .addform{
@@ -86,6 +88,10 @@
     margin-top: 5px;
     font-size: 1.6em;
     cursor: pointer;
+}
+
+.aeditbtn{
+    text-decoration: none;
 }
 
 .editbtn_txt{
