@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="waste">
+    <div class="waste dashboard">
         <div class="waste_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
             <a href="/wastesilos">Wastesilo's</a>
@@ -72,7 +72,7 @@
 
         </div>
     </div>
-    <div class="material">
+    <div class="material dashboard">
         <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
@@ -128,7 +128,7 @@
         </div>
     </div>
 
-    <div class="resource">
+    <div class="resource dashboard">
         <div class="resource_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
             <a href="/resources">Resources</a>

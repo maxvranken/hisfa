@@ -229,9 +229,12 @@ hr{
 }
 
 .waste{
-    margin-left: 2%;
     width: 32%;
     color:white;
+}
+
+.waste.dashboard{
+    margin-left: 2%;
 }
 
 .wsilo_fill{
@@ -249,8 +252,11 @@ hr{
 .material{
     width: 44%;
     color:white;
-    margin-top: 2%;
     position: relative;
+}
+
+.material.dashboard{
+    margin-top: 2%;
 }
 
 .length_container, .resource_container {
@@ -360,14 +366,15 @@ hr{
 .resource{
     width: 100%;
     color:white;
+}
+
+.resource.dashboard{
     margin-top: 2%;
 }
 
 /* logs_focus */
 
 .log_focus{
-    margin-left: 2%;
-    margin-top: 2%;
     width: 95%;
     max-height: 150px;
     color:white;

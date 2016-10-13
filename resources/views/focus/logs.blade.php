@@ -5,7 +5,7 @@
     <div class="log_focus">
         <div class="log_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #745FA4;"></div>
-            <p>Latest Logs</p>
+            <a href="/logs">Latest Logs</a>
         </div>
         <div class="log_log_focus" id="log1_focus">
             <span class="log_timestamp_focus">01/01/16 11:16</span>
