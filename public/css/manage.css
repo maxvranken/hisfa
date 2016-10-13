@@ -6,6 +6,8 @@
     margin-top: 5px;
     font-size: 4em;
     cursor: pointer;
+    border: none;
+    color: white;
 }
 
 .mngquantity{
