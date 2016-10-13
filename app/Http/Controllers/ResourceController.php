@@ -56,5 +56,41 @@ class ResourceController extends Controller
         $data['resources'] = $resources;
         return view('focus/resources', $data); //
     }
+    
+    public function editquantity()
+    {
+        // edit resource
+        $resource = \App\Resource::findOrFail(Input::get('editedid'));
+        $resource->quantity = Input::get('quantity');
+        $resource->save();
+
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+        return view('focus/resources', $data); //
+    }
+
+    public function editquantityplus()
+    {
+        // edit resource
+        $resource = \App\Resource::findOrFail(Input::get('editedid'));
+        $resource->quantity = Input::get('editedqnty') + 1;
+        $resource->save();
+
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+        return view('focus/resources', $data); //
+    }
+
+    public function editquantityminus()
+    {
+        // edit resource
+        $resource = \App\Resource::findOrFail(Input::get('editedid'));
+        $resource->quantity = Input::get('editedqnty') - 1;
+        $resource->save();
+
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+        return view('focus/resources', $data); //
+    }
 }
 

@@ -31,12 +31,15 @@ Route::get('/wastesilos', 'WasteSilosController@index');
 Route::get('/foam', 'FoamController@index');
 Route::get('/blocks', 'FoamController@ajax');
 
-// route naar foam focus
+// route naar resource focus
 Route::get('/resources', 'ResourceController@index');
 Route::get('/resources/create', 'ResourceController@create');
 Route::get('/resources/edit', 'ResourceController@edit');
 Route::post('/store', 'ResourceController@addresource');
 Route::put('/edited', 'ResourceController@editresource');
+Route::put('/resources/changeqnty', 'ResourceController@editquantity');
+Route::put('/resources/changeqntyplus', 'ResourceController@editquantityplus');
+Route::put('/resources/changeqntyminus', 'ResourceController@editquantityminus');
 
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');
