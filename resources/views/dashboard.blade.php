@@ -73,6 +73,7 @@
         </div>
     </div>
     <div class="material">
+        <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
             <p class="selected_foamtype">P15</p>
