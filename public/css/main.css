@@ -133,7 +133,9 @@ hr{
     margin-left: 15px;
 }
 
-.prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p{
+.prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
+    text-decoration: none;
+    color: #fff;
     padding: 10px 15px;
     margin: 16px 0;
 }
@@ -459,7 +461,7 @@ hr{
 }
 
 @media screen and (max-height: 850px) {
-    .prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p{
+    .prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
         margin: 0;
     }
     .material_loader{

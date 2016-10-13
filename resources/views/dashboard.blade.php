@@ -4,7 +4,7 @@
     <div class="prime">
         <div class="prime_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
-            <p>Primesilo's</p>
+            <a href="/primesilos">Primesilo's</a>
         </div>
         <div class="silo_container">
             <div class="silo" id="silo1">
@@ -48,7 +48,7 @@
     <div class="waste">
         <div class="waste_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
-            <p>Wastesilo's</p>
+            <a href="/wastesilos">Wastesilo's</a>
         </div>
         <div class="silo_container">
             <div class="wsilo" id="wsilo1">
@@ -76,7 +76,7 @@
         <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <p class="selected_foamtype">P15</p>
+            <a href="/foam" class="selected_foamtype">{{$foamtypes->first()->name}}</a>
             <button class="show_drop"></button>
             <ul class="drop">
                 @foreach($foamtypes as $foamtype)
@@ -108,7 +108,7 @@
     <div class="log">
         <div class="log_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #745FA4;"></div>
-            <p>Latest Logs</p>
+            <a href="/logs">Latest Logs</a>
         </div>
         <div class="log_log" id="log1">
             <span class="log_timestamp">01/01/16 11:16</span>
@@ -131,7 +131,7 @@
     <div class="resource">
         <div class="resource_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
-            <p>Resources</p>
+            <a href="/resources">Resources</a>
         </div>
         <div class="resource_container">
             <div class="resourcetype" id="resource1">
