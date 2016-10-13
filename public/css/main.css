@@ -449,7 +449,7 @@ hr{
 /* Dashboard mediaquery */
 
 @media screen and (max-height: 750px) {
-    .silo_fill, .wsilo_fill, .resource_number_stock{
+    .silo_fill, .wsilo_fill, .resource_number_stock.dashboard{
         height: 80px;
         line-height: 80px;
     }

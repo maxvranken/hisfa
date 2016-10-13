@@ -156,19 +156,19 @@
         </div>
         <div class="resource_stock_container">
             <div class="stock">
-                <div class="resource_number_stock">16<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
             </div>
             <div class="stock">
-                <div class="resource_number_stock">16<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
             </div>
             <div class="stock">
-                <div class="resource_number_stock">8<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">8<span class="ton">ton</span></div>
             </div>
             <div class="stock">
-                <div class="resource_number_stock">23<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">23<span class="ton">ton</span></div>
             </div>
             <div class="stock">
-                <div class="resource_number_stock">4<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">4<span class="ton">ton</span></div>
             </div>
         </div>
     </div>
