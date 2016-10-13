@@ -15,6 +15,8 @@ $('.drop li').click(function(){
 });
 
 function materialAjax(id){
+    $('.material_loader').css('opacity', '1');
+    $('.material_loader').css('z-index', '1');
     $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
         .done(function( response ){

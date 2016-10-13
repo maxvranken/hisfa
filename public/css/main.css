@@ -11,11 +11,10 @@ html {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 body {
+    position: relative;
     margin: 0;
-
+    min-height:100%;
     font-family: 'Lato', Helvetica;
-
-
 }
 
 hr{
@@ -93,19 +92,34 @@ hr{
     margin-top: 20px;
 }
 
-.dash_container{
-    background-color: rgba(0,0,0,0.6);
+.dash{
+    position: absolute;
     width: 75%;
-    margin: 2.5% 0 2.5% 2.5%;
-    padding-top: 2%;
+    height: 95%;
+    margin: 0 2%;
+    min-height: 100%;
+}
+
+.dash_container{
+    width: 92%;
+    padding: 4%;
+    background-color: rgba(0,0,0,0.6);
     display: flex;
     flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+@media screen and (min-height: 850px) {
+    .dash_container{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
 }
 
 .prime{
-
-    margin-left: 2%;
-    width: 60%;
+    width: 66%;
     color:white;
 }
 
@@ -121,20 +135,16 @@ hr{
 
 .title_dot{
     border-radius: 100%;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 0;
+    padding: 10px 15px;
 }
 
 .silo_container{
     width: 100%;
     display: flex;
-
 }
 
 .silo{
@@ -221,9 +231,8 @@ hr{
 }
 
 .waste{
-
     margin-left: 2%;
-    width: 34%;
+    width: 32%;
     color:white;
 }
 
@@ -240,8 +249,7 @@ hr{
 }
 
 .material{
-    margin-left: 2%;
-    width: 40%;
+    width: 44%;
     color:white;
     margin-top: 2%;
     position: relative;
@@ -278,7 +286,6 @@ hr{
 .resource_stock_container{
     width: 100%;
     display: flex;
-    margin-bottom: 30px;
 }
 
 .stock {
@@ -335,7 +342,6 @@ hr{
     margin-left: 2%;
     margin-top: 2%;
     width: 54%;
-    max-height: 150px;
     color:white;
 }
 
@@ -354,8 +360,7 @@ hr{
 }
 
 .resource{
-    margin-left: 2%;
-    width: 96%;
+    width: 100%;
     color:white;
     margin-top: 2%;
 }
@@ -388,7 +393,8 @@ hr{
 /* foam_stock */
 
 .material_loader{
-    display: none;
+    opacity: 0;
+    z-index: -1;
     top: 70px;
     height: 160px;
     width: 100%;
