@@ -102,20 +102,15 @@ hr{
 
 .dash_container{
     width: 92%;
+    min-height: 740px;
     padding: 4%;
     background-color: rgba(0,0,0,0.6);
     display: flex;
     flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-@media screen and (min-height: 850px) {
-    .dash_container{
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-    }
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .prime{
@@ -140,6 +135,7 @@ hr{
 
 .prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p{
     padding: 10px 15px;
+    margin: 16px 0;
 }
 
 .silo_container{
@@ -448,4 +444,28 @@ hr{
     background-position: center right;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+/* Dashboard mediaquery */
+
+@media screen and (max-height: 750px) {
+    .silo_fill, .wsilo_fill, .resource_number_stock{
+        height: 80px;
+        line-height: 80px;
+    }
+    .dash_container {
+        min-height: 635px;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    .prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p{
+        margin: 0;
+    }
+    .material_loader{
+        top: 38px;
+    }
+    .dash_container {
+        min-height: 550px;
+    }
 }
