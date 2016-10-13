@@ -14,9 +14,9 @@
 
             @endforeach
 
-                <div class="resourcetype" >
-                    <div class="rsrcetype" id="addres">Add silo</div>
-                </div>
+            <div class="resourcetype" >
+                <div class="rsrcetype" id="addres">Add silo</div>
+            </div>
 
         </div>
         <div class="resource_stock_container">
@@ -27,11 +27,13 @@
                     <div class="mngbutton" id="resourceplus{{ $resource->id }}">+</div>
                     <input type="text" class="mngquantity" value="{{$resource->quantity}}" id="resourcenumber{{ $resource->id }}">
                     <div class="mngbutton" id="resourceminus{{ $resource->id }}">-</div>
+                    <a href="/resources/edit?id={{ $resource->id }}"><div class="editbtn"><div class="editbtn_txt">Edit</div></div></a>
                 </div>
             @endforeach
-                <a href="/resources/create" class="additem" id="addresbtn">
-                    <div>+</div>
-                </a>
+            <a href="/resources/create" class="additem" id="addresbtn">
+                <div>+</div>
+            </a>
+
         </div>
 
     </div>

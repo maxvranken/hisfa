@@ -8,21 +8,21 @@
     <div class="container">
 
 
-    <form>
-        <section>
+        <form>
+            <section>
 
-            <ul class="input-list style-1 clearfix">
-                <h2>Settings page</h2>
-                <h2>Add user</h2>
-                <li>
-                    <input type="text" placeholder="email">
-                </li>
-                <input type="submit" value="Submit">
-            </ul>
+                <ul class="input-list style-1 clearfix">
+                    <h2>Settings page</h2>
+                    <h2>Add user</h2>
+                    <li>
+                        <input type="text" placeholder="email" class="addusertxt">
+                    </li>
+                    <input type="submit" value="Submit">
+                </ul>
 
-        </section>
+            </section>
 
-    </form>
+        </form>
     </div>
     </body>
 @endsection
