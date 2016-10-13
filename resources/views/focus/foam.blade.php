@@ -4,7 +4,7 @@
     <div class="material">
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <p class="selected_foamtype">P15</p>
+            <a class="selected_foamtype" href="/foam">P15</a>
             <?php $foamtype_names = array (); ?>
             @foreach($foamtypes as $foamtype)
                 <?php array_push($foamtype_names, $foamtype->name); ?>

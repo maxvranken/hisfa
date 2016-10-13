@@ -4,7 +4,7 @@
     <div class="resource">
         <div class="resource_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
-            <p>Resources</p>
+            <a href="/resources">Resources</a>
         </div>
         <div class="resource_container">
             @foreach($resources as $resource)
