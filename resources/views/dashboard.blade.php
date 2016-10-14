@@ -110,21 +110,23 @@
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #745FA4;"></div>
             <a href="/logs">Latest Logs</a>
         </div>
-        <div class="log_log" id="log1">
-            <span class="log_timestamp">01/01/16 11:16</span>
-            <span class="log_text">P15 (4m) +1st</span>
-        </div>
-        <div class="log_log" id="log2">
-            <span class="log_timestamp">01/01/16 11:16</span>
-            <span class="log_text">P15 (4m) +1st</span>
-        </div>
-        <div class="log_log" id="log3">
-            <span class="log_timestamp">01/01/16 11:16</span>
-            <span class="log_text">P15 (4m) +1st</span>
-        </div>
-        <div class="log_log" id="log4">
-            <span class="log_timestamp">01/01/16 11:16</span>
-            <span class="log_text">P15 (4m) +1st</span>
+        <div class="log_group">
+            <div class="log_log" id="log1">
+                <span class="log_timestamp">01/01/16 11:16</span>
+                <span class="log_text">P15 (4m) +1st</span>
+            </div>
+            <div class="log_log" id="log2">
+                <span class="log_timestamp">01/01/16 11:16</span>
+                <span class="log_text">P15 (4m) +1st</span>
+            </div>
+            <div class="log_log" id="log3">
+                <span class="log_timestamp">01/01/16 11:16</span>
+                <span class="log_text">P15 (4m) +1st</span>
+            </div>
+            <div class="log_log" id="log4">
+                <span class="log_timestamp">01/01/16 11:16</span>
+                <span class="log_text">P15 (4m) +1st</span>
+            </div>
         </div>
     </div>
 

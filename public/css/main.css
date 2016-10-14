@@ -297,13 +297,13 @@ hr{
     width:33%;
     margin-top: 5px;
     margin-left: 5px;
+    background-color: #54626d;
 }
 
 .number_stock {
     font-size: 2em;
     font-weight: 700;
-    background-color: #54626d;
-    height: 80px;
+    height: 77px;
     color: #FBD046;
     text-align: center;
     line-height: 100px;
@@ -312,7 +312,6 @@ hr{
 .resource_number_stock {
     font-size: 2.5em;
     font-weight: 700;
-    background-color: #54626d;
     height: 120px;
     color: #51B8F2;
     text-align: center;
@@ -349,9 +348,14 @@ hr{
     color:white;
 }
 
+.log_group{
+    //background-color: #54626d;
+}
+
 .log_log{
+    padding: 9px 0 10px 0;
+    margin-top: 1px;
     background-color: #54626d;
-    padding: 10px 0 10px 0;
 }
 
 .log_timestamp{
