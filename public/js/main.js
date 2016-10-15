@@ -19,22 +19,26 @@ function materialAjax(id){
     $('.material_loader').css('z-index', '1');
     $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
-        .done(function( response ){
-            $('#length1 div').text(response[0].length + 'm');
-            $('#length2 div').text(response[1].length + 'm');
-            $('#length3 div').text(response[2].length + 'm');
-            $('#length4 div').text(response[3].length + 'm');
-
-            $('#stock1 div:first-child .number').text(response[0].quantity );
-            $('#stock2 div:first-child .number').text(response[1].quantity );
-            $('#stock3 div:first-child .number').text(response[2].quantity );
-            $('#stock4 div:first-child .number').text(response[3].quantity );
-
-            $('#stock1 div:last-child .number').text( Math.round(1.03 * 1.29 * response[0].length * response[0].quantity * 10) / 10 );
-            $('#stock2 div:last-child .number').text( Math.round(1.03 * 1.29 * response[1].length * response[1].quantity * 10) / 10 );
-            $('#stock3 div:last-child .number').text( Math.round(1.03 * 1.29 * response[2].length * response[2].quantity * 10) / 10 );
-            $('#stock4 div:last-child .number').text( Math.round(1.03 * 1.29 * response[3].length * response[3].quantity *  10) / 10 );
-
+        .done(function( response ) {
+            var amount = 0;
+            var mass = 0;
+            for (var x = 0; x < response.length; x++) {
+                if (response[x].length === 4) {
+                    $('#stock1 div:first-child .number').text(response[x].quantity);
+                    $('#stock1 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
+                } else if(response[x].length === 6){
+                    $('#stock2 div:first-child .number').text(response[x].quantity);
+                    $('#stock2 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
+                } else if (response[x].length === 8){
+                    $('#stock3 div:first-child .number').text(response[x].quantity);
+                    $('#stock3 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
+                } else{
+                    amount += response[x].quantity;
+                    mass += 1.03 * 1.29 * response[x].length * response[x].quantity;
+                }
+            }
+            $('#stock4 div:first-child .number').text( amount );
+            $('#stock4 div:last-child .number').text( mass.toFixed(1) );
             $('.material_loader').css('display', 'none');
         });
 }

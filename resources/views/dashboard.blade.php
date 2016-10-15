@@ -76,7 +76,8 @@
         <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <a href="/foam" class="selected_foamtype">{{$foamtypes->first()->name}}</a>
+            <a href="/foam">Foam Stock</a>
+            <p class="selected_foamtype">{{$foamtypes->first()->name}}</p>
             <button class="show_drop"></button>
             <ul class="drop">
                 @foreach($foamtypes as $foamtype)
@@ -85,23 +86,57 @@
             </ul>
         </div>
         <div class="length_container">
-            <?php $count = 0 ?>
-            @foreach($blocks as $block)
-            <?php $count++ ?>
-            <div class="length" id="length{{$count}}">
-                <div class="mtrl_length">{{$block->length}}m</div>
+            <div class="length" id="length1">
+                <div class="mtrl_length">4m</div>
             </div>
-            @endforeach
+            <div class="length" id="length2">
+                <div class="mtrl_length">6m</div>
+            </div>
+            <div class="length" id="length3">
+                <div class="mtrl_length">8m</div>
+            </div>
+            <div class="length" id="length4">
+                <div class="mtrl_length">other heights</div>
+            </div>
         </div>
         <div class="stock_container">
-            <?php $count = 0 ?>
+            <?php $other_total = 0; $other_mass = 0; ?>
             @foreach($blocks as $block)
-            <?php $count++ ?>
-            <div class="stock" id="stock{{$count}}">
-                <div class="number_stock"><span class="number">{{$block->quantity}}</span><span class="st">st</span></div>
-                <div class="volume_stock"><span class="number">{{round(1.03 * 1.29 * $block->length * $block->quantity, 1)}}</span><span class="m3">m³</span></div>
-            </div>
+                <?php
+                if($block->length === 4){
+                    $amount = $block->quantity;
+                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
+                    echo"<div class='stock' id='stock1'><div class='number_stock'><span class='number'>";
+                    echo $amount;
+                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
+                    echo $mass;
+                    echo "</span><span class='m3'>m³</span></div></div>";
+                }else if($block->length === 6){
+                    $amount = $block->quantity;
+                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
+                    echo"<div class='stock' id='stock2'><div class='number_stock'><span class='number'>";
+                    echo $amount;
+                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
+                    echo $mass;
+                    echo "</span><span class='m3'>m³</span></div></div>";
+                }else if($block->length === 8){
+                    $amount = $block->quantity;
+                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
+                    echo"<div class='stock' id='stock3'><div class='number_stock'><span class='number'>";
+                    echo $amount;
+                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
+                    echo $mass;
+                    echo "</span><span class='m3'>m³</span></div></div>";
+                }else{
+                    $other_total += $block->quantity;
+                    $other_mass += 1.03 * 1.29 * $block->length * $block->quantity;
+                }
+                ?>
             @endforeach
+            <div class="stock" id="stock4">
+                <div class="number_stock"><span class="number">{{ $other_total }}</span><span class="st">st</span></div>
+                <div class="volume_stock"><span class="number">{{ round($other_mass, 1) }}</span><span class="m3">m³</span></div>
+            </div>
         </div>
     </div>
 

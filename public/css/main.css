@@ -269,6 +269,7 @@ hr{
     width:33%;
     margin-top: 5px;
     margin-left: 5px;
+    overflow: hidden;
 }
 
 .length:first-child, .matrial:first-child, .stock:first-child, .resourcetype:first-child{
@@ -405,13 +406,21 @@ hr{
     opacity: 0;
     z-index: -1;
     top: 70px;
-    height: 160px;
+    height: 158px;
     width: 100%;
     background-color: rgba(84, 98, 109, 0.7);
     position: absolute;
     background-image: url(../svg/loader.svg);
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.selected_foamtype{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 60px;
+    margin: 0;
 }
 
 .material_title{
@@ -457,6 +466,36 @@ hr{
     background-position: center right;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.stock_container.focus{
+    margin-top: 5px;
+}
+
+.material.focus{
+    width: 100%;
+}
+
+.change_stock{
+    flex-direction: column;
+    width: 100%;
+    box-sizing:border-box;
+    margin-right: 5px;
+}
+
+.change_stock:last-child{
+    margin: 0;
+}
+
+.change_stock .stock{
+    margin: 0;
+    width: 100%;
+}
+
+.change_stock .stock_more, .change_stock .stock_less{
+    height: 80px;
+    background-color: #fff;
+    color: #000;
 }
 
 /* Dashboard mediaquery */
