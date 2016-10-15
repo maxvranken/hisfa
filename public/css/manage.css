@@ -47,6 +47,15 @@
     margin-bottom: 30px;
 }
 
+.deletebutton{
+    background-color: red;
+    width: 100%;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6em;
+    border: none;
+}
+
 .addrow{
     width: 100%;
     display: flex;
@@ -99,3 +108,4 @@
 .editbtn_txt{
     text-align: center;
 }
+

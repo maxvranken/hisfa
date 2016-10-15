@@ -24,7 +24,14 @@
                         <input type="text" name="quantity" class="mngquantity" maxlength="2"
                                value="{{$primesilo->quantity}}" id="resourcenumber{{ $primesilo->id }}">
                     </form>
+                    <a href="/primesilos/edit?id={{ $primesilo->id }}" class="aeditbtn">
+                        <div class="editbtn">
+                            <div class="editbtn_txt">Edit</div>
+                        </div>
+                    </a>
                 </div>
+
+
             @endforeach
             <div class="silo" id="silo{{ $primesilo->id }}">
                 <div class="silo_number">Add Silo</div>

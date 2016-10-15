@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Input;
 use Auth;
-use App\Notifications\InvoicePaid;
+
 
 
 

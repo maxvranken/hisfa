@@ -29,6 +29,9 @@ Route::get('/primesilos', 'PrimeSilosController@index');
 Route::get('/primesilos/create', 'PrimeSilosController@create');
 Route::post('/primesilos/create/store', 'PrimeSilosController@addprimesilo');
 Route::put('/primesilos/changeqnty', 'PrimeSilosController@editquantity');
+Route::get('/primesilos/edit', 'PrimeSilosController@edit');
+Route::put('/primesilos/edit/edited', 'PrimeSilosController@editprime');
+Route::delete('/primesilos/edit/deleted', 'PrimeSilosController@deleteprime');
 
 // route naar wastesilos focus
 Route::get('/wastesilos', 'WasteSilosController@index');
