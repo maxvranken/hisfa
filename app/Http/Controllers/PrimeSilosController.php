@@ -20,20 +20,26 @@ class PrimeSilosController extends Controller
 
     public function create()
     {
-        return view('focus/Addprimesilo');
+        // alle prime silos meegeven
+        $primesilos = \App\PrimeSilo::All();
+        $data['primesilos'] = $primesilos;
+        $resources = \App\Resource::All();
+        $data2['resources'] = $resources;
+        return view('focus/Addprimesilo', $data, $data2);
 
     }
 
     public function addprimesilo()
     {
+
         // add primesilo
         $prime = new PrimeSilo;
-        $prime->name = Input::get('primename');
-        $resource->quantity = Input::get('resourceqnty');
-        $resource->save();
+        $prime->resource_id = Input::get('resourceid');
+        $prime->quantity = '0';
+        $prime->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        return view('focus/resources', $data);
+        $primesilos = \App\PrimeSilo::All();
+        $data['primesilos'] = $primesilos;
+        return view('focus/primeSilos', $data);
     }
 }
