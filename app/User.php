@@ -31,4 +31,15 @@ class User extends Authenticatable
     {
         return $this->admin; // this looks for an admin column in your users table
     }
+
+
+    use Notifiable;
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @return string
+     */
+
+
 }

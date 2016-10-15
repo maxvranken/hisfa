@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\AddResourceNotification;
 use App\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use App\Notifications\InvoicePaid;
+
+
 
 use App\Http\Requests;
 
@@ -42,7 +47,12 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
+        $post = $resource->name;
+        $user = Auth::user();
+        $user->notify(new AddResourceNotification($post));
         return view('focus/resources', $data);
+
+
     }
 
     public function editresource()
