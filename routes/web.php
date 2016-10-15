@@ -19,7 +19,10 @@ Route::get('/login', 'LoginController@login');
 
 //route naar profile
 Route::get('/profile', 'UserController@profile');
-Route::post('profile' , 'UserController@update_avatar');
+Route::post('profile/changeavatar' , 'UserController@update_avatar');
+Route::post('profile/changepassword', 'UserController@changePwd');
+Route::post('profile/changename', 'UserController@changeUserInfo');
+
 
 // route naar primesilos focus
 Route::get('/primesilos', 'PrimeSilosController@index');
