@@ -42,4 +42,18 @@ class PrimeSilosController extends Controller
         $data['primesilos'] = $primesilos;
         return view('focus/primeSilos', $data);
     }
+
+    public function editquantity()
+    {
+        // edit resource
+        $prime = \App\PrimeSilo::findOrFail(Input::get('editedid'));
+        $prime->quantity = Input::get('quantity');
+        $prime->save();
+
+        $prime = \App\PrimeSilo::All();
+        $data['primesilos'] = $prime;
+        $resources = \App\PrimeSilo::All();
+        $data2['resources'] = $resources;
+        return view('focus/primeSilos', $data, $data2);
+    }
 }

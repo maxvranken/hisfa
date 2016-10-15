@@ -27,7 +27,8 @@ Route::post('profile/changename', 'UserController@changeUserInfo');
 // route naar primesilos focus
 Route::get('/primesilos', 'PrimeSilosController@index');
 Route::get('/primesilos/create', 'PrimeSilosController@create');
-Route::post('primesilos/create/store', 'PrimeSilosController@addprimesilo');
+Route::post('/primesilos/create/store', 'PrimeSilosController@addprimesilo');
+Route::put('/primesilos/changeqnty', 'PrimeSilosController@editquantity');
 
 // route naar wastesilos focus
 Route::get('/wastesilos', 'WasteSilosController@index');

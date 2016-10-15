@@ -14,6 +14,16 @@
                     <div class="silo_fill">
                         <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>
                     </div>
+
+
+                    <form action="/primesilos/changeqnty?={{ $primesilo->id }}" method="POST"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="editedid" value="{{ $primesilo->id }}">
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="text" name="quantity" class="mngquantity" maxlength="2"
+                               value="{{$primesilo->quantity}}" id="resourcenumber{{ $primesilo->id }}">
+                    </form>
                 </div>
             @endforeach
             <div class="silo" id="silo{{ $primesilo->id }}">
