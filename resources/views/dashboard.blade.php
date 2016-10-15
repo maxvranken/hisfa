@@ -6,43 +6,17 @@
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
             <a href="/primesilos">Primesilo's</a>
         </div>
+
         <div class="silo_container">
-            <div class="silo" id="silo1">
-                <div class="silo_number">1</div>
+        @foreach($primes as $primesilo)
+            <div class="silo" id="silo{{ $primesilo->id }}">
+                <div class="silo_number">{{ $primesilo->id }}</div>
                 <div class="silo_fill">
-                    <div id="silo_filled1"></div>
+                    <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>
                 </div>
             </div>
-            <div class="silo" id="silo2">
-                <div class="silo_number">2</div>
-                <div class="silo_fill">
-                    <div id="silo_filled2"></div>
-                </div>
-            </div>
-            <div class="silo" id="silo3">
-                <div class="silo_number">3</div>
-                <div class="silo_fill">
-                    <div id="silo_filled3"></div>
-                </div>
-            </div>
-            <div class="silo" id="silo4">
-                <div class="silo_number">4</div>
-                <div class="silo_fill">
-                    <div id="silo_filled4"></div>
-                </div>
-            </div>
-            <div class="silo" id="silo5">
-                <div class="silo_number">5</div>
-                <div class="silo_fill">
-                    <div id="silo_filled5"></div>
-                </div>
-            </div>
-            <div class="silo" id="silo6">
-                <div class="silo_number">6</div>
-                <div class="silo_fill">
-                    <div id="silo_filled6"></div>
-                </div>
-            </div>
+        @endforeach
+                       
         </div>
     </div>
     <div class="waste dashboard">

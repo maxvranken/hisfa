@@ -179,34 +179,8 @@ hr{
 
 }
 
-#silo_filled1{
+.silo_filled{
     position: relative;
-    height: 50%;
-    background-color: #54626d;
-}
-#silo_filled2{
-    position: relative;
-    height: 10%;
-    background-color: #54626d;
-}
-#silo_filled3{
-    position: relative;
-    height: 90%;
-    background-color: #54626d;
-}
-#silo_filled4{
-    position: relative;
-    height: 70%;
-    background-color: #54626d;
-}
-#silo_filled5{
-    position: relative;
-    height: 35%;
-    background-color: #54626d;
-}
-#silo_filled6{
-    position: relative;
-    height: 65%;
     background-color: #54626d;
 }
 
