@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/manage.css">
     <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/prime.css">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
