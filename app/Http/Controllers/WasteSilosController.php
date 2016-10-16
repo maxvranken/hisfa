@@ -8,7 +8,10 @@ use App\Http\Requests;
 
 class WasteSilosController extends Controller
 {
-    public function index(){
-        return view('focus/wasteSilos');
+    public function index()
+    {
+        $wastesilos = \App\WasteSilo::All();
+        $data['wastesilos'] = $wastesilos;
+        return view('focus/wastesilos', $data);
     }
 }
