@@ -21,7 +21,7 @@
                         <input type="hidden" name="editedid" value="{{ $wastesilo->id }}">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" name="quantity" class="mngquantity" maxlength="2"
+                        <input type="text" name="percentage" class="mngquantity" maxlength="2"
                                value="{{$wastesilo->percentage}}" id="resourcenumber{{ $wastesilo->id }}">
                     </form>
                     <a href="/wastesilos/edit?id={{ $wastesilo->id }}" class="aeditbtn">
