@@ -102,5 +102,22 @@ class ResourceController extends Controller
         $data['resources'] = $resources;
         return view('focus/resources', $data); //
     }
+
+    public function deleteresource(){
+        // add resource
+        \App\Resource::findOrFail(Input::get('deletedid'))->delete();
+
+
+
+        $prime = \App\PrimeSilo::All();
+        $data['primesilos'] = $prime;
+        $resources = \App\Resource::All();
+        $data2['resources'] = $resources;
+        //  $post = $resource->name;
+        //$user = Auth::user();
+        //$user->notify(new AddResourceNotification($post));
+        return view('focus/resources', $data, $data2);
+
+    }
 }
 
