@@ -266,10 +266,15 @@ hr{
 
 .length, .resourcetype {
     flex-direction: row;
-    width:33%;
+    box-sizing: border-box;
+    width: 33%;
     margin-top: 5px;
     margin-left: 5px;
     overflow: hidden;
+}
+
+.material.dashboard .length{
+    min-width: calc(25% - 3.75px);
 }
 
 .length:first-child, .matrial:first-child, .stock:first-child, .resourcetype:first-child{
@@ -295,19 +300,23 @@ hr{
 
 .stock {
     flex-direction: row;
-    width:33%;
+    width: 33%;
     margin-top: 5px;
     margin-left: 5px;
     background-color: #54626d;
 }
 
+.material.dashboard .stock{
+    min-width: calc(25% - 3.75px);
+}
+
 .number_stock {
     font-size: 2em;
     font-weight: 700;
-    height: 77px;
+    height: 54px;
     color: #FBD046;
     text-align: center;
-    line-height: 100px;
+    line-height: 70px;
 }
 
 .resource_number_stock {
@@ -335,7 +344,7 @@ hr{
     font-size: 1em;
     font-weight: 400;
     text-align: center;
-    /*line-height: 120px;*/
+    line-height: 20px;
 }
 
 .m3{
@@ -402,6 +411,10 @@ hr{
 
 /* foam_stock */
 
+.material_data{
+    overflow-x: hidden;
+}
+
 .material_loader{
     opacity: 0;
     z-index: -1;
@@ -459,7 +472,8 @@ hr{
     outline: none;
     padding: 0;
     right: 20px;
-    height: 30px;
+    top: 0;
+    height: 100%;
     width: 30px;
     background-image: url(../svg/down.svg);
     background-size: 100%;
@@ -496,6 +510,29 @@ hr{
     height: 80px;
     background-color: #fff;
     color: #000;
+}
+
+.material_scroll{
+    margin-top: 2px;
+    height: 20px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.material_scroll div{
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #788691;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #54626d;
 }
 
 /* Dashboard mediaquery */

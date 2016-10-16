@@ -1,3 +1,26 @@
+$(function(){
+    var scroll_width = document.getElementById('material_data').scrollWidth;
+    $('.material_scroll div').css('width', scroll_width);
+
+    $(".material_scroll").scroll(function(){
+        $(".material_data")
+            .scrollLeft($(".material_scroll").scrollLeft());
+    });
+    $(".material_data").scroll(function(){
+        $(".material_scroll")
+            .scrollLeft($(".material_data").scrollLeft());
+    });
+    setTimeout( function(){
+        var scroll_width = document.getElementById('material_data').scrollWidth;
+        $('.material_scroll div').css('width', scroll_width);
+    }  , 50 );
+});
+
+$( window ).resize(function() {
+    var scroll_width = document.getElementById('material_data').scrollWidth;
+    $('.material_scroll div').css('width', scroll_width);
+});
+
 $('.show_drop').click(function(){
     if($('.drop').css('display') == 'none') {
         $('.drop').css('opacity', 0).slideDown().animate({ opacity: 1 }, { queue: false} );
@@ -20,25 +43,22 @@ function materialAjax(id){
     $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
         .done(function( response ) {
-            var amount = 0;
-            var mass = 0;
+            $( ".stock_container .stock" ).remove();
+            $( ".length_container .length" ).remove();
             for (var x = 0; x < response.length; x++) {
-                if (response[x].length === 4) {
-                    $('#stock1 div:first-child .number').text(response[x].quantity);
-                    $('#stock1 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
-                } else if(response[x].length === 6){
-                    $('#stock2 div:first-child .number').text(response[x].quantity);
-                    $('#stock2 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
-                } else if (response[x].length === 8){
-                    $('#stock3 div:first-child .number').text(response[x].quantity);
-                    $('#stock3 div:last-child .number').text( (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) );
-                } else{
-                    amount += response[x].quantity;
-                    mass += 1.03 * 1.29 * response[x].length * response[x].quantity;
-                }
+
+                $('.length_container').append("<div class='length' id='length" + x+1 + "'>" +
+                "<div class='mtrl_length'>" + response[x].length + "m</div></div>");
+
+                $('.stock_container').append("<div class='stock' id='stock"+ x+1 + "'><div class='number_stock'>" +
+                "<span class='number'>" + response[x].quantity +"</span><span class='st'>st</span></div>" +
+                "<div class='volume_stock'><span class='number'>" +
+                (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
+                "</span><span class='m3'>m³</span></div></div>");
+
             }
-            $('#stock4 div:first-child .number').text( amount );
-            $('#stock4 div:last-child .number').text( mass.toFixed(1) );
             $('.material_loader').css('display', 'none');
+            var scroll_width = document.getElementById('material_data').scrollWidth;
+            $('.material_scroll div').css('width', scroll_width);
         });
 }

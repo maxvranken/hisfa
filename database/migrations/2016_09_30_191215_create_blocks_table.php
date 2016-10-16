@@ -17,7 +17,7 @@ class CreateBlocksTable extends Migration
             $table->increments('id');
             $table->integer('foamType_id')->unsigned();
             $table->foreign('foamType_id')->references('id')->on('foam_types');
-            $table->tinyInteger('length');
+            $table->double('length');
             $table->tinyInteger('quantity');
             $table->timestamps();
         });

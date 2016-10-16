@@ -17,6 +17,7 @@ class BlocksTableSeeder extends Seeder
             ['quantity' => rand(1, 20), 'length' => 6, 'foamType_id' => 1],
             ['quantity' => rand(1, 20), 'length' => 8, 'foamType_id' => 1],
             ['quantity' => rand(1, 20), 'length' => 12, 'foamType_id' => 1],
+            ['quantity' => rand(1, 20), 'length' => 8.5, 'foamType_id' => 1],
 
             ['quantity' => rand(1, 20), 'length' => 4, 'foamType_id' => 2],
             ['quantity' => rand(1, 20), 'length' => 6, 'foamType_id' => 2],

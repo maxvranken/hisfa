@@ -85,57 +85,30 @@
                 @endforeach
             </ul>
         </div>
-        <div class="length_container">
-            <div class="length" id="length1">
-                <div class="mtrl_length">4m</div>
+        <div class="material_scroll"><div></div></div>
+        <div class="material_data" id="material_data">
+            <div class="length_container">
+                <?php $count = 0;?>
+                @foreach($blocks as $block)
+                    <?php
+                        $count++;
+                        echo "<div class='length' id='length" . $count . "'>";
+                        echo "<div class='mtrl_length'>" . $block->length . "m</div></div>";
+                    ?>
+                @endforeach
             </div>
-            <div class="length" id="length2">
-                <div class="mtrl_length">6m</div>
-            </div>
-            <div class="length" id="length3">
-                <div class="mtrl_length">8m</div>
-            </div>
-            <div class="length" id="length4">
-                <div class="mtrl_length">other heights</div>
-            </div>
-        </div>
-        <div class="stock_container">
-            <?php $other_total = 0; $other_mass = 0; ?>
-            @foreach($blocks as $block)
-                <?php
-                if($block->length === 4){
-                    $amount = $block->quantity;
-                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
-                    echo"<div class='stock' id='stock1'><div class='number_stock'><span class='number'>";
-                    echo $amount;
-                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
-                    echo $mass;
-                    echo "</span><span class='m3'>m³</span></div></div>";
-                }else if($block->length === 6){
-                    $amount = $block->quantity;
-                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
-                    echo"<div class='stock' id='stock2'><div class='number_stock'><span class='number'>";
-                    echo $amount;
-                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
-                    echo $mass;
-                    echo "</span><span class='m3'>m³</span></div></div>";
-                }else if($block->length === 8){
-                    $amount = $block->quantity;
-                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
-                    echo"<div class='stock' id='stock3'><div class='number_stock'><span class='number'>";
-                    echo $amount;
-                    echo "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
-                    echo $mass;
-                    echo "</span><span class='m3'>m³</span></div></div>";
-                }else{
-                    $other_total += $block->quantity;
-                    $other_mass += 1.03 * 1.29 * $block->length * $block->quantity;
-                }
-                ?>
-            @endforeach
-            <div class="stock" id="stock4">
-                <div class="number_stock"><span class="number">{{ $other_total }}</span><span class="st">st</span></div>
-                <div class="volume_stock"><span class="number">{{ round($other_mass, 1) }}</span><span class="m3">m³</span></div>
+            <div class="stock_container">
+                <?php $count = 0;?>
+                @foreach($blocks as $block)
+                    <?php
+                        $count++;
+                        $amount = $block->quantity;
+                        $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
+                        echo "<div class='stock' id='stock" . $count . "'><div class='number_stock'><span class='number'>";
+                        echo $amount . "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
+                        echo $mass . "</span><span class='m3'>m³</span></div></div>";
+                    ?>
+                @endforeach
             </div>
         </div>
     </div>
