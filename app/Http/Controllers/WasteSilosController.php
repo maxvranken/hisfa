@@ -25,6 +25,12 @@ class WasteSilosController extends Controller
         $waste->percentage = Input::get('percentage');
         $waste->save();
 
+        if($waste->quantity >= 90){
+            $post = $waste->id;
+            $user = Auth::user();
+            $user->notify(new PrimeSilo90Notification($post));
+        }
+
         $waste = \App\WasteSilo::All();
         $data['wastesilos'] = $waste;
         return view('focus/wasteSilos', $data);
