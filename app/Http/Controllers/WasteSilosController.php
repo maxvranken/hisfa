@@ -28,7 +28,7 @@ class WasteSilosController extends Controller
         if($waste->quantity >= 90){
             $post = $waste->id;
             $user = Auth::user();
-            $user->notify(new PrimeSilo90Notification($post));
+            $user->notify(new WasteSilo90Notification($post));
         }
 
         $waste = \App\WasteSilo::All();
