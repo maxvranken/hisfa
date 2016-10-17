@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Auth;
-use App\Notifications\PrimeSilo90Notification;
+use App\Notifications\WasteSilo90Notification;
 
 use App\Http\Requests;
 
@@ -25,7 +25,7 @@ class WasteSilosController extends Controller
         $waste->percentage = Input::get('percentage');
         $waste->save();
 
-        if($waste->quantity >= 90){
+        if($waste->percentage >= 90){
             $post = $waste->id;
             $user = Auth::user();
             $user->notify(new WasteSilo90Notification($post));

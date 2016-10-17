@@ -46,7 +46,7 @@ class PrimeSilo90Notification extends Notification
 
         return (new MailMessage)
             ->error()
-            ->subject('Prime silo ' .$this->post . 'almost full!')
+            ->subject('Prime silo ' .$this->post . ' almost full!')
             ->greeting('Hello '.$user->name)
             ->line('Primo silo ' .$this->post . ' ( '. $this->post2 . ' )' . ' is 90% or more full.')
             ->line('Thank you for using our application!');
