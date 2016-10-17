@@ -15,6 +15,8 @@ class CreateWasteSilosTable extends Migration
     {
         Schema::create('waste_silos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('resource_id')->unsigned();
+            $table->foreign('resource_id')->references('id')->on('resources');
             $table->tinyInteger('percentage');
             $table->timestamps();
         });
