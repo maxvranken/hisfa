@@ -8,9 +8,9 @@
         </div>
 
         <div class="silo_container">
-        @foreach($primes as $primesilo)
-            <div class="silo" id="silo{{ $primesilo->id }}">
-                <div class="silo_number">{{ $primesilo->id }}</div>
+        @foreach($primes as $key=>$primesilo)
+            <div class="silo" id="silo{{ $key+1 }}">
+                <div class="silo_number">{{ $key+1 }}</div>
                 <div class="silo_fill">
                     <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>
                 </div>
