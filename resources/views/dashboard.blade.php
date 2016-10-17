@@ -78,15 +78,17 @@
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
             <a href="/foam">Foam Stock</a>
             <p class="selected_foamtype">{{$foamtypes->first()->name}}</p>
-            <button class="show_drop"></button>
+            <button class="show_drop"><span></span></button>
             <ul class="drop">
                 @foreach($foamtypes as $foamtype)
                     <li value="{{$foamtype->id}}">{{$foamtype->name}}</li>
                 @endforeach
             </ul>
         </div>
-        <div class="material_scroll"><div></div></div>
-        <div class="material_data" id="material_data">
+        @if (count($blocks) > 4)
+            <div class="material_scroll"><div></div></div>
+        @endif
+        <div class="material_data dragscroll" id="material_data">
             <div class="length_container">
                 <?php $count = 0;?>
                 @foreach($blocks as $block)

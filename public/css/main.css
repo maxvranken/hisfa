@@ -291,6 +291,8 @@ hr{
 .stock_container {
     width: 100%;
     display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .resource_stock_container{
@@ -411,8 +413,9 @@ hr{
 
 /* foam_stock */
 
-.material_data{
+.dashboard .material_data{
     overflow-x: hidden;
+    cursor: -webkit-grab;
 }
 
 .material_loader{
@@ -450,6 +453,7 @@ hr{
     padding: 0;
     display: none;
     opacity: 0;
+    z-index: 1;
 }
 
 .drop li{
@@ -471,23 +475,27 @@ hr{
     border: none;
     outline: none;
     padding: 0;
-    right: 20px;
     top: 0;
     height: 100%;
+    width: 100px;
+    right: 0;
+    cursor: pointer;
+}
+
+.show_drop span{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
     width: 30px;
+    height: 30px;
     background-image: url(../svg/down.svg);
     background-size: 100%;
     background-position: center right;
     background-repeat: no-repeat;
     cursor: pointer;
-}
-
-.stock_container.focus{
-    margin-top: 5px;
-}
-
-.material.focus{
-    width: 100%;
 }
 
 .change_stock{
@@ -533,6 +541,225 @@ hr{
 
 ::-webkit-scrollbar-thumb {
     background-color: #54626d;
+}
+
+.stock_container.focus{
+    margin-top: 5px;
+}
+
+.material.focus{
+    width: 100%;
+}
+
+.stock_item{
+    width: calc(20% - 4px);
+    margin-left: 5px;
+}
+
+.stock_item:first-child, .stock_item:nth-child(6), .stock_item:nth-child(11),
+.stock_item:nth-child(16), .stock_item:nth-child(21), .stock_item:nth-child(26),
+.stock_item:nth-child(31), .stock_item:nth-child(36), .stock_item:nth-child(41){
+    margin-left: 0;
+}
+
+.stock_item .stock{
+    margin-left: 0;
+    width: 100%;
+}
+
+.stock_item .length{
+    width: 100%;
+}
+
+.focus .stock_container{
+    flex-wrap: wrap;
+}
+
+.material_title .edit_foams{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    right: 130px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 10px;
+    margin: 0;
+    color: rgb(84, 97, 107);
+    font-weight: bolder;
+    line-height: 20px;
+    font-size: 0.9rem;
+}
+
+.edit_amount{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.edit_amount button{
+    position: relative;
+    display: block;
+    width: calc(50% - 15px);
+    background: none;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 50px;
+    font-size: 1rem;
+    color: #54626d;
+    font-weight: bolder;
+    padding: 0;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.edit_amount button:hover{
+    background-color: #fff860;
+    color: #000;
+}
+
+.change_foam_form{
+    background-color: #54626d;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+.change_foam_form input{
+    display: block;
+    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 10px 13px;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.edit_foams:hover{
+    background-color: #fff860;
+}
+
+.focus .stock_item{
+    margin-top: 10px;
+}
+
+.stock_item.add .length{
+    height: 30px;
+}
+
+.stock_item.add .length .mtrl_length{
+    background-color: rgba(84, 98, 109, 0.7);
+}
+
+.stock_item.add .stock{
+    height: 227px;
+    background-color: rgba(84, 98, 109, 0.7);
+}
+
+.stock_item.add .stock div{
+    height: 100%;
+    width: 100%;
+    background-image: url(../svg/add.svg);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: background-size 0.1s ease-in;
+}
+
+.stock_item.add .stock div:hover{
+    background-size: 90px;
+}
+
+.focus .material_loader{
+    height: calc(100% - 70px);
+    background-color: rgba(84, 98, 109, 0.3);
+}
+
+/* edit foam types */
+
+.material.foams ul{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.material.foams ul li{
+    width: 100%;
+    height: 50px;
+    background-color: #54626d;
+    margin-bottom: 6px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.material.foams ul li .edit_this_foam{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.material.foams ul li:last-child{
+    background-color: rgba(84, 98, 109, 0.6);
+}
+
+.material.foams ul li p{
+    margin: 0 15px;
+    width: 150px;
+}
+
+.material.foams ul li form input{
+    background: none;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(84, 97, 107);
+    font-weight: bolder;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.material.foams ul li button{
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bolder;
+    color: rgb(84, 97, 107);
+}
+
+.material.foams ul li form:first-child button{
+    margin-right: 10px;
+}
+
+.material.foams ul li form button:hover{
+    color: tomato;
+}
+
+.material.foams ul li form:first-child button:hover{
+    color: orange;
+}
+
+.material.foams ul li:last-child button{
+    padding: 0 57px;
+}
+
+.material.foams ul li:last-child form:first-child button{
+    margin-right: 30px;
+}
+
+.material.foams ul li:last-child form:first-child button:hover{
+    color: green;
 }
 
 /* Dashboard mediaquery */
