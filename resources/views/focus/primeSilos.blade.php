@@ -31,7 +31,7 @@
                     </a>
                 </div>
 
-
+                
             @endforeach
             <div class="silo" id="silo{{ $primesilo->id }}">
                 <div class="silo_number">Add Silo</div>
