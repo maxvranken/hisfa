@@ -38,7 +38,7 @@ class Controller extends BaseController
         $data['logs'] = $logs;
 
         // eerste blokken meegeven
-        $blocks = \App\Block::where('foamType_id', 1)->orderBy('length')->get();
+        $blocks = \App\Block::where('foam_type_id', 1)->orderBy('length')->get();
         $data['blocks'] = $blocks;
 
         return view('dashboard', $data);

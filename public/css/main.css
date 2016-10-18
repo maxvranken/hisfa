@@ -291,8 +291,6 @@ hr{
 .stock_container {
     width: 100%;
     display: flex;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 .resource_stock_container{
@@ -639,6 +637,32 @@ hr{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+.change_foam_form.add_length{
+    display: block;
+    height: calc(100% - 10px);
+    background: none;
+}
+
+.change_foam_form.add_length button{
+    display: block;
+    background: none;
+    border: none;
+    outline: none;
+    height: calc(100% - 53px);
+    width: 100%;
+    background-image: url(../svg/add.svg);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: background-size 0.1s ease-in;
+}
+
+.change_foam_form.add_length button:hover{
+    background-size: 90px;
+}
+
 .edit_foams:hover{
     background-color: #fff860;
 }
@@ -660,25 +684,9 @@ hr{
     background-color: rgba(84, 98, 109, 0.7);
 }
 
-.stock_item.add .stock div{
-    height: 100%;
-    width: 100%;
-    background-image: url(../svg/add.svg);
-    background-size: 80px;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.8;
-    cursor: pointer;
-    transition: background-size 0.1s ease-in;
-}
-
-.stock_item.add .stock div:hover{
-    background-size: 90px;
-}
-
 .focus .material_loader{
     height: calc(100% - 70px);
-    background-color: rgba(84, 98, 109, 0.3);
+    background-color: rgba(84, 98, 109, 0.5);
 }
 
 /* edit foam types */

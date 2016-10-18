@@ -62,19 +62,36 @@ function materialAjax(id){
     $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
         .done(function( response ) {
-            $( ".stock_container .stock" ).remove();
-            $( ".length_container .length" ).remove();
-            for (var x = 0; x < response.length; x++) {
+            if ( $(".focus").length !== 0 ) {
+                $(".stock_item").remove();
+                for (var x = 0; x < response.length; x++) {
+                    $('.stock_container').append("<div class='stock_item'><div class='length'><div class='mtrl_length'>" +
+                    response[x].length + "m</div></div><div class='stock'><div class='number_stock'><span class='number'>" +
+                    response[x].quantity + "</span><span class='st'>st</span></div>" +
+                    "<div class='volume_stock'><span class='number'>" + (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
+                    "</span><span class='m3'>m³</span></div></div><form class='change_foam_form'><input type='text' name='number' placeholder='amount'>" +
+                    "<div class='edit_amount'><button class='add_amount'>Add</button><button class='remove_amount'>Remove</button></div></form></div>");
+                }
+                $('.stock_container').append("<div class='stock_item add'><div class='length'><div class='mtrl_length'> add length </div></div><div class='stock'>" +
+                "<form class='change_foam_form add_length' method='post' action='/foam/newlength'><input type='text' placeholder='length (m)'>" +
+                "<input type='hidden' name='editedid'' value='" + response.id + "'>" +
+                "<input type='hidden' name='foamid' value='" + response.foamType_id + "'>" +
+                "<input type='hidden' name='_method' value='PUT'>" +
+                "<input type='hidden' name='_token' value='csrf_token();'>" +
+                "<button></button> </form> </div> </div>");
+            }else{
+                $(".stock_container .stock").remove();
+                $(".length_container .length").remove();
+                for (var x = 0; x < response.length; x++) {
+                    $('.length_container').append("<div class='length' id='length" + x + 1 + "'>" +
+                        "<div class='mtrl_length'>" + response[x].length + "m</div></div>");
 
-                $('.length_container').append("<div class='length' id='length" + x+1 + "'>" +
-                "<div class='mtrl_length'>" + response[x].length + "m</div></div>");
-
-                $('.stock_container').append("<div class='stock' id='stock"+ x+1 + "'><div class='number_stock'>" +
-                "<span class='number'>" + response[x].quantity +"</span><span class='st'>st</span></div>" +
-                "<div class='volume_stock'><span class='number'>" +
-                (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
-                "</span><span class='m3'>m³</span></div></div>");
-
+                    $('.stock_container').append("<div class='stock' id='stock" + x + 1 + "'><div class='number_stock'>" +
+                        "<span class='number'>" + response[x].quantity + "</span><span class='st'>st</span></div>" +
+                        "<div class='volume_stock'><span class='number'>" +
+                        (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
+                        "</span><span class='m3'>m³</span></div></div>");
+                }
             }
             $('.material_loader').css('display', 'none');
 

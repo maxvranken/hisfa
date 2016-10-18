@@ -29,8 +29,14 @@ Route::get('/wastesilos', 'WasteSilosController@index');
 
 // route naar foam focus
 Route::get('/foam', 'FoamController@index');
-Route::get('/foam/edit', 'FoamController@edit');
+Route::get('/foams', 'FoamController@edit');
 Route::get('/blocks', 'FoamController@ajax');
+Route::put('/foam/qntyplus', 'FoamController@qntyplus');
+Route::put('/foam/qntymin', 'FoamController@qntymin');
+Route::put('/foam/newlength', 'FoamController@newlength');
+Route::put('/foams/createtype', 'FoamController@createtype');
+Route::put('/foams/edittype', 'FoamController@edittype');
+Route::put('/foams/deletetype', 'FoamController@deletetype');
 
 // route naar resource focus
 Route::get('/resources', 'ResourceController@index');
