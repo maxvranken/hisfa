@@ -30,8 +30,8 @@ class Controller extends BaseController
         $data['wastes'] = $wastes;
 
         // alle resources meegeven
-        $recourses = \App\Resource::all();
-        $data['recources'] = $recourses;
+        $resources = \App\Resource::all();
+        $data['resources'] = $resources;
 
         // alle logs meegeven
         $logs = \App\Log::all();

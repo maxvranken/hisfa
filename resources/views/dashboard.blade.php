@@ -25,24 +25,15 @@
             <a href="/wastesilos">Wastesilo's</a>
         </div>
         <div class="silo_container">
-            <div class="wsilo" id="wsilo1">
-                <div class="silo_number">1</div>
+            @foreach($wastes as $waste)
+            <div class="wsilo" id="wsilo{{ $waste->id }}">
+                <div class="silo_number">{{ $waste->id }}</div>
                 <div class="wsilo_fill">
-                    <div id="wsilo_filled1"></div>
+                    <div id="wsilo_filled1" style="height: {{ 100-$waste->percentage }}%;"></div>
                 </div>
             </div>
-            <div class="wsilo" id="wsilo2">
-                <div class="silo_number">2</div>
-                <div class="wsilo_fill">
-                    <div id="wsilo_filled2"></div>
-                </div>
-            </div>
-            <div class="wsilo" id="wsilo3">
-                <div class="silo_number">3</div>
-                <div class="wsilo_fill">
-                    <div id="wsilo_filled3"></div>
-                </div>
-            </div>
+            @endforeach
+
 
         </div>
     </div>
@@ -120,42 +111,19 @@
             <a href="/resources">Resources</a>
         </div>
         <div class="resource_container">
-            <div class="resourcetype" id="resource1">
-                <div class="rsrcetype">f21MB-n</div>
+            @foreach($resources as $resource)
+            <div class="resourcetype" id="resource{{ $resource->id }}">
+                <div class="rsrcetype">{{ $resource->name }}</div>
             </div>
-
-            <div class="resourcetype" id="resource2">
-                <div class="rsrcetype">RF23W-n</div>
-            </div>
-
-            <div class="resourcetype" id="resource3">
-                <div class="rsrcetype">KSE-20</div>
-            </div>
-
-            <div class="resourcetype" id="resource4">
-                <div class="rsrcetype">KSE-30</div>
-            </div>
-
-            <div class="resourcetype" id="resource5">
-                <div class="rsrcetype">F21B-n</div>
-            </div>
+            @endforeach
         </div>
         <div class="resource_stock_container">
+            @foreach($resources as $resource)
             <div class="stock">
-                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">{{ $resource->quantity }}<span class="ton">ton</span></div>
             </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">8<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">23<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">4<span class="ton">ton</span></div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 @endsection
