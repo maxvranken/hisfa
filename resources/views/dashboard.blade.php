@@ -110,42 +110,20 @@
             <a href="/resources">Resources</a>
         </div>
         <div class="resource_container">
-            <div class="resourcetype" id="resource1">
-                <div class="rsrcetype">f21MB-n</div>
+            @foreach($resources as $resource)
+            <div class="resourcetype" id="resource{{ $resource->id }}">
+                <div class="rsrcetype">{{ $resource->name }}</div>
             </div>
+            @endforeach
 
-            <div class="resourcetype" id="resource2">
-                <div class="rsrcetype">RF23W-n</div>
-            </div>
-
-            <div class="resourcetype" id="resource3">
-                <div class="rsrcetype">KSE-20</div>
-            </div>
-
-            <div class="resourcetype" id="resource4">
-                <div class="rsrcetype">KSE-30</div>
-            </div>
-
-            <div class="resourcetype" id="resource5">
-                <div class="rsrcetype">F21B-n</div>
-            </div>
         </div>
         <div class="resource_stock_container">
+            @foreach($resources as $resource)
             <div class="stock">
-                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
+                <div class="resource_number_stock dashboard">{{$resource->quantity}}<span class="ton">ton</span></div>
             </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">16<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">8<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">23<span class="ton">ton</span></div>
-            </div>
-            <div class="stock">
-                <div class="resource_number_stock dashboard">4<span class="ton">ton</span></div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 @endsection
