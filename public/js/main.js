@@ -1,3 +1,45 @@
+$(function(){
+    if(!$('.dashboard .material_scroll').is(":visible")){
+        $('.dashboard  .material_data').css('cursor', 'initial');
+        $('.dashboard  .number_stock').css('height', '76px');
+        $('.dashboard  .number_stock').css('line-height', '80px');
+        $('.dashboard  .volume_stock').css('line-height', '0px');
+    };
+
+    $('input,textarea').focus(function(){
+        $(this).data('placeholder',$(this).attr('placeholder'))
+            .attr('placeholder','');
+    }).blur(function(){
+        $(this).attr('placeholder',$(this).data('placeholder'));
+    });
+
+    $(".dashboard  .material_scroll").scroll(function(){
+        $(".dashboard  .material_data")
+            .scrollLeft($(".dashboard  .material_scroll").scrollLeft());
+    });
+    $(".dashboard  .material_data").scroll(function(){
+        $(".dashboard  .material_scroll")
+            .scrollLeft($(".dashboard  .material_data").scrollLeft());
+    });
+
+    if ($("#material_data").length !== 0) {
+        var scroll_width = document.getElementById('material_data').scrollWidth;
+        $('.material_scroll div').css('width', scroll_width);
+        setTimeout(function () {
+            var scroll_width = document.getElementById('material_data').scrollWidth;
+            $('.dashboard  .material_scroll div').css('width', scroll_width);
+        }, 150);
+    };
+
+});
+
+$( window ).resize(function() {
+    if ($("#material_data").length !== 0) {
+    var scroll_width = document.getElementById('material_data').scrollWidth;
+    $('.dashboard  .material_scroll div').css('width', scroll_width);
+    };
+});
+
 $('.show_drop').click(function(){
     if($('.drop').css('display') == 'none') {
         $('.drop').css('opacity', 0).slideDown().animate({ opacity: 1 }, { queue: false} );
@@ -6,7 +48,7 @@ $('.show_drop').click(function(){
     }
 });
 
-$('.drop li').click(function(){
+$('.dashboard .drop li').click(function(){
     $('.drop').css('display', 'none');
     var name = $(this).text();
     $('.selected_foamtype').text(name);
@@ -14,27 +56,46 @@ $('.drop li').click(function(){
     materialAjax(id);
 });
 
+$('.focus .drop li').click(function(){
+    $('.drop').css('display', 'none');
+    var id = $(this).val();
+    window.location.replace("/foam/" + id);
+});
+
 function materialAjax(id){
     $('.material_loader').css('opacity', '1');
     $('.material_loader').css('z-index', '1');
     $('.material_loader').css('display', 'block');
     $.get('/blocks' , { id: id})
-        .done(function( response ){
-            $('#length1 div').text(response[0].length + 'm');
-            $('#length2 div').text(response[1].length + 'm');
-            $('#length3 div').text(response[2].length + 'm');
-            $('#length4 div').text(response[3].length + 'm');
+        .done(function( response ) {
+            $(".stock_container .stock").remove();
+            $(".length_container .length").remove();
+            for (var x = 0; x < response.length; x++) {
+                $('.length_container').append("<div class='length' id='length" + x + 1 + "'>" +
+                    "<div class='mtrl_length'>" + response[x].length + "m</div></div>");
 
-            $('#stock1 div:first-child .number').text(response[0].quantity );
-            $('#stock2 div:first-child .number').text(response[1].quantity );
-            $('#stock3 div:first-child .number').text(response[2].quantity );
-            $('#stock4 div:first-child .number').text(response[3].quantity );
-
-            $('#stock1 div:last-child .number').text( Math.round(1.03 * 1.29 * response[0].length * response[0].quantity * 10) / 10 );
-            $('#stock2 div:last-child .number').text( Math.round(1.03 * 1.29 * response[1].length * response[1].quantity * 10) / 10 );
-            $('#stock3 div:last-child .number').text( Math.round(1.03 * 1.29 * response[2].length * response[2].quantity * 10) / 10 );
-            $('#stock4 div:last-child .number').text( Math.round(1.03 * 1.29 * response[3].length * response[3].quantity *  10) / 10 );
-
+                $('.stock_container').append("<div class='stock' id='stock" + x + 1 + "'><div class='number_stock'>" +
+                    "<span class='number'>" + response[x].quantity + "</span><span class='st'>st</span></div>" +
+                    "<div class='volume_stock'><span class='number'>" +
+                    (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
+                    "</span><span class='m3'>m³</span></div></div>");
+            }
             $('.material_loader').css('display', 'none');
+
+            if(response.length > 4) {
+                var scroll_width = document.getElementById('material_data').scrollWidth;
+                $('.dashboard .material_scroll').css('display', 'block');
+                $('.dashboard .material_scroll div').css('width', scroll_width);
+                $('.dashboard .material_data').css('cursor', '-webkit-grab');
+                $('.dashboard .number_stock').css('height', '54px');
+                $('.dashboard .number_stock').css('line-height', '70px');
+                $('.dashboard .volume_stock').css('line-height', '20px');
+            }else{
+                $('.dashboard .material_scroll').css('display', 'none');
+                $('.dashboard .material_data').css('cursor', 'initial');
+                $('.dashboard .number_stock').css('height', '76px');
+                $('.dashboard .number_stock').css('line-height', '80px');
+                $('.dashboard .volume_stock').css('line-height', '0px');
+            }
         });
 }

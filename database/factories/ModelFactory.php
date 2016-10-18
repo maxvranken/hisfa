@@ -63,7 +63,7 @@ $factory->define(App\Block::class, function (Faker\Generator $faker) {
     return [
         'quantity' => $faker->numberBetween(1,20),
         'length' => $faker->numberBetween(1,15),
-        'foamType_id' => function () {
+        'foam_type_id' => function () {
             return factory(App\FoamType::class)->create()->id;
         }
     ];
