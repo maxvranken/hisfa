@@ -39,4 +39,28 @@ class WasteSilosController extends Controller
         $data2['resources'] = $resources;
         return view('focus/wasteSilos', $data, $data2);
     }
+
+    public function edit()
+    {
+        // edit wastesilos
+        $waste = \App\WasteSilo::findOrFail(Input::get('id'));
+        $data['wastesilos'] = $waste;
+        $resources = \App\Resource::All();
+        $data2['resources'] = $resources;
+        return view('focus/editwaste', $data, $data2);
+    }
+
+    public function editwaste()
+    {
+        // add resource
+        $waste = \App\WasteSilo::findOrFail(Input::get('editedid'));
+        $waste->resource_id = Input::get('resourceid');
+        $waste->save();
+
+        $waste = \App\WasteSilo::All();
+        $data['wastesilos'] = $waste;
+        $resources = \App\Resource::All();
+        $data2['resources'] = $resources;
+        return view('focus/wasteSilos', $data, $data2);
+    }
 }

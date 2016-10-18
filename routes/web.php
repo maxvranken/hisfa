@@ -36,6 +36,8 @@ Route::delete('/primesilos/edit/deleted', 'PrimeSilosController@deleteprime');
 // route naar wastesilos focus
 Route::get('/wastesilos', 'WasteSilosController@index');
 Route::put('/wastesilos/changeqnty', 'WasteSilosController@editquantity');
+Route::get('/wastesilos/edit', 'WasteSilosController@edit');
+Route::put('/wastesilos/edit/edited', 'WasteSilosController@editwaste');
 
 // route naar foam focus
 Route::get('/foam', 'FoamController@index');

@@ -31,14 +31,7 @@
                     </a>
                 </div>
 
-
             @endforeach
-            <div class="silo" id="silo{{ $wastesilo->id }}">
-                <div class="silo_number">Add Silo</div>
 
-                <div class="add_silo">
-                    <a href="/wastesilos/create" class="additem" id="">+</a>
-                </div>
-            </div>
         </div>
 @endsection
