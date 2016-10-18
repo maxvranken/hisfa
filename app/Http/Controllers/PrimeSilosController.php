@@ -54,8 +54,9 @@ class PrimeSilosController extends Controller
         if($prime->quantity >= 90){
             $post = $prime->id;
             $post2 = $prime->resource->name;
+            $post3 = $prime->quantity;
             $user = Auth::user();
-            $user->notify(new PrimeSilo90Notification($post, $post2));
+            $user->notify(new PrimeSilo90Notification($post, $post2, $post3));
         }
 
         $prime = \App\PrimeSilo::All();

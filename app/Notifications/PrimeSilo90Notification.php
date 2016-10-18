@@ -17,10 +17,11 @@ class PrimeSilo90Notification extends Notification
      *
      * @return void
      */
-    public function __construct($post,$post2)
+    public function __construct($post,$post2,$post3)
     {
         $this->post = $post;
         $this->post2 = $post2;
+        $this->post3 = $post3;
     }
 
     /**
@@ -48,7 +49,7 @@ class PrimeSilo90Notification extends Notification
             ->error()
             ->subject('Prime silo ' .$this->post . ' almost full!')
             ->greeting('Hello '.$user->name)
-            ->line('Prime silo ' .$this->post . ' ( '. $this->post2 . ' )' . ' is 90% or more full.')
+            ->line('Prime silo ' .$this->post . ' ( '. $this->post2 . ' )' . ' is ' . $this->post3 .'% full.')
             ->line('Thank you for using our application!');
     }
 

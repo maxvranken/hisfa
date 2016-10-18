@@ -28,8 +28,9 @@ class WasteSilosController extends Controller
         if($waste->percentage >= 90){
             $post = $waste->id;
             $post2 = $waste->resource->name;
+            $post3 = $waste->percentage;
             $user = Auth::user();
-            $user->notify(new WasteSilo90Notification($post, $post2));
+            $user->notify(new WasteSilo90Notification($post, $post2, $post3));
         }
 
         $waste = \App\WasteSilo::All();
