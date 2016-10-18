@@ -5,8 +5,8 @@
         <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <a href="/foam">Foam Stock</a>
-            <p class="selected_foamtype">{{$foamtypes->first()->name}}</p>
+            <a href="">Foam Stock</a>
+            <p class="selected_foamtype">{{$selected}}</p>
             <a class="edit_foams" href="/foams">EDIT FOAM TYPES</a>
             <button class="show_drop"><span></span></button>
             <ul class="drop">

@@ -76,7 +76,7 @@
         <div class="material_loader"></div>
         <div class="material_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #FBD046;"></div>
-            <a href="/foam">Foam Stock</a>
+            <a href="/foam/1">Foam Stock</a>
             <p class="selected_foamtype">{{$foamtypes->first()->name}}</p>
             <button class="show_drop"><span></span></button>
             <ul class="drop">

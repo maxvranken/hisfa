@@ -12,13 +12,18 @@ use Auth;
 class FoamController extends Controller
 {
     public function index(){
+        return redirect('/foam/1');
+    }
+
+    public function show($id){
         // alle foam types meegeven
         $foamtypes = FoamType::all();
         $data['foamtypes'] = $foamtypes;
 
         // eerste blokken meegeven
-        $blocks = Block::where('foam_type_id', 1)->orderBy('length')->get();
+        $blocks = Block::where('foam_type_id', $id)->orderBy('length')->get();
         $data['blocks'] = $blocks;
+        $data['selected'] = FoamType::findOrFail($id)->name;
 
         return view('focus/foam', $data);
     }
@@ -40,7 +45,7 @@ class FoamController extends Controller
         $block->quantity = $block->quantity + Input::get('number');
         $block->save();
 
-        return redirect('/foam');
+        return redirect('/foam/' . $block->foam_type_id);
     }
 
     public function qntymin(){
@@ -50,7 +55,7 @@ class FoamController extends Controller
             $block->save();
         }
 
-        return redirect('/foam');
+        return redirect('/foam/' . $block->foam_type_id);
     }
 
     public function newlength(){
@@ -60,7 +65,7 @@ class FoamController extends Controller
         $block->quantity = 0;
         $block->save();
 
-        return redirect('/foam');
+        return redirect('/foam/' . $block->foam_type_id);
     }
 
     public function createtype(){
