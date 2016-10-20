@@ -34,7 +34,9 @@ class Controller extends BaseController
         $data['resources'] = $resources;
 
         // alle logs meegeven
-        $logs = \App\Log::all();
+        $logs = \App\Log::all()->take(4)->sortByDesc('created_at');
+        //$logs->sortByDesc('created_at');
+        //$logs = DB::table(Logs)->orderBy('created_at', 'desc')->limit(5)->get();
         $data['logs'] = $logs;
 
         // eerste blokken meegeven

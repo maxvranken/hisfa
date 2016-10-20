@@ -86,22 +86,13 @@
             <a href="/logs">Latest Logs</a>
         </div>
         <div class="log_group">
+            @foreach($logs as $log)
             <div class="log_log" id="log1">
-                <span class="log_timestamp">01/01/16 11:16</span>
-                <span class="log_text">P15 (4m) +1st</span>
+                <span class="log_timestamp">{{ $log->created_at }}</span>
+                <span class="log_text">Changed to{{ $log->quantity }}</span>
             </div>
-            <div class="log_log" id="log2">
-                <span class="log_timestamp">01/01/16 11:16</span>
-                <span class="log_text">P15 (4m) +1st</span>
-            </div>
-            <div class="log_log" id="log3">
-                <span class="log_timestamp">01/01/16 11:16</span>
-                <span class="log_text">P15 (4m) +1st</span>
-            </div>
-            <div class="log_log" id="log4">
-                <span class="log_timestamp">01/01/16 11:16</span>
-                <span class="log_text">P15 (4m) +1st</span>
-            </div>
+            @endforeach
+
         </div>
     </div>
 
