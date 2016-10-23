@@ -8,7 +8,7 @@
                 <h2>{{$user->name}}'s profile</h2>
                 <form enctype="multipart/form-data" action="/profile/changeavatar" method="POST">
                     <label>Update profile Image</label>
-                    <input type="file" name="avatar">
+                    <input type="file" name="avatar" class="filebutton">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="submit" class="pull-right btn btn-sm btn-primary">
                     @if(session('feedbackavatar'))
