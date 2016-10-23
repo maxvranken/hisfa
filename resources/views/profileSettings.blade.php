@@ -6,20 +6,21 @@
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
             <p>Change profilepicture</p>
         </div>
-        <div class="resource_container">
-            <img src="/uploads/avatars/{{$user->avatar}}" style="width: 150px ; height: 150px; float: left; border-radius: 50%; margin-right: 25px; margin-top: 6px;">
-            <h2>{{$user->name}}'s profile</h2>
+        <div class="avatar_container">
+            <div class="profimgcontainer">
+                <img src="/uploads/avatars/{{$user->avatar}}" id="profimg">
+            </div>
             <form enctype="multipart/form-data" action="/profile/changeavatar" method="POST" class="addform">
                 <div class="addrow">
-                    <div class="addlabel">Update profile image</div>
-
-                        <input type="file" name="avatar" class="addsubmit">
+                    <label for="file" class="addsubmit" id="label">Select an image</label>
+                    <input type="file" id="file" name="avatar"
+                           onchange="document.getElementById('profimg').src = window.URL.createObjectURL(this.files[0])">
 
 
                 </div>
                 <div class="addrow">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="submit" name="confirm" value="Confirm" class="addsubmit">
+                    <input type="submit" name="confirm" value="Confirm" class="addsubmit" id="sbmt">
                 </div>
                 @if(session('feedbackavatar'))
                     {{ session('feedbackavatar') }}<br>
@@ -83,7 +84,7 @@
 
             <div class="addrow">
 
-                <input type="submit" name="deletesilo" value="Logout" class="deletebutton">
+                <input type="submit" value="Logout" class="deletebutton">
                 {{ csrf_field() }}
             </div>
         </form>
