@@ -1,10 +1,3 @@
-/*background img */
-/*
-.backgroundvid{
-    background:  url(http://www.pbh2.com/wordpress/wp-content/uploads/2014/03/the-alps.gif.webm) no-repeat center center fixed;
-    background-size: cover;
-}*/
-
 video#videobg {
     position: fixed;
     top: 50%;
@@ -18,11 +11,20 @@ video#videobg {
     background: url("") no-repeat;
     background-size: cover;
     transition: 1s opacity;
+    -webkit-filter: blur(10px) grayscale(100%);
+    -moz-filter: blur(10px) grayscale(100%);
+    -o-filter: blur(10px) grayscale(100%);
+    -ms-filter: blur(10px);
+    filter: blur(10px) grayscale(100%);
+}
+
+.center{
+    position: relative;
+    top: 35vh;
 }
 
 .horizontalcenter{
 
-   margin-top: 150px;
 }
 .panel-body{
 
