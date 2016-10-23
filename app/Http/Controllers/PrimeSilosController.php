@@ -66,7 +66,7 @@ class PrimeSilosController extends Controller
         $data['primesilos'] = $prime;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
-        $date = Carbon::now();
+        $date = date('Y-m-d H:i:s');
         $log = new Log;
         $log->date = $date;
         $log->data_type = 'prime';

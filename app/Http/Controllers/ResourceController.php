@@ -78,7 +78,7 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
-        $date = Carbon::now();
+        $date = date('Y-m-d H:i:s');
         $log = new Log;
         $log->date = $date;
         $log->data_type = 'resource';
@@ -98,7 +98,7 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
-        $date = Carbon::now();
+        $date = date('Y-m-d H:i:s');
         $log = new Log;
         $log->date = $date;
         $log->data_type = 'resource';
@@ -118,7 +118,7 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
-        $date = Carbon::now();
+        $date = date('Y-m-d H:i:s');
         $log = new Log;
         $log->date = $date;
         $log->data_type = 'resource';
