@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use App\Log;
+use Carbon\Carbon;
 use App\Notifications\WasteSilo90Notification;
 
 use App\Http\Requests;
@@ -37,6 +39,14 @@ class WasteSilosController extends Controller
         $data['wastesilos'] = $waste;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
+        $date = Carbon::now();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'waste';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = 0.00;
+        $log->percentage = Input::get('percentage');
+        $log->save();
         return view('focus/wasteSilos', $data, $data2);
     }
 

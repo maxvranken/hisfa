@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Notifications\AddResourceNotification;
 use App\Resource;
+use App\Log;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Input;
@@ -76,6 +78,14 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
+        $date = Carbon::now();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'resource';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = Input::get('quantity');
+        $log->percentage = 0;
+        $log->save();
         return view('focus/resources', $data); //
     }
 
@@ -88,6 +98,14 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
+        $date = Carbon::now();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'resource';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = Input::get('editedqnty') + 1;
+        $log->percentage = 0;
+        $log->save();
         return view('focus/resources', $data); //
     }
 
@@ -100,6 +118,14 @@ class ResourceController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
+        $date = Carbon::now();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'resource';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = Input::get('editedqnty') - 1;
+        $log->percentage = 0;
+        $log->save();
         return view('focus/resources', $data); //
     }
 

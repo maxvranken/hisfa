@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\PrimeSilo;
+use App\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use App\Notifications\PrimeSilo90Notification;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 
@@ -26,6 +28,7 @@ class PrimeSilosController extends Controller
         $data['primesilos'] = $primesilos;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
+
         return view('focus/Addprimesilo', $data, $data2);
 
     }
@@ -63,6 +66,15 @@ class PrimeSilosController extends Controller
         $data['primesilos'] = $prime;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
+        $date = Carbon::now();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'prime';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = 0.00;
+        $log->percentage = Input::get('quantity');
+        $log->save();
+
         return view('focus/primeSilos', $data, $data2);
     }
 
