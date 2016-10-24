@@ -2,11 +2,6 @@
 
 @section('content')
 <div class="container">
-    <video autoplay  poster="" id="videobg" loop>
-        <source src="https://res.cloudinary.com/ddd7cgte4/video/upload/ac_none/v1477258502/HISFA/Time_Lapse_Industrial_Background_Container_Busines.webm" type="video/webm">
-
-        Your browser does not support the video tag. I suggest you upgrade your browser.
-    </video>
     <div class="row center">
         <div class="col-md-8 col-md-offset-2 horizontalcenter">
             <div class="panel panel-default">
