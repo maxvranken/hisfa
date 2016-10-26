@@ -44,7 +44,7 @@ class PrimeSilosController extends Controller
 
         $primesilos = \App\PrimeSilo::All();
         $data['primesilos'] = $primesilos;
-        return view('focus/primeSilos', $data);
+        return view('focus/primesilos', $data);
     }
 
     public function editquantity()
@@ -75,7 +75,7 @@ class PrimeSilosController extends Controller
         $log->percentage = Input::get('quantity');
         $log->save();
 
-        return view('focus/primeSilos', $data, $data2);
+        return view('focus/primesilos', $data, $data2);
     }
 
     public function edit(){
@@ -101,7 +101,7 @@ class PrimeSilosController extends Controller
       //  $post = $resource->name;
         //$user = Auth::user();
         //$user->notify(new AddResourceNotification($post));
-        return view('focus/primeSilos', $data, $data2);
+        return view('focus/primesilos', $data, $data2);
 
 
     }
@@ -119,7 +119,7 @@ class PrimeSilosController extends Controller
         //  $post = $resource->name;
         //$user = Auth::user();
         //$user->notify(new AddResourceNotification($post));
-        return view('focus/primeSilos', $data, $data2);
+        return view('focus/primesilos', $data, $data2);
 
     }
 }
