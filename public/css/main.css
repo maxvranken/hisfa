@@ -21,6 +21,12 @@ hr{
     border: 1px solid #454545;
 }
 
+.linkstyleremove {
+    color: white;
+    font-family: 'Lato', Helvetica;
+    text-decoration: none !important;
+}
+
 .menu{
     background-color: #ccc;
     width: 20%;
@@ -134,7 +140,7 @@ hr{
     margin-right: 5px;
 }
 
-.prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
+.prime_title p, .waste_title p, .material_title p, .log_title p, .resource_title p, .prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
     text-decoration: none;
     color: #fff;
     padding: 10px 15px;
@@ -331,7 +337,7 @@ hr{
 }
 
 .log_group{
-    //background-color: #54626d;
+    /*background-color: #54626d;*/
 }
 
 .log_log{
@@ -408,7 +414,7 @@ hr{
 
 .selected_foamtype{
     position: absolute;
-    top: 50%;
+    top: 25%;
     transform: translateY(-50%);
     right: 60px;
     margin: 0;
@@ -548,6 +554,10 @@ hr{
 
 .focus .stock_container{
     flex-wrap: wrap;
+}
+
+#foamlink{
+    padding-right: 20px;
 }
 
 .material_title .edit_foams{
