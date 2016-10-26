@@ -23,7 +23,6 @@ Route::post('profile/changeavatar' , 'UserController@update_avatar');
 Route::post('profile/changepassword', 'UserController@changePwd');
 Route::post('profile/changename', 'UserController@changeUserInfo');
 
-
 // route naar primesilos focus
 Route::get('/primesilos', 'PrimeSilosController@index');
 Route::get('/primesilos/create', 'PrimeSilosController@create');
@@ -67,6 +66,7 @@ Route::get('/logs', 'LogsController@index');
 
 //route naar settings
 Route::get('/settings', 'SettingsController@index');
+Route::put('/settings/register', 'SettingsController@register');
 Auth::routes();
 
 

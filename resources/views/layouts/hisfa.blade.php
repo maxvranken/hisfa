@@ -4,8 +4,7 @@
 <head>
     <title>Hisfa</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/manage.css') }}">
@@ -13,6 +12,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/prime.css') }}">
     <script src="{{ URL::asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ URL::asset('js/dragscroll.js') }}" defer></script>
+    <script src="{{ URL::asset('js/app.js') }}" defer></script>
     <script src="{{ URL::asset('js/main.js') }}" defer></script>
 </head>
 <body>
