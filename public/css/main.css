@@ -8,7 +8,7 @@ html {
     background: -webkit-linear-gradient(bottom left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
     background: -o-linear-gradient(top left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
     background: linear-gradient(to bottom right, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 body {
     position: relative;
@@ -104,6 +104,8 @@ hr{
     width: 92%;
     min-height: 740px;
     padding: 4%;
+    overflow-y: auto;
+    height: 80vh;
     background-color: rgba(0,0,0,0.6);
     display: flex;
     flex-wrap: wrap;
@@ -125,6 +127,11 @@ hr{
 }
 
 .log_title{
+    margin-bottom: 5px;
+}
+
+.logf_title{
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
@@ -331,7 +338,7 @@ hr{
 }
 
 .log_group{
-    //background-color: #54626d;
+    /*background-color: #54626d;*/
 }
 
 .log_log{
@@ -367,15 +374,31 @@ hr{
 
 .log_focus{
     width: 95%;
-    max-height: 150px;
+    /*max-height: 150px;*/
     color:white;
-    margin-bottom: 100px;
+
+
+    margin-bottom: 10px;
+
 }
 
 .log_log_focus{
     background-color: #54626d;
     padding: 10px 0 10px 0;
+
 }
+
+.log_logs{
+    /*margin-bottom: 100px;*/
+    background-color: yellow;
+    overflow-y: scroll;
+    /*height: 100px;*/
+}
+
+/*.log_log_focus:last-child{
+    margin-bottom: 20px;
+
+}*/
 
 .log_timestamp_focus{
     font-weight: 400;

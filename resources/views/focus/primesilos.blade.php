@@ -10,6 +10,7 @@
             @foreach($primesilos as $key=>$primesilo)
                 <div class="silo" id="silo{{ $key+1 }}">
                     <div class="silo_number">{{ $key+1 }}</div>
+                    <div class="silo_number">{{ $primesilo->id }}</div>
                     <div class="silo_number">{{ $primesilo->resource->name}}</div>
                     <div class="silo_fill">
                         <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>

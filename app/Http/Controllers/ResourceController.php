@@ -51,6 +51,15 @@ class ResourceController extends Controller
         $data['resources'] = $resources;
         $post = $resource->name;
         $user = Auth::user();
+        $date = date('Y-m-d H:i:s');
+        $count = \App\Resource::all()->count();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'resourceadd';
+        $log->object_id = $count +1;
+        $log->quantity = Input::get('resourceqnty');
+        $log->percentage = 0;
+        $log->save();
         $user->notify(new AddResourceNotification($post));
         return view('focus/resources', $data);
 
@@ -139,6 +148,14 @@ class ResourceController extends Controller
         $data['primesilos'] = $prime;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
+        $date = date('Y-m-d H:i:s');
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'resourcedelete';
+        $log->object_id = Input::get('deletedid');
+        $log->quantity = 0.00;
+        $log->percentage = 0;
+        $log->save();
         //  $post = $resource->name;
         //$user = Auth::user();
         //$user->notify(new AddResourceNotification($post));

@@ -41,6 +41,15 @@ class PrimeSilosController extends Controller
         $prime->resource_id = Input::get('resourceid');
         $prime->quantity = '0';
         $prime->save();
+        $date = date('Y-m-d H:i:s');
+        $count = \App\Primesilo::all()->count();
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'siloadd';
+        $log->object_id = $count + 1;
+        $log->quantity = 0.00;
+        $log->percentage = 0;
+        $log->save();
 
         $primesilos = \App\PrimeSilo::All();
         $data['primesilos'] = $primesilos;
@@ -116,6 +125,14 @@ class PrimeSilosController extends Controller
         $data['primesilos'] = $prime;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
+        $date = date('Y-m-d H:i:s');
+        $log = new Log;
+        $log->date = $date;
+        $log->data_type = 'silodelete';
+        $log->object_id = Input::get('editedid');
+        $log->quantity = 0.00;
+        $log->percentage = 0;
+        $log->save();
         //  $post = $resource->name;
         //$user = Auth::user();
         //$user->notify(new AddResourceNotification($post));
