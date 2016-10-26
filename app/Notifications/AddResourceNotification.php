@@ -51,8 +51,8 @@ class AddResourceNotification extends Notification
                     ->subject('Silo change')
                     ->greeting('Hello '.$user->name)
                     ->line('A resource was added')
-                    ->line('Added resource: '. $this->post)
-                    ->line('Thank you for using our application!');
+                    ->line('Added resource: '. $this->post);
+
 
     }
 

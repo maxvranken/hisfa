@@ -49,8 +49,8 @@ class WasteSilo90Notification extends Notification
             ->error()
             ->subject('Waste silo ' .$this->post . ' almost full!')
             ->greeting('Hello '.$user->name)
-            ->line('Waste silo ' .$this->post . ' ( '. $this->post2 . ' )' . ' is ' . $this->post3 .'% full.')
-            ->line('Thank you for using our application!');
+            ->line('Waste silo ' .$this->post . ' ( '. $this->post2 . ' )' . ' is ' . $this->post3 .'% full.');
+
     }
 
     /**
