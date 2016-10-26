@@ -47,7 +47,7 @@ class WasteSilosController extends Controller
         $log->quantity = 0.00;
         $log->percentage = Input::get('percentage');
         $log->save();
-        return view('focus/wasteSilos', $data, $data2);
+        return view('focus/wastesilos', $data, $data2);
     }
 
     public function edit()
@@ -71,6 +71,6 @@ class WasteSilosController extends Controller
         $data['wastesilos'] = $waste;
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
-        return view('focus/wasteSilos', $data, $data2);
+        return view('focus/wastesilos', $data, $data2);
     }
 }
