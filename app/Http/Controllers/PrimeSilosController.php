@@ -29,7 +29,7 @@ class PrimeSilosController extends Controller
         $resources = \App\Resource::All();
         $data2['resources'] = $resources;
 
-        return view('focus/Addprimesilo', $data, $data2);
+        return view('focus/addprimesilo', $data, $data2);
 
     }
 
