@@ -26,6 +26,8 @@
                     echo "<div class='length' id='length" . $count . "'>";
                     echo "<div class='mtrl_length'>" . $block->length . "m</div></div>";
 
+                    echo "<form class='remove_length_form'><button class='remove_length' formaction=''>Remove length</button></form>";
+
                     $amount = $block->quantity;
                     $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
                     echo "<div class='stock' id='stock" . $count . "'><div class='number_stock'><span class='number'>";
@@ -50,7 +52,7 @@
                         </div>
                         <div class='stock'>
                             <form method="post" action='/foam/newlength' class="change_foam_form add_length">
-                                <input type="text" name="length" placeholder="length (m)">
+                                <div><input type="text" name="length" placeholder="length (m)"></div>
                                 <input type="hidden" name="editedid" value="{{$block->id}}">
                                 <input type="hidden" name="foamid" value="{{$block->foam_type_id}}">
                                 <input type="hidden" name="_method" value="PUT">
@@ -61,5 +63,6 @@
                     </div>
             </div>
         </div>
+        {{ $user->name }}
     </div>
 @endsection
