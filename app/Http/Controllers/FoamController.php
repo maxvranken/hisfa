@@ -24,6 +24,7 @@ class FoamController extends Controller
         $blocks = Block::where('foam_type_id', $id)->orderBy('length')->get();
         $data['blocks'] = $blocks;
         $data['selected'] = FoamType::findOrFail($id)->name;
+        $data['selectedId'] = FoamType::findOrFail($id)->id;
 
         return view('focus/foam', $data);
     }
@@ -59,13 +60,27 @@ class FoamController extends Controller
     }
 
     public function newlength(){
-        $block = new Block;
-        $block->length = Input::get('length');
-        $block->foam_type_id = Input::get('foamid');
-        $block->quantity = 0;
-        $block->save();
+        $blocks = Block::where([
+            ['foam_type_id', '=', Input::get('foamid')],
+            ['length', '=', Input::get('length')],
+        ])->get();
 
-        return redirect('/foam/' . $block->foam_type_id);
+        if(count($blocks) == 0) {
+            $block = new Block;
+            $block->length = Input::get('length');
+            $block->foam_type_id = Input::get('foamid');
+            $block->quantity = 0;
+            $block->save();
+        }
+
+        return redirect('/foam/' . Input::get('foamid'));
+    }
+
+    public function removelength(){
+        $block = Block::findOrFail(Input::get('editedid'));
+        $block->delete();
+
+        return redirect('/foam/' . Input::get('foamid'));
     }
 
     public function createtype(){

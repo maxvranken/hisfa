@@ -26,6 +26,13 @@
                     echo "<div class='length' id='length" . $count . "'>";
                     echo "<div class='mtrl_length'>" . $block->length . "m</div></div>";
 
+                    echo "<form class='remove_length_form' method='post'>";
+                    echo "<input type='hidden' name='editedid' value='" . $block->id . "'>";
+                    echo "<input type='hidden' name='foamid' value='" . $block->foam_type_id . "'>";
+                    echo "<input type='hidden' name='_method' value='PUT'>";
+                    echo "<input type='hidden' name='_token' value='" . csrf_token() . "'>";
+                    echo "<button class='remove_length' formaction='/foam/removelength'>Remove length</button></form>";
+
                     $amount = $block->quantity;
                     $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
                     echo "<div class='stock' id='stock" . $count . "'><div class='number_stock'><span class='number'>";
@@ -50,9 +57,8 @@
                         </div>
                         <div class='stock'>
                             <form method="post" action='/foam/newlength' class="change_foam_form add_length">
-                                <input type="text" name="length" placeholder="length (m)">
-                                <input type="hidden" name="editedid" value="{{$block->id}}">
-                                <input type="hidden" name="foamid" value="{{$block->foam_type_id}}">
+                                <div><input type="text" name="length" placeholder="length (m)"></div>
+                                <input type="hidden" name="foamid" value="{{$selectedId}}">
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <button></button>
