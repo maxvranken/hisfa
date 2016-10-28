@@ -80,6 +80,11 @@ function materialAjax(id){
                     (1.03 * 1.29 * response[x].length * response[x].quantity).toFixed(1) +
                     "</span><span class='m3'>m³</span></div></div>");
             }
+            if(response.length == 0){
+                $('.material_fill').css('display', 'block');
+            }else{
+                $('.material_fill').css('display', 'none');
+            }
             $('.material_loader').css('display', 'none');
 
             if(response.length > 4) {

@@ -46,6 +46,7 @@ Route::get('/blocks', 'FoamController@ajax');
 Route::put('/foam/qntyplus', 'FoamController@qntyplus');
 Route::put('/foam/qntymin', 'FoamController@qntymin');
 Route::put('/foam/newlength', 'FoamController@newlength');
+Route::put('/foam/removelength', 'FoamController@removelength');
 Route::put('/foams/createtype', 'FoamController@createtype');
 Route::put('/foams/edittype', 'FoamController@edittype');
 Route::put('/foams/deletetype', 'FoamController@deletetype');

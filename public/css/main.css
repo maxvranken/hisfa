@@ -239,7 +239,7 @@ hr{
 .length, .resourcetype {
     flex-direction: row;
     box-sizing: border-box;
-    width: 33%;
+    width: 100%;
     margin-top: 5px;
     margin-left: 5px;
     overflow: hidden;
@@ -272,7 +272,7 @@ hr{
 
 .stock {
     flex-direction: row;
-    width: 33%;
+    width: 100%;
     margin-top: 5px;
     margin-left: 5px;
     background-color: #54626d;
@@ -280,6 +280,13 @@ hr{
 
 .material.dashboard .stock{
     min-width: calc(25% - 3.75px);
+}
+
+.material_fill{
+    height: 153px;
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgba(84, 98, 109, 0.6);
 }
 
 .number_stock {
@@ -784,8 +791,7 @@ hr{
 }
 
 .remove_length:hover{
-    background-color: #fff860;
-    color: #000;
+    color: #b33b34;
 }
 
 /* Dashboard mediaquery */

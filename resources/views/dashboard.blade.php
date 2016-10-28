@@ -53,6 +53,11 @@
         @if (count($blocks) > 4)
             <div class="material_scroll"><div></div></div>
         @endif
+        @if (count($blocks) == 0)
+            <div class="material_fill"></div>
+        @else
+            <div class="material_fill" style="display: none"></div>
+        @endif
         <div class="material_data dragscroll" id="material_data">
             <div class="length_container">
                 <?php $count = 0;?>
