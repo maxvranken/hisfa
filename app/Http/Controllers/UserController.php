@@ -32,17 +32,22 @@ class UserController extends Controller
     }
 
     public function changePwd(){
+        $user = Auth::user();
 
-        if($_POST['password1'] === $_POST['password2']){
+        if (Hash::check($_POST['password3'], $user->password)){
+           if($_POST['password1'] === $_POST['password2']){
 
-            $user = Auth::user();
-            $user->password =  Hash::make($_POST['password1']);
-            $user->save();
+                $user = Auth::user();
+                $user->password =  Hash::make($_POST['password1']);
+                $user->save();
 
-            return redirect('profile')->with('feedbackpwd', 'Password successfully changed.');
-        }else{
-            return redirect('profile')->with('feedbackpwd', 'Passwords do not match.');
-        }
+                return redirect('profile')->with('feedbackpwd', 'Password successfully changed.');
+            }else{
+                return redirect('profile')->with('feedbackpwd', 'Passwords do not match.');
+            }
+        }else return redirect('profile')->with('feedbackpwd', 'Current password does not match');
+
+
     }
 
     public function changeUserInfo(){

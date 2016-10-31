@@ -37,6 +37,10 @@
         <div class="resource_container">
             <form enctype="multipart/form-data" action="/profile/changepassword" method="POST" class="addform">
                 <div class="addrow">
+                    <div class="addlabel">Current password</div>
+                    <input type="password" name="password3" placeholder="current password" class="addinput">
+                </div>
+                <div class="addrow">
                     <div class="addlabel">New password</div>
                     <input type="password" name="password1" placeholder="new password" class="addinput">
                 </div>
