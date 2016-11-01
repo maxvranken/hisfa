@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use Image;
 
 
 
@@ -144,6 +145,20 @@ class ResourceController extends Controller
         //$user->notify(new AddResourceNotification($post));
         return view('focus/resources', $data, $data2);
 
+    }
+
+    public function update_icon(Request $request){
+        if($request->hasFile('icon')){
+            $icon = $request->file('icon');
+            $filename= time() . '.' .$icon->getClientOriginalExtension();
+            $path = public_path('uploads/icons/' . $filename);
+            Image::make($icon->getRealPath())->resize(300, 300)->save($path);
+
+            $resource = \App\Resource::findOrFail(Input::get('editedid'));
+            $resource->icon = $filename;
+            $resource->save();
+        }
+        return redirect('resources')->with('feedbackicon', 'Icon succesfully changed.');
     }
 }
 

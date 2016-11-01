@@ -61,6 +61,7 @@ Route::put('/resources/changeqnty', 'ResourceController@editquantity');
 Route::put('/resources/changeqntyplus', 'ResourceController@editquantityplus');
 Route::put('/resources/changeqntyminus', 'ResourceController@editquantityminus');
 Route::delete('/resources/deleted', 'ResourceController@deleteresource');
+Route::post('resources/changeicon', 'ResourceController@update_icon');
 
 // route naar logs focus
 Route::get('/logs', 'LogsController@index');

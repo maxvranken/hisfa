@@ -17,6 +17,7 @@ class CreateResourcesTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->double('quantity', 15, 8);
+            $table->string('icon')->default('default.jpg');
             $table->timestamps();
         });
     }

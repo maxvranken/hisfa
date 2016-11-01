@@ -22,6 +22,9 @@
         <div class="resource_stock_container">
             @foreach($resources as $resource)
                 <div class="stock">
+                    <div class="profimgcontainer iconimgcontainer">
+                        <img src="/uploads/icons/{{$resource->icon}}" id="iconimg">
+                    </div>
                     <div class="resource_number_stock">{{$resource->quantity}}<span class="ton">ton</span></div>
                     <form action="/resources/changeqntyplus?={{ $resource->id }}" method="POST"
                           enctype="multipart/form-data">
