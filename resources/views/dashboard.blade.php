@@ -67,26 +67,30 @@
         @endif
         <div class="material_data dragscroll" id="material_data">
             <div class="length_container">
-                <?php $count = 0;?>
-                @foreach($blocks as $block)
-                    <?php
-                    $count++;
-                    echo "<div class='length' id='length" . $count . "'>";
-                    echo "<div class='mtrl_length'>" . $block->length . "m</div></div>";
-                    ?>
+                @foreach($blocks as $key=>$block)
+                    <div class='length' id='length{{$key}}'>
+                        <div class='mtrl_length'>{{ $block->length }}m</div>
+                    </div>
                 @endforeach
             </div>
             <div class="stock_container">
-                <?php $count = 0;?>
-                @foreach($blocks as $block)
+
+                @foreach($blocks as $key=>$block)
                     <?php
-                    $count++;
                     $amount = $block->quantity;
                     $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
-                    echo "<div class='stock' id='stock" . $count . "'><div class='number_stock'><span class='number'>";
-                    echo $amount . "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
-                    echo $mass . "</span><span class='m3'>m³</span></div></div>";
                     ?>
+                    <div class='stock' id='stock{{$key}}'>
+                        <div class='number_stock'>
+                            <span class='number'>{{$amount}}</span>
+                            <span class='st'>st</span>
+                        </div>
+                        <div class='volume_stock'>
+                            <span class='number'>{{$mass}}</span>
+                            <span class='m3'>m³</span>
+                        </div>
+                    </div>
+
                 @endforeach
             </div>
         </div>
@@ -117,10 +121,10 @@
                 <p>Resources</p>
             </div>
             <div class="resource_container">
-                    @foreach($resources as $resource)
-                        <div class="resourcetype" id="resource{{ $resource->id }}">
-                            <div class="rsrcetype">{{ $resource->name }}</div>
-                        </div>
+                @foreach($resources as $resource)
+                    <div class="resourcetype" id="resource{{ $resource->id }}">
+                        <div class="rsrcetype">{{ $resource->name }}</div>
+                    </div>
                 @endforeach
             </div>
             <div class="resource_stock_container">

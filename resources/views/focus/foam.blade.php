@@ -17,54 +17,64 @@
         </div>
         <div class="material_data" id="material_data">
             <div class="stock_container">
-                <?php $count = 0;?>
-                @foreach($blocks as $block)
-                    <?php
-                    $count++;
-                    echo "<div class='stock_item'>";
+                @foreach($blocks as $key=>$block)
+                    <div class='stock_item'>
 
-                    echo "<div class='length' id='length" . $count . "'>";
-                    echo "<div class='mtrl_length'>" . $block->length . "m</div></div>";
-
-                    echo "<form class='remove_length_form' method='post'>";
-                    echo "<input type='hidden' name='editedid' value='" . $block->id . "'>";
-                    echo "<input type='hidden' name='foamid' value='" . $block->foam_type_id . "'>";
-                    echo "<input type='hidden' name='_method' value='PUT'>";
-                    echo "<input type='hidden' name='_token' value='" . csrf_token() . "'>";
-                    echo "<button class='remove_length' formaction='/foam/removelength'>Remove length</button></form>";
-
-                    $amount = $block->quantity;
-                    $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
-                    echo "<div class='stock' id='stock" . $count . "'><div class='number_stock'><span class='number'>";
-                    echo $amount . "</span><span class='st'>st</span></div><div class='volume_stock'><span class='number'>";
-                    echo $mass . "</span><span class='m3'>m³</span></div></div>";
-
-                    echo "<form class='change_foam_form' method='post'>";
-                    echo "<input type='text' name='number' placeholder='amount' >";
-                    echo "<input type='hidden' name='editedid' value='" . $block->id . "'>";
-                    echo "<input type='hidden' name='_method' value='PUT'>";
-                    echo "<input type='hidden' name='_token' value='" . csrf_token() . "'>";
-                    echo "<div class='edit_amount'>";
-                    echo "<button class='add_amount' formaction='/foam/qntyplus'>Add</button>";
-                    echo "<button class='remove_amount' formaction='/foam/qntymin'>Remove</button></div></form>";
-
-                    echo '</div>';
-                    ?>
-                @endforeach
-                    <div class='stock_item add'>
-                        <div class='length'>
-                            <div class='mtrl_length'> add length </div>
+                        <div class='length' id='length" . $count . "'>
+                            <div class='mtrl_length'>{{$block->length}}m</div>
                         </div>
-                        <div class='stock'>
-                            <form method="post" action='/foam/newlength' class="change_foam_form add_length">
-                                <div><input type="text" name="length" placeholder="length (m)"></div>
-                                <input type="hidden" name="foamid" value="{{$selectedId}}">
-                                <input type="hidden" name="_method" value="PUT">
-                                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                <button></button>
-                            </form>
+
+                        <form class='remove_length_form' method='post'>
+                            <input type='hidden' name='editedid' value='{{$block->id}}'>
+                            <input type='hidden' name='foamid' value='{{$block->foam_type_id}}'>
+                            <input type='hidden' name='_method' value='PUT'>
+                            <input type='hidden' name='_token' value='{{csrf_token()}}'>
+                            <button class='remove_length' formaction='/foam/removelength'>Remove length</button>
+                        </form>
+
+                        <?php
+                        $amount = $block->quantity;
+                        $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
+                        ?>
+
+                        <div class='stock' id='stock{{$key}}'>
+                            <div class='number_stock'>
+                                <span class='number'>{{$amount}}</span>
+                                <span class='st'>st</span>
+                            </div>
+                            <div class='volume_stock'>
+                                <span class='number'>{{$mass}}</span>
+                                <span class='m3'>m³</span>
+                            </div>
                         </div>
+
+                        <form class='change_foam_form' method='post'>
+                            <input type='text' name='number' placeholder='amount'>
+                            <input type='hidden' name='editedid' value='{{$block->id}}'>
+                            <input type='hidden' name='_method' value='PUT'>
+                            <input type='hidden' name='_token' value='{{csrf_token()}}'>
+
+                            <div class='edit_amount'>
+                                <button class='add_amount' formaction='/foam/qntyplus'>Add</button>
+                                <button class='remove_amount' formaction='/foam/qntymin'>Remove</button>
+                            </div>
+                        </form>
                     </div>
+                @endforeach
+                <div class='stock_item add'>
+                    <div class='length'>
+                        <div class='mtrl_length'> add length</div>
+                    </div>
+                    <div class='stock'>
+                        <form method="post" action='/foam/newlength' class="change_foam_form add_length">
+                            <div><input type="text" name="length" placeholder="length (m)"></div>
+                            <input type="hidden" name="foamid" value="{{$selectedId}}">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <button></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
