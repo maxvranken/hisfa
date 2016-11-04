@@ -15,6 +15,10 @@ class SettingsController extends Controller
     }
 
     public function register(){
+        return view('auth/register');
+    }
+
+    public function add_user(){
         $user = new User;
         $user->name = Input::get('name');
         $user->email = Input::get('email');

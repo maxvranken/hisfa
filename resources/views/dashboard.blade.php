@@ -59,6 +59,10 @@
             <div class="material_scroll">
                 <div></div>
             </div>
+        @else
+            <div class="material_scroll" style="display: none">
+                <div></div>
+            </div>
         @endif
         @if (count($blocks) == 0)
             <div class="material_fill"></div>

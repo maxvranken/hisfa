@@ -60,11 +60,7 @@
         </div>
         <hr>
         <div class="settings">
-            <a href="{{ url('/settings') }}" class="settings_link">
-                <div class="settings_icon"><img src="http://www.freeiconspng.com/uploads/settings-icon-13.png"
-                                                alt="settings" style="width: 20px; margin-right: 10px;"></div>
-                <div class="settings_text">Settings</div>
-            </a>
+            <a href="{{ url('/settings') }}" class="settings_link"><span></span>Settings</a>
         </div>
 
     </div>
