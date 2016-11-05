@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Image;
+use File;
 
 
 
@@ -152,13 +153,24 @@ class ResourceController extends Controller
             $icon = $request->file('icon');
             $filename= time() . '.' .$icon->getClientOriginalExtension();
             $path = public_path('uploads/icons/' . $filename);
-            Image::make($icon->getRealPath())->resize(300, 300)->save($path);
+            Image::make($icon->getRealPath())->resize(150, 150)->save($path);
 
             $resource = \App\Resource::findOrFail(Input::get('editedid'));
             $resource->icon = $filename;
             $resource->save();
         }
         return redirect('resources')->with('feedbackicon', 'Icon succesfully changed.');
+    }
+
+    public function delete_icon(){
+        $resource = \App\Resource::findOrFail(Input::get('deletedid'));
+
+        File::delete('uploads/icons/' . $resource->icon);
+
+        $resource->icon = "f21MB-n.jpg";
+        $resource->save();
+
+        return redirect('resources')->with('feedbackicon', 'Icon succesfully deleted.');
     }
 }
 

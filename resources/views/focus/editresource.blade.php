@@ -16,12 +16,20 @@
                     <input type="file" id="file" name="icon"
                            onchange="document.getElementById('iconimg').src = window.URL.createObjectURL(this.files[0])">
 
-
                 </div>
                 <div class="addrow">
                     <input type="hidden" name="editedid" value="{{ $resource->id }}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="submit" name="confirm" value="Confirm" class="addsubmit" id="sbmt">
+                </div>
+            </form>
+            <form enctype="multipart/form-data" action="/resources/deleteicon" method="POST" class="addform">
+
+                <div class="addrow">
+                    <input type="hidden" name="deletedid" value="{{ $resource->id }}">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="submit" name="deleteicon" value="Delete this icon" class="deletebutton">
                 </div>
             </form>
         </div>
