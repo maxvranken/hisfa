@@ -3,7 +3,7 @@
 @section('content')
     <div class="prime_focus">
         <div class="waste_title">
-            <div class="title_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
+            <div class="title_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
             <a href="/wastesilos">Wastesilo's</a>
         </div>
         <div class="silo_container">
@@ -30,8 +30,7 @@
                         </div>
                     </a>
                 </div>
-
             @endforeach
-
         </div>
+    </div>
 @endsection

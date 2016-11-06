@@ -153,7 +153,7 @@ class ResourceController extends Controller
             $icon = $request->file('icon');
             $filename= time() . '.' .$icon->getClientOriginalExtension();
             $path = public_path('uploads/icons/' . $filename);
-            Image::make($icon->getRealPath())->resize(150, 150)->save($path);
+            Image::make($icon->getRealPath())->resize(200, 200)->save($path);
 
             $resource = \App\Resource::findOrFail(Input::get('editedid'));
             $resource->icon = $filename;

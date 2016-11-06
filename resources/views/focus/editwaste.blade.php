@@ -3,7 +3,7 @@
 @section('content')
     <div class="resource">
         <div class="resource_title">
-            <div class="title_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
+            <div class="title_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
             <p>Edit wastesilo</p>
         </div>
         <div class="resource_container">
@@ -11,7 +11,6 @@
                 <div class="addrow">
                     <div class="addlabel">Resource in wastesilo {{$wastesilos->id}}</div>
                     <select class="addinput" name="resourceid">
-
                         @foreach($resources as $resource)
                             <option value="{{$resource->id}}">{{$resource->name}}</option>
                         @endforeach
