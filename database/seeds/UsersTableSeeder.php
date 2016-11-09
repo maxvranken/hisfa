@@ -16,7 +16,12 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@hisfa',
             'password' => bcrypt('hisfa'),
-            'admin' => true,
+            'remember_token' => str_random(10)
+        ],
+        [
+            'name' => 'Tom',
+            'email' => 'tom@changeme.hisfa',
+            'password' => bcrypt('hisfa'),
             'remember_token' => str_random(10)
         ]);
     }

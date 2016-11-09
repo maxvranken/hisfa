@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LogsTableSeeder::class);
         $this->call(PrimeSilosTableSeeder::class);
         $this->call(WasteSilosTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
     }
 }

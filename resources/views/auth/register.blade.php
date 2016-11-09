@@ -38,9 +38,6 @@
                     </span>
             @endif
 
-            <label for="admin" >Make admin</label>
-            <input id="admin" type="checkbox" name="admin">
-
             <button type="submit">
                 Register User
             </button>

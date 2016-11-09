@@ -67,7 +67,9 @@ Route::get('/logs', 'LogsController@index');
 
 // route naar settings
 Route::get('/settings', 'SettingsController@index');
-Route::put('/settings/register', 'SettingsController@register');
+Route::get('/permissions', 'SettingsController@permissions');
+Route::put('/permissions', 'SettingsController@editpermissions');
+Route::get('/getpermissions', 'SettingsController@ajax');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
