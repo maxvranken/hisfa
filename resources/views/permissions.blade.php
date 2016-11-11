@@ -8,7 +8,9 @@
                 <select name="users" onchange="permissions(this.value)">
                     <option @if(!isset($shown_user))selected @endif disabled>select user</option>
                     @foreach($users as $user)
-                        <option value="{{$user->id}}" @if(isset($shown_user))@if($shown_user->id == $user->id)selected @endif @endif>{{$user->email}} ({{$user->name}})</option>
+                        @if(!$user->hasRole('admin'))
+                            <option value="{{$user->id}}" @if(isset($shown_user))@if($shown_user->id == $user->id)selected @endif @endif>{{$user->name}} - {{$user->email}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>

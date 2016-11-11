@@ -26,7 +26,7 @@ class SettingsController extends Controller
     }
 
     public function show($id){
-        $users = \App\User::join('user_has_roles', 'users.id', '!=', 'user_has_roles.user_id')->get();
+        $users = \App\User::get();
         $user = \App\User::findOrFail($id);
         $data['users'] = $users;
         if(!$user->hasRole('admin')) {
