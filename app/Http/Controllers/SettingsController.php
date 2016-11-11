@@ -19,7 +19,7 @@ class SettingsController extends Controller
     }
 
     public function permissions(){
-        $users = \App\User::join('user_has_roles', 'users.id', '!=', 'user_has_roles.user_id')->get();
+        $users = \App\User::get();
         $data['users'] = $users;
 
         return view('/permissions', $data);
