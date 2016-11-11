@@ -866,10 +866,6 @@ hr{
     flex-direction: column;
 }
 
-#permissions_form{
-    display: none;
-}
-
 .permissions form div{
     margin: 10px 0;
     display: flex;

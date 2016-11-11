@@ -68,7 +68,8 @@ Route::get('/logs', 'LogsController@index');
 // route naar settings
 Route::get('/settings', 'SettingsController@index');
 Route::get('/permissions', 'SettingsController@permissions');
-Route::put('/permissions', 'SettingsController@editpermissions');
+Route::get('/permissions/{id}', 'SettingsController@show');
+Route::put('/permissions/{id}', 'SettingsController@editpermissions');
 Route::get('/getpermissions', 'SettingsController@ajax');
 
 // Authentication Routes...

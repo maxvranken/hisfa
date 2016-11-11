@@ -25,23 +25,21 @@ class SettingsController extends Controller
         return view('/permissions', $data);
     }
 
-    public function ajax(){
-        $id = $_GET['id'];
-        $user = \App\User::where('id', $id)->first();
-        $data['vdashboard'] = $user->hasPermissionTo('view dashboard');
-        $data['vfoam'] = $user->hasPermissionTo('view foam stock');
-        $data['vprime'] = $user->hasPermissionTo('view prime silos');
-        $data['vwaste'] = $user->hasPermissionTo('view waste silos');
-        $data['efoam'] = $user->hasPermissionTo('edit foam stock');
-        $data['eprime'] = $user->hasPermissionTo('edit prime silos');
-        $data['ewaste'] = $user->hasPermissionTo('edit waste silos');
-        $data['permissions'] = $user->hasPermissionTo('change user permissions');
-        return response()->json($data);
+    public function show($id){
+        $users = \App\User::join('user_has_roles', 'users.id', '!=', 'user_has_roles.user_id')->get();
+        $user = \App\User::findOrFail($id);
+        $data['users'] = $users;
+        if(!$user->hasRole('admin')) {
+            $data['shown_user'] = $user;
+        }else{
+            return redirect('/permissions');
+        }
+
+        return view('/permissions', $data);
     }
 
-    public function editpermissions(){
-        $user = \App\User::where('id', Input::get('user'))->first();
-        $id = Input::get('user');
+    public function editpermissions($id){
+        $user = \App\User::findOrFail($id);
         if(Input::get('view_dashboard')){
             if(!$user->can('view dashboard')) {
                 $user->givePermissionTo('view dashboard');
@@ -98,11 +96,8 @@ class SettingsController extends Controller
         }else {
             $user->revokePermissionTo('change user permissions');
         }
-        $users = \App\User::join('user_has_roles', 'users.id', '!=', 'user_has_roles.user_id')->get();
-        $data['users'] = $users;
-        $data['id'] = $id;
 
-        return view('/permissions', $data);
+        return redirect('/permissions/' . $id);
     }
 
     public function add_user(){

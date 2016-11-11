@@ -104,59 +104,8 @@ function materialAjax(id){
         });
 }
 
-function permissionsAjax(id){
-    $.get('/getpermissions' , { id: id})
-        .done(function( response ) {
-            $('#permissions_form').css('display', 'block');
-            $('.permission_edit.this_user').val(id);
-            if(response['vdashboard']){
-                $('#permissions_form .view_dashboard').prop("checked", true);
-            }else{
-                $('#permissions_form .view_dashboard').prop("checked", false);
-            }
-
-            if(response['vfoam']){
-                $('#permissions_form .view_foam').prop("checked", true);
-            }else{
-                $('#permissions_form .view_foam').prop("checked", false);
-            }
-
-            if(response['vprime']){
-                $('#permissions_form .view_prime').prop("checked", true);
-            }else{
-                $('#permissions_form .view_prime').prop("checked", false);
-            }
-
-            if(response['vwaste']){
-                $('#permissions_form .view_waste').prop("checked", true);
-            }else{
-                $('#permissions_form .view_waste').prop("checked", false);
-            }
-
-            if(response['efoam']){
-                $('#permissions_form .edit_foam').prop("checked", true);
-            }else{
-                $('#permissions_form .edit_foam').prop("checked", false);
-            }
-
-            if(response['eprime']){
-                $('#permissions_form .edit_prime').prop("checked", true);
-            }else{
-                $('#permissions_form .edit_prime').prop("checked", false);
-            }
-
-            if(response['ewaste']){
-                $('#permissions_form .edit_waste').prop("checked", true);
-            }else{
-                $('#permissions_form .edit_waste').prop("checked", false);
-            }
-
-            if(response['permissions']){
-                $('#permissions_form .edit_permissions').prop("checked", true);
-            }else{
-                $('#permissions_form .edit_permissions').prop("checked", false);
-            }
-        });
+function permissions(id){
+    window.location.replace("/permissions/" + id);
 }
 
 $('.permission_edit').change(function(){
