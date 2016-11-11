@@ -12,12 +12,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@hisfa',
-            'password' => bcrypt('hisfa'),
-            'admin' => true,
-            'remember_token' => str_random(10)
-        ]);
+        $admin = new User;
+        $admin->name = 'admin';
+        $admin->email = 'admin@hisfa';
+        $admin->password = bcrypt('hisfa');
+        $admin->save();
+        $admin->assignRole('admin');
+
+        $user = new User;
+        $user->name = 'Tom';
+        $user->email = 'tom@changeme.hisfa';
+        $user->password = bcrypt('hisfa');
+        $user->save();
+        $user->assignRole('admin');
     }
 }

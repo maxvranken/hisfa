@@ -44,10 +44,3 @@ class Controller extends BaseController
         return view('dashboard', $data);
     }
 }
-/*
-
-@foreach($students as $student)
-        <p>{{ $student->email }}</p>
-@endforeach
-
-*/

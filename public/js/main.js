@@ -30,7 +30,6 @@ $(function(){
             $('.dashboard  .material_scroll div').css('width', scroll_width);
         }, 150);
     };
-
 });
 
 $( window ).resize(function() {
@@ -104,3 +103,11 @@ function materialAjax(id){
             }
         });
 }
+
+function permissions(id){
+    window.location.replace("/permissions/" + id);
+}
+
+$('.permission_edit').change(function(){
+    $('#permissions_form').submit();
+});
