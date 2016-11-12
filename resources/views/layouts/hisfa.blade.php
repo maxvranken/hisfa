@@ -33,22 +33,30 @@
         </div>
         <hr>
         <div class="menu_navlist">
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #00db4c;"></div>
-                <a href="{{ url('/') }}" class="nav_title">Dashboard</a>
-            </div>
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
-                <a href="{{ url('/primesilos') }}" class="nav_title">Primesilo's</a>
-            </div>
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
-                <a href="{{ url('/wastesilos') }}" class="nav_title">Wastesilo's</a>
-            </div>
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>
-                <a href="{{ url('/foam') }}" class="nav_title">Foam stock</a>
-            </div>
+            @if( Auth::user()->can('view dashboard') )
+                <div class="nav_item">
+                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #00db4c;"></div>
+                    <a href="{{ url('/') }}" class="nav_title">Dashboard</a>
+                </div>
+            @endif
+            @if( Auth::user()->can('view prime silos') )
+                <div class="nav_item">
+                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
+                    <a href="{{ url('/primesilos') }}" class="nav_title">Primesilo's</a>
+                </div>
+            @endif
+            @if( Auth::user()->can('view waste silos') )
+                <div class="nav_item">
+                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
+                    <a href="{{ url('/wastesilos') }}" class="nav_title">Wastesilo's</a>
+                </div>
+            @endif
+            @if( Auth::user()->can('view foam stock') )
+                <div class="nav_item">
+                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>
+                    <a href="{{ url('/foam') }}" class="nav_title">Foam stock</a>
+                </div>
+            @endif
             <div class="nav_item">
                 <div class="nav_dot" style="width: 10px; height: 10px; background-color: #2389ce;"></div>
                 <a href="{{ url('/resources') }}" class="nav_title">Resources</a>

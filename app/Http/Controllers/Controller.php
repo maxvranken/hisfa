@@ -6,6 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -17,30 +18,34 @@ class Controller extends BaseController
     }
 
     public function index(){
-        // alle foam types meegeven
-        $foamtypes = \App\FoamType::all();
-        $data['foamtypes'] = $foamtypes;
+        if(Auth::user()->can('view dashboard')) {
+            // alle foam types meegeven
+            $foamtypes = \App\FoamType::all();
+            $data['foamtypes'] = $foamtypes;
 
-        // alle prime silos meegeven
-        $primes = \App\PrimeSilo::all();
-        $data['primes'] = $primes;
+            // alle prime silos meegeven
+            $primes = \App\PrimeSilo::all();
+            $data['primes'] = $primes;
 
-        // alle waste silos meegeven
-        $wastes = \App\WasteSilo::all();
-        $data['wastes'] = $wastes;
+            // alle waste silos meegeven
+            $wastes = \App\WasteSilo::all();
+            $data['wastes'] = $wastes;
 
-        // alle resources meegeven
-        $resources = \App\Resource::all();
-        $data['resources'] = $resources;
+            // alle resources meegeven
+            $resources = \App\Resource::all();
+            $data['resources'] = $resources;
 
-        // alle logs meegeven
-        $logs = \App\Log::all()->sortByDesc('created_at')->take(4);
-        $data['logs'] = $logs;
+            // alle logs meegeven
+            $logs = \App\Log::all()->sortByDesc('created_at')->take(4);
+            $data['logs'] = $logs;
 
-        // eerste blokken meegeven
-        $blocks = \App\Block::where('foam_type_id', 1)->orderBy('length')->get();
-        $data['blocks'] = $blocks;
+            // eerste blokken meegeven
+            $blocks = \App\Block::where('foam_type_id', 1)->orderBy('length')->get();
+            $data['blocks'] = $blocks;
 
-        return view('dashboard', $data);
+            return view('dashboard', $data);
+        }else{
+            return redirect('/profile');
+        }
     }
 }
