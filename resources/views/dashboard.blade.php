@@ -12,8 +12,18 @@
                 @foreach($primes as $key=>$primesilo)
                     <div class="silo" id="silo{{ $key+1 }}">
                         <div class="silo_number">{{ $key+1 }}</div>
+                        <div class="silo_number">{{ $primesilo->resource->name }}</div>
+                        <?php
+                        $amount = $primesilo->quantity;
+                        $mass = round(1.03 * 1.29 * 1 * $primesilo->quantity, 1);
+                        ?>
                         <div class="silo_fill">
-                            <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>
+                            <div class="silo_filled">{{ $primesilo->quantity }}<span class="ton">ton</span>
+                                <div class='volume_stock'>
+                                    <span class='number'>{{$mass}}</span>
+                                    <span class='m3'>m³</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -131,11 +141,10 @@
                     </div>
                 @endforeach
             </div>
-            <div class="resource_stock_container">
+            <div class="resource_stock_container_spec">
                 @foreach($resources as $resource)
                     <div class="stock">
-                        <div class="resource_number_stock dashboard">{{ $resource->quantity }}<span
-                                    class="ton">ton</span>
+                        <div class="resource_number_stock dashboard">{{ $resource->quantity }}<span class="ton">ton</span>
                         </div>
                     </div>
                 @endforeach

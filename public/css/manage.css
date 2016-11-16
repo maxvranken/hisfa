@@ -8,6 +8,8 @@
     cursor: pointer;
     border: none;
     color: white;
+    /*appearance: none;*/
+    -webkit-appearance: none;
 }
 
 .mngquantity{
@@ -27,6 +29,7 @@
     margin-left: 5px;
     font-family: Lato;
     margin-top: 5px;
+    height: 100%;
 }
 
 .avatar_container {
@@ -45,6 +48,7 @@
 .addform{
     width:100%;
 }
+
 
 .deletebutton{
     background-color: red;

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Block;
+use App\Log;
 use App\FoamType;
 use Auth;
 
@@ -58,6 +59,14 @@ class FoamController extends Controller
             $block = Block::findOrFail(Input::get('editedid'));
             $block->quantity = $block->quantity + Input::get('number');
             $block->save();
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'foam';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('number');
+            $log->percentage = 0.00;
+            $log->save();
             return redirect('/foam/' . $block->foam_type_id);
         }else{
             return redirect('/');
@@ -71,6 +80,14 @@ class FoamController extends Controller
                 $block->quantity = $block->quantity - Input::get('number');
                 $block->save();
             }
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'foam';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('number');
+            $log->percentage = 0.00;
+            $log->save();
 
             return redirect('/foam/' . $block->foam_type_id);
         }else{
