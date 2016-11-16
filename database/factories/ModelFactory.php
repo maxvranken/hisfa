@@ -47,6 +47,7 @@ $factory->define(App\Log::class, function (Faker\Generator $faker) {
 
 $factory->define(App\WasteSilo::class, function (Faker\Generator $faker) {
     return [
+        'name' => $faker->word,
         'percentage' => $faker->numberBetween(1,100),
         'resource_id' => $faker->numberBetween(1,5)
     ];

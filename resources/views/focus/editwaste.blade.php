@@ -9,7 +9,7 @@
         <div class="resource_container">
             <form enctype="multipart/form-data" action="/wastesilos/edit/edited" method="POST" class="addform">
                 <div class="addrow">
-                    <div class="addlabel">Resource in wastesilo {{$wastesilos->id}}</div>
+                    <div class="addlabel">Resource in wastesilo {{$wastesilos->name}}</div>
                     <select class="addinput" name="resourceid">
                         @foreach($resources as $resource)
                             <option value="{{$resource->id}}">{{$resource->name}}</option>

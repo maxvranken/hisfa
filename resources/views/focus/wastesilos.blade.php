@@ -9,7 +9,7 @@
         <div class="silo_container">
             @foreach($wastesilos as $wastesilo)
                 <div class="silo" id="silo{{ $wastesilo->id }}">
-                    <div class="silo_number">{{ $wastesilo->id }}</div>
+                    <div class="silo_number">{{ $wastesilo->name }}</div>
                     <div class="silo_number">{{ $wastesilo->resource->name}}</div>
                     <div class="wsilo_fill">
                         <div class="silo_filled" style="height: calc(100% - {{ $wastesilo->percentage }}%);"></div>

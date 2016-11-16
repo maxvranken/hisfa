@@ -12,6 +12,11 @@ class WasteSilosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(WasteSilo::class, 3)->create();
+        //factory(WasteSilo::class, 3)->create();
+        DB::table('waste_silos')->insert([
+            ['name' => 'Low', 'percentage' => 60, 'resource_id' => '5'],
+            ['name' => 'Medium', 'percentage' => 50, 'resource_id' => '3'],
+            ['name' => 'High', 'percentage' => 10, 'resource_id' => '2']
+        ]);
     }
 }
