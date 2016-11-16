@@ -4,16 +4,21 @@ html {
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: #00db4c; /* Old browsers */
+
+    background-image: url('../img/hisfa_bg_blur.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background: #00db4c;
     background: -webkit-linear-gradient(bottom left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
     background: -o-linear-gradient(top left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
-    background: linear-gradient(to bottom right, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: linear-gradient(to bottom right, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); */
 }
 body {
-    position: relative;
+    /*position: relative;*/
+
     margin: 0;
-    min-height:100%;
+    /*min-height:100%;*/
     font-family: 'Lato', Helvetica;
 }
 
@@ -119,7 +124,7 @@ hr{
     width: 92%;
     min-height: 740px;
     padding: 4%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.8);
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -192,6 +197,14 @@ hr{
     background-color: #4ebda9;
     margin-top:5px;
     height: 120px;
+    color: #4ebda9;
+    text-align: center;
+    font-size: 2em;
+}
+
+h7 {
+    color: white;
+    font-size: 0.5em;
 
 }
 
@@ -280,15 +293,36 @@ hr{
     display: flex;
 }
 
+.resource_stock_container_spec{
+    width: 100%;
+    display: flex;
+
+}
+
 .resource_stock_container{
     width: 100%;
     display: flex;
+
+}
+
+.iconimg {
+    width: 100%;
 }
 
 .stock {
     flex-direction: row;
     width: 100%;
+    height: 100%;
     margin-top: 5px;
+    margin-left: 5px;
+    background-color: #54626d;
+}
+
+.stockres {
+    flex-direction: row;
+    width: 100%;
+
+    margin-top: 250px;
     margin-left: 5px;
     background-color: #54626d;
 }

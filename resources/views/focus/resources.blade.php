@@ -6,24 +6,16 @@
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
             <a href="/resources">Resources</a>
         </div>
-        <div class="resource_container">
-            @foreach($resources as $resource)
-                <div class="resourcetype" id="resource {{ $resource->id }}">
-                    <div class="rsrcetype">{{ $resource->name }}</div>
-                </div>
 
-            @endforeach
-
-            <div class="resourcetype">
-                <div class="rsrcetype" id="addres">Add resource</div>
-            </div>
-
-        </div>
         <div class="resource_stock_container">
             @foreach($resources as $resource)
-                <div class="stock">
+
+                <div class="stockres">
+                    <div class="resourcetype" id="resource {{ $resource->id }}">
+                        <div class="rsrcetype">{{ $resource->name }}</div>
+                    </div>
                     <div class="profimgcontainer iconimgcontainer">
-                        <img src="/uploads/icons/{{$resource->icon}}" id="iconimg">
+                        <img src="/uploads/icons/{{$resource->icon}}" class="iconimg">
                     </div>
                     <div class="resource_number_stock">{{$resource->quantity}}<span class="ton">ton</span></div>
                     <form action="/resources/changeqntyplus?={{ $resource->id }}" method="POST"
@@ -60,10 +52,18 @@
                     </a>
 
                 </div>
+
             @endforeach
-            <a href="/resources/create" class="additem" id="addresbtn">
-                <div>+</div>
-            </a>
+
+            <div class="stockres">
+                <div class="resourcetype">
+                    <div class="rsrcetype" id="addres">Add resource</div>
+                </div>
+                <a href="/resources/create" class="additem" id="addresbtn">
+                    <div>+</div>
+                </a>
+            </div>
+
 
         </div>
 

@@ -7,14 +7,23 @@
             <a href="/primesilos">Primesilo's</a>
         </div>
         <div class="silo_container">
+
             @foreach($primesilos as $key=>$primesilo)
                 <div class="silo" id="silo{{ $key+1 }}">
                     <div class="silo_number">{{ $key+1 }}</div>
                     <div class="silo_number">{{ $primesilo->resource->name}}</div>
+                    <?php
+                    $amount = $primesilo->quantity;
+                    $mass = round(1.03 * 1.29 * 1 * $primesilo->quantity, 1);
+                    ?>
                     <div class="silo_fill">
-                        <div class="silo_filled" style="height: calc(100% - {{ $primesilo->quantity }}%);"></div>
+                        <div class="silo_filled">{{ $primesilo->quantity }}<span class="ton">ton</span>
+                            <div class='volume_stock'>
+                                <span class='number'>{{$mass}}</span>
+                                <span class='m3'>m³</span>
+                            </div></div>
                     </div>
-
+                    <br><br>
 
                     <form action="/primesilos/changeqnty?={{ $primesilo->id }}" method="POST"
                           enctype="multipart/form-data">
