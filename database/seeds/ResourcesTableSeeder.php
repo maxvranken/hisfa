@@ -13,11 +13,11 @@ class ResourcesTableSeeder extends Seeder
     public function run()
     {
         DB::table('resources')->insert([
-            ['name' => 'f21MB-n', 'quantity' => 0, 'icon' => 'f21MB-n.jpg'],
-            ['name' => 'RF23W-n', 'quantity' => 0, 'icon' => 'f21MB-n.jpg'],
-            ['name' => 'KSE-20', 'quantity' => 0, 'icon' => 'f21MB-n.jpg'],
-            ['name' => 'KSE-30', 'quantity' => 0, 'icon' => 'f21MB-n.jpg'],
-            ['name' => 'F21B-n', 'quantity' => 0, 'icon' => 'f21MB-n.jpg']
+            ['name' => 'f21MB-n', 'quantity' => 1, 'icon' => 'default_icon.svg'],
+            ['name' => 'RF23W-n', 'quantity' => 0, 'icon' => 'default_icon.svg'],
+            ['name' => 'KSE-20', 'quantity' => 4, 'icon' => 'default_icon.svg'],
+            ['name' => 'KSE-30', 'quantity' => 2, 'icon' => 'default_icon.svg'],
+            ['name' => 'F21B-n', 'quantity' => 3, 'icon' => 'default_icon.svg']
         ]);
     }
 }
