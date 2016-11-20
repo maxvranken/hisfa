@@ -20,13 +20,12 @@
 
     <!-- Styles -->
 
-    <link rel="stylesheet" href="/css/app.css">
 
 
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
+                'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 
@@ -35,13 +34,13 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        @yield('content')
-    </div>
+<div id="app">
+    @yield('content')
+</div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-    <script src="/js/login.js"></script>
+<!-- Scripts -->
+<script src="/js/app.js"></script>
+<script src="/js/login.js"></script>
 
 </body>
 </html>
