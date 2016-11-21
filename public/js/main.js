@@ -111,3 +111,15 @@ function permissions(id){
 $('.permission_edit').change(function(){
     $('#permissions_form').submit();
 });
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("menu").style.width = "300px";
+    document.getElementById("menu").style.display = "block";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("menu").style.width = "0";
+    document.getElementById("menu").style.display = "none";
+}
