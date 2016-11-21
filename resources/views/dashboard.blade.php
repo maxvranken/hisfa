@@ -19,7 +19,7 @@
                         ?>
                         <div class="silo_fill">
                             <div class="silo_filled">{{ $primesilo->quantity }}<span class="ton">ton</span>
-                                <div class='volume_stock'>
+                                <div class='prime_stock'>
                                     <span class='number'>{{$mass}}</span>
                                     <span class='m3'>m³</span>
                                 </div>

@@ -122,14 +122,14 @@ hr{
 
 .dash_container{
     width: 92%;
-    min-height: 740px;
+    min-height: 1000px;
     padding: 4%;
     background-color: rgba(0,0,0,0.8);
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     position: relative;
-    top: 50%;
+    top: 58%;
     transform: translateY(-50%);
 }
 
@@ -164,6 +164,7 @@ hr{
 .silo_container{
     width: 100%;
     display: flex;
+    height: 200px;
 }
 
 .silo{
@@ -178,6 +179,7 @@ hr{
     width: 33.3%;
     margin-top: 5px;
     margin-left: 5px;
+    height: 190px;
 }
 
 .silo:first-child, .wsilo:first-child{
@@ -196,21 +198,18 @@ hr{
 .silo_fill{
     background-color: #4ebda9;
     margin-top:5px;
-    height: 120px;
+    height: 100%;
     color: #4ebda9;
     text-align: center;
     font-size: 2em;
 }
 
-h7 {
-    color: white;
-    font-size: 0.5em;
 
-}
 
 .silo_filled{
     position: relative;
     background-color: #54626d;
+    height: 120px;
 }
 
 #wsilo_filled1{
@@ -240,7 +239,7 @@ h7 {
 .wsilo_fill{
     background-color: #e14c27;
     margin-top:5px;
-    height: 120px;
+    height: 100%;
 
 }
 
@@ -370,6 +369,16 @@ h7 {
     color: white;
     height: 40px;
     font-size: 1em;
+    font-weight: 400;
+    text-align: center;
+    line-height: 20px;
+}
+
+.prime_stock{
+    background-color: #54626d;
+    color: white;
+    height: 40px;
+    font-size: 0.5em;
     font-weight: 400;
     text-align: center;
     line-height: 20px;
@@ -930,7 +939,12 @@ h7 {
 /* Dashboard mediaquery */
 
 @media screen and (max-height: 750px) {
-    .silo_fill, .wsilo_fill, .resource_number_stock.dashboard{
+    .silo_fill, .wsilo_fill {
+        height: 120px;
+        line-height: 80px;
+    }
+
+    .resource_number_stock.dashboard{
         height: 80px;
         line-height: 80px;
     }
