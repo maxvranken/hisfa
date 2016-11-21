@@ -11,7 +11,12 @@
                 <div class="silo" id="silo{{ $wastesilo->id }}">
                     <div class="silo_number">{{ $wastesilo->name }}</div>
                     <div class="silo_number">{{ $wastesilo->resource->name}}</div>
-                    <div class="wsilo_fill">
+                    <div class="wsilo_fill" style="background-color:
+                            @if ($wastesilo->percentage >= 90)
+                                red
+                            @else
+                                green
+                            @endif;">
                         <div class="silo_filled" style="height: calc(100% - {{ $wastesilo->percentage }}%);"></div>
                     </div>
 
