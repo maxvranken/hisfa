@@ -21,8 +21,12 @@
         @yield('content')
     </div>
 </div>
-<div class="menu">
+<a href="javascript:void(0)" class="closebtn" onclick="openNav()">
+    <div class="menu-text">MENU</div>
+</a>
+<div id="menu">
     <div class="menu_container">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="menu_user">
             <a href="{{ url('/profile') }}">
                 <div id="user">
