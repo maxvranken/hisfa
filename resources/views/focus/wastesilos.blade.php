@@ -14,6 +14,8 @@
                     <div class="wsilo_fill" style="background-color:
                             @if ($wastesilo->percentage >= 90)
                                 red
+                            @elseif ($wastesilo->percentage >= 60)
+                                orange
                             @else
                                 green
                             @endif;">
