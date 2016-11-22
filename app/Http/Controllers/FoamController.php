@@ -66,6 +66,7 @@ class FoamController extends Controller
             $log->object_id = Input::get('editedid');
             $log->quantity = Input::get('number');
             $log->percentage = 0.00;
+            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
             $log->save();
             return redirect('/foam/' . $block->foam_type_id);
         }else{
@@ -87,6 +88,7 @@ class FoamController extends Controller
             $log->object_id = Input::get('editedid');
             $log->quantity = Input::get('number');
             $log->percentage = 0.00;
+            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
             $log->save();
 
             return redirect('/foam/' . $block->foam_type_id);
