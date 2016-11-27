@@ -19,6 +19,50 @@ class SettingsController extends Controller
         return view('auth/register');
     }
 
+    public function users(){
+        if( Auth::user()->hasRole('admin') ) {
+            $users = \App\User::get();
+            $data['users'] = $users;
+            return view('/users', $data);
+        }
+    }
+
+    public function remove_user(){
+        $id = Input::get('id');
+        $user = \App\User::findOrFail($id);
+        if( Auth::user()->hasRole('admin') ) {
+            $user->delete();
+            return redirect('/users');
+        }
+    }
+
+    public function admin(){
+        $id = Input::get('id');
+        $user = \App\User::findOrFail($id);
+        if(Input::get('admin')) {
+            $user->assignRole('admin');
+            return redirect('/users');
+        }else{
+            $user->removeRole('admin');
+            return redirect('/users');
+        }
+    }
+
+    public function add_user(){
+        if( Auth::user()->hasRole('admin') ) {
+            $user = new User;
+            $user->name = Input::get('name');
+            $user->email = Input::get('email');
+            $user->password = bcrypt(Input::get('password'));
+            $user->save();
+            $user->givePermissionTo('view dashboard', 'view foam stock', 'view prime silos', 'view waste silos');
+
+            return redirect('/settings');
+        }else{
+            return redirect('/');
+        }
+    }
+
     public function permissions(){
         if( Auth::user()->can('change user permissions') ) {
             $users = \App\User::get();
@@ -107,21 +151,6 @@ class SettingsController extends Controller
             }
 
             return redirect('/permissions/' . $id);
-        }else{
-            return redirect('/');
-        }
-    }
-
-    public function add_user(){
-        if( Auth::user()->hasRole('admin') ) {
-            $user = new User;
-            $user->name = Input::get('name');
-            $user->email = Input::get('email');
-            $user->password = bcrypt(Input::get('password'));
-            $user->save();
-            $user->givePermissionTo('view dashboard', 'view foam stock', 'view prime silos', 'view waste silos');
-
-            return redirect('/settings');
         }else{
             return redirect('/');
         }

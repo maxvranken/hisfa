@@ -347,7 +347,6 @@ h6 {
 .stock {
     flex-direction: row;
     width: 100%;
-    height: 100%;
     margin-top: 5px;
     margin-left: 5px;
     background-color: #54626d;
@@ -990,4 +989,68 @@ input[type='file'] {
     color: transparent;
     text-align: center;
     padding: 1em;
+}
+
+.users{
+    width: 100%;
+}
+
+.users ul{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.users ul li{
+    width: 100%;
+    height: 50px;
+    background-color: #54626d;
+    margin-bottom: 6px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.users ul li .edit_this_user{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+}
+
+.users ul li p{
+    margin: 0 15px;
+    color: #fff;
+    width: 100%;
+}
+
+.users ul li button{
+    background: none;
+    outline: none;
+    border: none;
+    margin-right: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bolder;
+    color: rgb(84, 97, 107);
+}
+
+.users ul li .admin_checkbox{
+    display: flex;
+    flex-direction: row;
+    margin-right: 25px;
+}
+
+.users ul li .admin_checkbox p{
+    width: auto;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.users ul li .admin_checkbox input{
+    height: 20px;
+    width: 20px;
+    margin-top: 17px;
 }
