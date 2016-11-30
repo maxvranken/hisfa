@@ -51,6 +51,7 @@ class WasteSilosController extends Controller
             $log->object_id = Input::get('editedid');
             $log->quantity = 0.00;
             $log->percentage = Input::get('percentage');
+            $log->message = 'Changed waste '. Input::get('editedid') . ' to ' . Input::get('percentage') . ' percent';
             $log->save();
             return view('focus/wastesilos', $data, $data2);
         }else{

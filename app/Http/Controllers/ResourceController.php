@@ -87,6 +87,7 @@ class ResourceController extends Controller
         $log->object_id = Input::get('editedid');
         $log->quantity = Input::get('quantity');
         $log->percentage = 0;
+        $log->message = 'Changed resource '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' ton';
         $log->save();
         return view('focus/resources', $data); //
     }
