@@ -106,20 +106,4 @@ function materialAjax(id){
 
 function permissions(id){
     window.location.replace("/permissions/" + id);
-}
-
-$('.permission_edit').change(function(){
-    this.parent().parent().submit();
-});
-
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("menu").style.width = "300px";
-    document.getElementById("menu").style.display = "block";
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("menu").style.width = "0";
-    document.getElementById("menu").style.display = "none";
-}
+};
