@@ -92,5 +92,9 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+//REST API Calls
 Route::get('api/blocks', 'api\v1\BlocksController@index');
 Route::get('api/resources', 'api\v1\ResourceController@index');
+Route::get('api/primesilos', 'api\v1\PrimeSilosController@index');
+Route::get('api/wastesilos', 'api\v1\WasteSilosController@index');
+Route::get('api/foams', 'api\v1\FoamController@index');

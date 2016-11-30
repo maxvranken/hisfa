@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\api\v1;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class BlocksController extends Controller
+class PrimeSilosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class BlocksController extends Controller
      */
     public function index()
     {
-        return \App\Block::all();
+        return \App\PrimeSilo::all();
     }
 
     /**
@@ -37,7 +35,7 @@ class BlocksController extends Controller
      */
     public function store(Request $request)
     {
-        //\App\Block::create( $request->all() );
+        //
     }
 
     /**
