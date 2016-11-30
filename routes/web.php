@@ -69,6 +69,9 @@ Route::get('/logs', 'LogsController@index');
 
 // route naar settings
 Route::get('/settings', 'SettingsController@index');
+Route::get('/users', 'SettingsController@users');
+Route::put('/user/delete', 'SettingsController@remove_user');
+Route::put('/user/admin', 'SettingsController@admin');
 Route::get('/permissions', 'SettingsController@permissions');
 Route::get('/permissions/{id}', 'SettingsController@show');
 Route::put('/permissions/{id}', 'SettingsController@editpermissions');

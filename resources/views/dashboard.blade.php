@@ -121,7 +121,7 @@
                 @foreach($logs as $log)
                     <div class="log_log" id="log{{$log->id}}">
                         <span class="log_timestamp">{{ $log->created_at }}</span>
-                        <span class="log_text">Changed{{ ' ' . $log->data_type . ' ' . $log->object_id}}</span>
+                        <span class="log_text">{{$log->message}}</span>
                     </div>
                 @endforeach
             </div>

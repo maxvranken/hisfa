@@ -84,6 +84,7 @@ class PrimeSilosController extends Controller
             $log->object_id = Input::get('editedid');
             $log->quantity = 0.00;
             $log->percentage = Input::get('quantity');
+            $log->message = 'Changed prime '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' pcs';
             $log->save();
 
             return view('focus/primesilos', $data, $data2);

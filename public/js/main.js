@@ -109,7 +109,7 @@ function permissions(id){
 }
 
 $('.permission_edit').change(function(){
-    $('#permissions_form').submit();
+    this.parent().parent().submit();
 });
 
 /* Set the width of the side navigation to 250px */

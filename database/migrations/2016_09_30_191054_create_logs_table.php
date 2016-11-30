@@ -20,7 +20,8 @@ class CreateLogsTable extends Migration
             $table->integer('object_id');
             $table->decimal('quantity', 5, 2);
             $table->tinyInteger('percentage');
-            //$table->string('message');
+            $table->string('message');
+
             $table->timestamps();
         });
     }
