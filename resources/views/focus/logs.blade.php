@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="log_focus">
         <div class="log_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #745FA4;"></div>

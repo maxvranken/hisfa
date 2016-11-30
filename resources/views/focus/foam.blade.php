@@ -1,6 +1,7 @@
 @extends('layouts/hisfa')
 
 @section('content')
+
     <div class="material focus">
         <div class="material_loader"></div>
         <div class="material_title">

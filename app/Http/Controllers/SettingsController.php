@@ -28,12 +28,18 @@ class SettingsController extends Controller
     }
 
     public function remove_user(){
-        $id = Input::get('id');
-        $user = \App\User::findOrFail($id);
-        if( Auth::user()->hasRole('admin') ) {
-            $user->delete();
-            return redirect('/users');
+        try {
+            $id = Input::get('id');
+            $user = \App\User::findOrFail($id);
+            if( Auth::user()->hasRole('admin') ) {
+                $user->delete();
+                return redirect('/users');
+            }
+            \Session::flash('flash_message', 'The user has been removed');
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
         }
+
     }
 
     public function admin(){

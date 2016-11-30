@@ -1,0 +1,18 @@
+.alert_success {
+    background-color: #4ebda9;
+    color: #0d3625;
+    border: 1px solid #0d3625;
+    border-radius: 7px;
+    width: 100%;
+    height: 5%;
+    padding: 2%;
+    margin-bottom: 0px;
+}
+
+.alert_error {
+    background-color: #ce8382;
+    color: #880000;
+    border: 1px solid #880000;
+    border-radius: 7px;
+    width: 100%;
+}
