@@ -1,78 +1,67 @@
-<!-- hier komt de basic layout die op de meeste pagina's terugkomt -->
 <!doctype html>
 <html lang="en">
-<head>
-    <title>Hisfa</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/manage.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/prime.css') }}">
-    <script src="{{ URL::asset('js/jquery.min.js') }}" defer></script>
-    <script src="{{ URL::asset('js/dragscroll.js') }}" defer></script>
-    <script src="{{ URL::asset('js/app.js') }}" defer></script>
-    <script src="{{ URL::asset('js/main.js') }}" defer></script>
-</head>
-<body>
-<div class="dash">
-    <div class="dash_container">
-        @yield('content')
-    </div>
-</div>
-<div class="menu">
-    <div class="menu_container">
-        <div class="menu_user">
-            <a href="{{ url('/profile') }}">
-                <div id="user">
-                    <img src="/uploads/avatars/{{Auth::user()->avatar}}" id="profileimage">
-                    <p>{{ Auth::user()->name }}</p>
-                </div>
-            </a>
-        </div>
-        <hr>
-        <div class="menu_navlist">
-            @if( Auth::user()->can('view dashboard') )
-                <div class="nav_item">
-                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #00db4c;"></div>
-                    <a href="{{ url('/') }}" class="nav_title">Dashboard</a>
-                </div>
-            @endif
-            @if( Auth::user()->can('view prime silos') )
-                <div class="nav_item">
-                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
-                    <a href="{{ url('/primesilos') }}" class="nav_title">Primesilo's</a>
-                </div>
-            @endif
-            @if( Auth::user()->can('view waste silos') )
-                <div class="nav_item">
-                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
-                    <a href="{{ url('/wastesilos') }}" class="nav_title">Wastesilo's</a>
-                </div>
-            @endif
-            @if( Auth::user()->can('view foam stock') )
-                <div class="nav_item">
-                    <div class="nav_dot" style="width: 10px; height: 10px; background-color: #eddb48;"></div>
-                    <a href="{{ url('/foam') }}" class="nav_title">Foam stock</a>
-                </div>
-            @endif
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: #2389ce;"></div>
-                <a href="{{ url('/resources') }}" class="nav_title">Resources</a>
-            </div>
-            <div class="nav_item">
-                <div class="nav_dot" style="width: 10px; height: 10px; background-color: purple;"></div>
-                <a href="{{ url('/logs') }}" class="nav_title">Logs</a>
-            </div>
-        </div>
-        <hr>
-        <div class="settings">
-            <a href="{{ url('/settings') }}" class="settings_link"><span></span>Settings</a>
-        </div>
+    <head>
+        <title>Hisfa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ URL::asset('css/normalize.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+        <script src="{{ URL::asset('js/jquery.min.js') }}" defer></script>
+        <script src="{{ URL::asset('js/dragscroll.js') }}" defer></script>
+        <script src="{{ URL::asset('js/main.js') }}" defer></script>
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="{{ url('/') }}"></a>
+            <div class="nav_button"><span></span><span></span><span></span></div>
+        </header>
 
-    </div>
+        <main>
+            @yield('content')
+        </main>
 
-</div>
-</body>
+        <nav>
+            <ul>
+                <li class="profile_link">
+                    <a href="{{ url('/profile') }}"><img src="/uploads/avatars/{{Auth::user()->avatar}}" id="profileimage"><span>{{ Auth::user()->name }}</span></a>
+                </li>
+
+                @if( Auth::user()->can('view dashboard') )
+                <li>
+                    <a href="{{ url('/') }}" class="nav_title"><span class="dot green"></span>Dashboard</a>
+                </li>
+                @endif
+
+                @if( Auth::user()->can('view prime silos') )
+                <li>
+                    <a href="{{ url('/primesilos') }}" class="nav_title"><span class="dot bluegreen"></span>Primesilo's</a>
+                </li>
+                @endif
+
+                @if( Auth::user()->can('view waste silos') )
+                <li>
+                    <a href="{{ url('/wastesilos') }}" class="nav_title"><span class="dot orange"></span>Wastesilo's</a>
+                </li>
+                @endif
+
+                @if( Auth::user()->can('view foam stock') )
+                <li>
+                    <a href="{{ url('/foam') }}" class="nav_title"><span class="dot yellow"></span>Foam stock</a>
+                </li>
+                @endif
+
+                <li>
+                    <a href="{{ url('/resources') }}" class="nav_title"><span class="dot blue"></span>Resources</a>
+                </li>
+
+                <li>
+                    <a href="{{ url('/logs') }}" class="nav_title"><span class="dot purple"></span>Logs</a>
+                </li>
+
+                <li class="settings_link">
+                    <a href="{{ url('/settings') }}" class="settings_link"><span></span>Settings</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
 </html>

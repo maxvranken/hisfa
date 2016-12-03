@@ -1,5 +1,55 @@
+var menu = false;
+var scrollTimeout = false;
+
 $(function(){
-    if(!$('.dashboard .material_scroll').is(":visible")){
+    $('.nav_button').click(function(){
+        if(!menu) {
+            menu = true;
+            if (document.documentElement.clientWidth > 481) {
+                $('main').css('left', '-300px');
+                $('main').css('pointerEvents', 'none');
+                $('header').css('left', '-300px');
+                $('nav').css('left', 'calc(100% - 300px)');
+            }else{
+                $('main').css('left', 'calc(-100% + 80px)');
+                $('main').css('pointerEvents', 'none');
+                $('header').css('left', 'calc(-100% + 80px)');
+                $('nav').css('left', '80px');
+            }
+        }else {
+            menu = false;
+            $('main').css('left', '0');
+            $('main').css('pointerEvents', 'auto');
+            $('header').css('left', '0');
+            $('nav').css('left', '100%')
+        }
+    });
+
+    $('.nav_button').click(function () {
+        $(this).toggleClass('open');
+    });
+
+    $("section.foam_stock .scroll").scroll(function(){
+        $("section.foam_stock .blocks")
+            .scrollLeft($("section.foam_stock .scroll").scrollLeft());
+    });
+    $("section.foam_stock .blocks").scroll(function(){
+        $("section.foam_stock .scroll")
+            .scrollLeft($("section.foam_stock .blocks").scrollLeft());
+    });
+
+    if ($("section.foam_stock .blocks").length !== 0) {
+        var scroll_width = document.getElementById('blocks').scrollWidth;
+        $('section.foam_stock .scroll span').css('width', scroll_width);
+        setTimeout(function () {
+            var scroll_width = document.getElementById('blocks').scrollWidth;
+            $('section.foam_stock .scroll span').css('width', scroll_width);
+        }, 150);
+    };
+
+    /////////////////////////////////////
+
+    if(!$('section.foam_stock .scroll').is(':visible')){
         $('.dashboard  .material_data').css('cursor', 'initial');
         $('.dashboard  .number_stock').css('height', '76px');
         $('.dashboard  .number_stock').css('line-height', '80px');
@@ -12,30 +62,43 @@ $(function(){
     }).blur(function(){
         $(this).attr('placeholder',$(this).data('placeholder'));
     });
-
-    $(".dashboard  .material_scroll").scroll(function(){
-        $(".dashboard  .material_data")
-            .scrollLeft($(".dashboard  .material_scroll").scrollLeft());
-    });
-    $(".dashboard  .material_data").scroll(function(){
-        $(".dashboard  .material_scroll")
-            .scrollLeft($(".dashboard  .material_data").scrollLeft());
-    });
-
-    if ($("#material_data").length !== 0) {
-        var scroll_width = document.getElementById('material_data').scrollWidth;
-        $('.material_scroll div').css('width', scroll_width);
-        setTimeout(function () {
-            var scroll_width = document.getElementById('material_data').scrollWidth;
-            $('.dashboard  .material_scroll div').css('width', scroll_width);
-        }, 150);
-    };
 });
 
 $( window ).resize(function() {
-    if ($("#material_data").length !== 0) {
-    var scroll_width = document.getElementById('material_data').scrollWidth;
-    $('.dashboard  .material_scroll div').css('width', scroll_width);
+
+    if(parseInt($('main').css('left')) == 0){
+        menu = false;
+        $('.nav_button').removeClass('open');
+    }
+
+    $('nav').css('transition', 'none');
+    $('header').css('transition', 'none');
+    $('main').css('transition', 'none');
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(function () {
+        $('nav').css('transition', 'left 1s ease-out');
+        $('header').css('transition', 'left 1s ease-out');
+        $('main').css('transition', 'left 1s ease-out');
+    }, 500);
+
+    if(document.documentElement.clientWidth < 1350){
+        $('nav').css('width', '300px');
+        $('nav').css('width', '400px');
+        $('main').css('left', '0');
+        $('main').css('pointerEvents', 'auto');
+        $('header').css('left', '0');
+        $('nav').css('left', '100%');
+    }else{
+        $('nav').css('left', 'calc(100% - 400px)');
+    }
+
+    /////////////////////////////////////
+
+    if ($("section.foam_stock .blocks").length !== 0) {
+    var scroll_width = document.getElementById('blocks').scrollWidth;
+    $('section.foam_stock .scroll span').css('width', scroll_width);
     };
 });
 
@@ -47,10 +110,10 @@ $('.show_drop').click(function(){
     }
 });
 
-$('.dashboard .drop li').click(function(){
+$('.drop li').click(function(){
     $('.drop').css('display', 'none');
     var name = $(this).text();
-    $('.selected_foamtype').text(name);
+    $('.selected').text(name);
     var id = $(this).val();
     materialAjax(id);
 });
