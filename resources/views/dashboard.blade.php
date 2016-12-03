@@ -6,11 +6,13 @@
         <ul>
             @foreach($primes as $key=>$primesilo)
                 <li id="silo{{ $key+1 }}">
-                    <p>{{ $key+1 }}</p>
-                    <p>{{ $primesilo->resource->name }}</p>
+                    <p class="name">{{ $primesilo->resource->name }}</p>
                     <div class="silo_filled">
-                        <p>{{ $primesilo->quantity }} ton</p>
-                        <p class='number'>{{round(1.03 * 1.29 * 1 * $primesilo->quantity, 1)}} m³</p>
+                        <p>
+                            <span>{{ $primesilo->quantity }} <span>ton</span></span>
+                            <span>{{round(1.03 * 1.29 * 1 * $primesilo->quantity, 1)}} m³</span>
+                        </p>
+                        <p>{{ $key+1 }}</p>
                     </div>
                 </li>
             @endforeach
@@ -20,10 +22,14 @@
     <section class="waste_silos">
         <a href="{{ url('/wastesilos') }}" class="title"><span class="dot orange"></span>Wastesilo's</a>
         <ul>
-            @foreach($wastes as $waste)
+            @foreach($wastes as $key=>$waste)
                 <li id="wsilo{{ $waste->id }}">
-                    <p>{{ $waste->name }}</p>
-                    <div style="height: {{ 100-$waste->percentage }}%;"></div>
+                    <p class="name">{{ $waste->resource->name }}</p>
+                    <div>
+                        <span class="status" style="height: {{ $waste->percentage }}%;"></span>
+                        @if($waste->percentage >= 90) <span class="almost-full"></span> @endif
+                        <p>{{ $key+1 }}</p>
+                    </div>
                 </li>
             @endforeach
         </ul>
@@ -41,12 +47,16 @@
             </ul>
         </div>
         <span class="scroll"><span></span></span>
-        <ul class="blocks" id="blocks">
+        <ul class="blocks dragscroll" id="blocks">
             @foreach($blocks as $key=>$block)
                 <li>
-                    <p>{{ $block->length }}<span>m</span></p>
-                    <p>{{ $block->quantity }}<span>pc</span></p>
-                    <p>{{round(1.03 * 1.29 * $block->length * $block->quantity, 1)}}<span>m³</span></p>
+                    <p class="name">{{ $block->length }}<span>m</span></p>
+                    <div>
+                        <p>
+                            <span><span>x</span>{{ $block->quantity }}</span>
+                            <span>{{round(1.03 * 1.29 * $block->length * $block->quantity, 1)}}m³</span>
+                        </p>
+                    </div>
                 </li>
             @endforeach
         </ul>
@@ -68,8 +78,8 @@
         <ul>
             @foreach($resources as $resource)
                 <li id="resource{{ $resource->id }}">
-                    <p>{{ $resource->name }}</p>
-                    <p>{{ $resource->quantity }}<span>ton</span></p>
+                    <p class="name">{{ $resource->name }}</p>
+                    <p>{{ $resource->quantity }}<span> ton</span></p>
                 </li>
             @endforeach
         </ul>
