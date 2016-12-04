@@ -1,268 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Roboto:900');
-
-/* GLOBAL CSS */
-
-a{
-    text-decoration: none;
-    color: #000;
-}
-
-ul{
-    list-style-type: none;
-}
-
-input, button{
-    border: none;
-    outline: none;
-}
-
-html{
-    font-family: "Lato";
-    height: 100%;
-}
-
-body{
-    position: absolute;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-}
-
-.dot{
-    display: block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 15px 0 10px;
-    background-color: #000;
-}
-
-.dot.green{
-    background-color: #00db4c;
-}
-
-.dot.bluegreen{
-    background-color: #4ebda9;
-}
-
-.dot.orange{
-    background-color: #e18b5c;
-}
-
-.dot.yellow{
-    background-color: #eddb48;
-}
-
-.dot.blue{
-    background-color: #5aa4ce;
-}
-
-.dot.purple{
-    background-color: #7d4080;
-}
-
-.dot.white{
-    background-color: #fff;
-}
-
-/* SHARED LAYOUT (NAV, HEADER, MAIN) */
-
-header{
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 75px;
-    transition: left 1s ease-out;
-}
-
-header .logo{
-    display: block;
-    width: 150px;
-    height: 40px;
-    margin: 17px 10px;
-    background-image: url(../img/hisfaname.png);
-    background-size: 100% auto;
-    background-position: center;
-    opacity: 0.6;
-}
-
-header .nav_button{
-    width: 50px;
-    height: 100%;
-    float: right;
-    position: relative;
-    margin-top: 15px;
-    margin-right: 7px;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
-    cursor: pointer;
-    overflow: hidden;
-    opacity: 0.5;
-}
-
-header .nav_button span{
-    position: absolute;
-    display: block;
-    left: 0;
-    float: right;
-    height: 7px;
-    width: 45px;
-    background: #000;
-    opacity: 1;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-}
-
-header .nav_button span:nth-child(1){
-    top: 0px;
-}
-
-header .nav_button span:nth-child(2){
-    top: 18px;
-}
-
-header .nav_button span:nth-child(3){
-    top: 36px;
-}
-
-header .nav_button.open span:nth-child(1){
-    top: 16px;
-    transform: rotate(135deg);
-}
-
-header .nav_button.open span:nth-child(2){
-    opacity: 0;
-    left: 60px;
-}
-
-header .nav_button.open span:nth-child(3){
-    top: 16px;
-    transform: rotate(-135deg);
-}
-
-nav{
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: calc(100% - 80px);
-    transition: left 1s ease-out;
-    background-color: #d4d4d4;
-}
-
-nav ul{
-    display: flex;
-    flex-direction: column;
-}
-
-nav ul li{
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-}
-
-nav ul li a{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    line-height: 50px;
-    margin: 5px 15px;
-    font-size: 1.2em;
-    color: #2F2F2F;
-}
-
-nav ul li a:hover{
-    background-color: #b0b0b0;
-}
-
-nav .profile_link{
-    height: 75px;
-}
-
-nav .profile_link a{
-    border-bottom: 2px solid #454545;
-    color: #454545;
-    padding: 5px 0 10px 0;
-    height: 50px;
-}
-
-nav .profile_link a:hover{
-    background: none;
-}
-
-nav .profile_link img{
-    height: 40px;
-    width: 40px;
-    margin-top: 5px;
-    border-radius: 50%;
-}
-
-nav .profile_link span{
-    display: block;
-    height: 50px;
-    margin-left: 10px;
-    line-height: 50px;
-    font-size: 1.3em;
-    font-weight: bolder;
-}
-
-nav .settings_link{
-    border-top: 2px solid #454545;
-    margin: 15px;
-}
-
-nav .settings_link a{
-    border: none;
-    margin: 10px 0;
-}
-
-nav .settings_link span{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
-    height: 20px;
-    width: 20px;
-    margin: 0px 10px;
-    background-image: url(../img/settings-icon.png);
-    background-size: cover;
-}
-
-main{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    bottom: 0;
-    height: calc(100% - 90px);
-    width: calc(100% - 30px);
-    margin: 10px;
-    padding: 5px 4px 5px 5px;
-    background-color: rgba(141, 144, 148, 0.35);
-    overflow-y: auto;
-    transition: left 1s ease-out;
-}
-
-main::-webkit-scrollbar {
-    width: 12px;
-}
-
-main::-webkit-scrollbar-track {
-    background-color: rgba(122, 136, 145, 0.3);
-}
-
-main::-webkit-scrollbar-thumb {
-    background-color: rgba(7, 8, 12, 0.3);
-}
-
 /* DASHBOARD SHARED CODE*/
 
 .title{
@@ -374,6 +109,7 @@ section.foam_stock .title ul{
 
 section.foam_stock .title ul li{
     width: calc(100% - 5px);
+    height: 70px;
     margin: 0;
     padding: 5px 0;
     background-color: #fff;
@@ -561,11 +297,6 @@ section.resources ul li p:last-child span{
 /* MEDIA QUERIES */
 
 @media (min-width:481px){
-    /* SHARED LAYOUT (NAV, HEADER, MAIN) */
-    nav{
-        width: 300px;
-    }
-
     /* DASHBOARD SHARED CODE*/
     section ul li{
         width: calc(33.33% - 2.5px);
@@ -591,13 +322,6 @@ section.resources ul li p:last-child span{
 }
 
 @media (min-width: 920px)  {
-    /* SHARED LAYOUT (NAV, HEADER, MAIN) */
-    main{
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-content: flex-start;
-    }
-
     /* DASHBOARD SECTION SPECIFIC*/
     section.prime_silos{
         width: calc(66% - 10px);
@@ -652,11 +376,13 @@ section.resources ul li p:last-child span{
     }
 
     /* MAKING IT SCALING ON ALL SCREEN HEIGHTS*/
-
     @media screen and (min-height: 670px) {
         section .title{
             height: 50px;
             line-height: 48px;
+        }
+        section.foam_stock .title ul{
+            top: 50px;
         }
     }
 
@@ -665,12 +391,18 @@ section.resources ul li p:last-child span{
             height: 60px;
             line-height: 58px;
         }
+        section.foam_stock .title ul{
+            top: 60px;
+        }
     }
 
     @media screen and (min-height: 730px) {
         section .title{
             height: 70px;
             line-height: 68px;
+        }
+        section.foam_stock .title ul{
+            top: 70px;
         }
     }
 
@@ -693,6 +425,9 @@ section.resources ul li p:last-child span{
             height: 80px;
             line-height: 78px;
         }
+        section.foam_stock .title ul{
+            top: 80px;
+        }
     }
 
     @media screen and (min-height: 850px) {
@@ -708,25 +443,14 @@ section.resources ul li p:last-child span{
 }
 
 @media (min-width: 1350px) {
-    /* SHARED LAYOUT (NAV, HEADER, MAIN) */
-    header{
-        display: none;
-    }
-    nav{
-        width: 400px;
-        left: calc(100% - 400px);
-    }
-    main{
-        width: calc(100% - 429px);
-        height: calc(100% - 30px);
-    }
-
     /* MAKING IT SCALING ON ALL SCREEN HEIGHTS*/
-
     @media screen and (min-height: 620px) {
         section .title{
             height: 50px;
             line-height: 48px;
+        }
+        section.foam_stock .title ul{
+            top: 50px;
         }
     }
 
@@ -735,6 +459,9 @@ section.resources ul li p:last-child span{
             height: 60px;
             line-height: 58px;
         }
+        section.foam_stock .title ul{
+            top: 60px;
+        }
     }
 
     @media screen and (min-height: 680px) {
@@ -742,11 +469,12 @@ section.resources ul li p:last-child span{
             height: 70px;
             line-height: 68px;
         }
-
+        section.foam_stock .title ul{
+            top: 70px;
+        }
         section a.title{
             font-size: 1.2rem;
         }
-
         section .title a{
             font-size: 1.2rem;
         }
@@ -770,6 +498,9 @@ section.resources ul li p:last-child span{
         section .title{
             height: 80px;
             line-height: 78px;
+        }
+        section.foam_stock .title ul{
+            top: 80px;
         }
     }
 
@@ -795,7 +526,7 @@ section.resources ul li p:last-child span{
             min-height: 52.4px;
             line-height: 52.4px;
         }
-        .dot{
+        section .dot{
             margin: 0 15px 0 20px;
         }
         section.prime_silos ul li div p:last-child,

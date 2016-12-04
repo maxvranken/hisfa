@@ -1,5 +1,9 @@
 @extends('layouts/hisfa')
 
+@section('assets')
+    <link rel="stylesheet" href="{{ URL::asset('css/dashboard.css') }}">
+@endsection
+
 @section('content')
     <section class="prime_silos">
         <a href="{{ url('/primesilos') }}" class="title"><span class="dot bluegreen"></span>Primesilo's</a>
@@ -40,7 +44,7 @@
             <a href="{{ url('/foam') }}"><span class="dot yellow"></span>Foam stock</a>
             <p class="selected">{{$foamtypes->first()->name}}</p>
             <button class="show_drop"></button>
-            <ul class="drop">
+            <ul class="drop dragscroll">
                 @foreach($foamtypes as $foamtype)
                     <li value="{{$foamtype->id}}"> {{$foamtype->name}} </li>
                 @endforeach

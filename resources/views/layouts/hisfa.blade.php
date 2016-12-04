@@ -5,10 +5,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ URL::asset('css/normalize.min.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/global.css') }}">
         <script src="{{ URL::asset('js/jquery.min.js') }}" defer></script>
         <script src="{{ URL::asset('js/dragscroll.js') }}" defer></script>
         <script src="{{ URL::asset('js/main.js') }}" defer></script>
+        @yield('assets')
     </head>
     <body>
         <header>
