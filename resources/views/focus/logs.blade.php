@@ -1,5 +1,9 @@
 @extends('layouts/hisfa')
 
+@section('assets')
+    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+@endsection
+
 @section('content')
 
     <div class="log_focus">

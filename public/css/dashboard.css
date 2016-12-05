@@ -10,7 +10,12 @@ section{
 
 section .title{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     width: 100%;
     height: 40px;
@@ -25,9 +30,17 @@ section:first-child .title{
 }
 
 section ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -52,11 +65,15 @@ section ul li p{
 /* DASHBOARD SECTION SPECIFIC*/
 
 section.waste_silos ul li:last-child, section.resources ul li:last-child{
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
     min-width: calc(50% - 2.5px);
 }
 
 section.logs{
+    -webkit-box-ordinal-group: 6;
+    -ms-flex-order: 5;
     order: 5;
 }
 
@@ -71,6 +88,8 @@ section.logs ul li{
 
 section.foam_stock .title a{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 100%;
     margin: 0;
@@ -138,7 +157,11 @@ section.foam_stock .title ul::-webkit-scrollbar-thumb {
 section.foam_stock .blocks{
     position: relative;
     overflow-x: hidden;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
     cursor: -webkit-grab;
 }
@@ -201,6 +224,7 @@ section.prime_silos ul li div p:first-child,
 section.foam_stock ul li div p:first-child{
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100%;
 }
@@ -305,10 +329,14 @@ section.resources ul li p:last-child span{
 
     /* DASHBOARD SECTION SPECIFIC*/
     section.waste_silos ul li:last-child{
+        -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
         flex-grow: 0;
         min-width: calc(33.33% - 2.5px);
     }
     section.resources ul li:nth-child(4), section.resources ul li:last-child{
+        -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
         flex-grow: 0;
         width: calc(50% - 2.5px);
     }
@@ -343,10 +371,13 @@ section.resources ul li p:last-child span{
 
     section.resources{
         width: 100%;
+        -webkit-box-ordinal-group: 6;
+        -ms-flex-order: 5;
         order: 5;
     }
 
     section.prime_silos ul li{
+        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
         width: calc(16.667% - 2.5px);
         margin-right: 2.5px;
@@ -361,6 +392,7 @@ section.resources ul li p:last-child span{
     }
 
     section.resources ul li{
+        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
         width: calc(20% - 2.5px);
         margin-right: 2.5px;

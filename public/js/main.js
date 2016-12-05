@@ -5,6 +5,7 @@ $(function(){
     $('.nav_button').click(function(){
         if(!menu) {
             menu = true;
+            $('nav').css('display', 'block');
             if (document.documentElement.clientWidth > 481) {
                 $('main').css('left', '-300px');
                 $('main').css('pointerEvents', 'none');
@@ -22,6 +23,9 @@ $(function(){
             $('main').css('pointerEvents', 'auto');
             $('header').css('left', '0');
             $('nav').css('left', '100%')
+            scrollTimeout = setTimeout(function () {
+                $('nav').css('display', 'none')
+            }, 1000);
         }
     });
 
