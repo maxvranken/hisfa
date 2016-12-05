@@ -26,6 +26,9 @@
             <div class="alert_success">{{ Session::get('flash_message') }}<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
 
         @endif
+        @if (Session::has('flash_error'))
+                <div class="alert_error">{{ Session::get('flash_error') }}<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+            @endif
 
         @yield('content')
     </div>

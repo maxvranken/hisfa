@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use App\Notifications\PrimeSilo90Notification;
 use Carbon\Carbon;
+use App\Exceptions\Handler;
 
 use App\Http\Requests;
 use Mockery\CountValidator\Exception;
@@ -51,6 +52,7 @@ class PrimeSilosController extends Controller
     {
         try{
             if(Auth::user()->can('edit prime silos')) {
+
                 // add primesilo
                 $prime = new PrimeSilo;
                 $prime->resource_id = Input::get('resourceid');
@@ -75,34 +77,39 @@ class PrimeSilosController extends Controller
     {
         try{
             if(Auth::user()->can('edit prime silos')) {
-                // edit resource
-                $prime = \App\PrimeSilo::findOrFail(Input::get('editedid'));
-                $prime->quantity = Input::get('quantity');
-                $prime->save();
+                if(Input::get('editedid') == ""){
+                    \Session::flash('flash_error', "Quantity number empty");
+                } else {
+                    // edit resource
+                    $prime = \App\PrimeSilo::findOrFail(Input::get('editedid'));
+                    $prime->quantity = Input::get('quantity');
+                    $prime->save();
 
-                if ($prime->quantity >= 90) {
-                    $post = $prime->id;
-                    $post2 = $prime->resource->name;
-                    $post3 = $prime->quantity;
-                    $user = Auth::user();
-                    $user->notify(new PrimeSilo90Notification($post, $post2, $post3));
+                    if ($prime->quantity >= 90) {
+                        $post = $prime->id;
+                        $post2 = $prime->resource->name;
+                        $post3 = $prime->quantity;
+                        $user = Auth::user();
+                        $user->notify(new PrimeSilo90Notification($post, $post2, $post3));
+                    }
+
+                    $prime = \App\PrimeSilo::All();
+                    $data['primesilos'] = $prime;
+                    $resources = \App\Resource::All();
+                    $data2['resources'] = $resources;
+                    $date = date('Y-m-d H:i:s');
+                    $log = new Log;
+                    $log->date = $date;
+                    $log->data_type = 'prime';
+                    $log->object_id = Input::get('editedid');
+                    $log->quantity = 0.00;
+                    $log->percentage = Input::get('quantity');
+                    $log->message = 'Changed prime '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' pcs';
+                    $log->save();
+                    \Session::flash('flash_message', 'The prime silo quantity has been changed');
+                    return view('focus/primesilos', $data, $data2);
                 }
 
-                $prime = \App\PrimeSilo::All();
-                $data['primesilos'] = $prime;
-                $resources = \App\Resource::All();
-                $data2['resources'] = $resources;
-                $date = date('Y-m-d H:i:s');
-                $log = new Log;
-                $log->date = $date;
-                $log->data_type = 'prime';
-                $log->object_id = Input::get('editedid');
-                $log->quantity = 0.00;
-                $log->percentage = Input::get('quantity');
-                $log->message = 'Changed prime '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' pcs';
-                $log->save();
-                \Session::flash('flash_message', 'The prime silo quantity has been changed');
-                return view('focus/primesilos', $data, $data2);
 
             }else{
                 return redirect('/');
@@ -187,5 +194,15 @@ class PrimeSilosController extends Controller
 
 
 
+    }
+
+    public function report(Exception $exception)
+    {
+        if ($exception instanceof CustomException) {
+            //
+            \Session::flash('flash_error', $exception);
+        }
+
+        return parent::report($exception);
     }
 }
