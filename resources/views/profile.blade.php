@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('assets')
+    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

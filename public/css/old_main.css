@@ -4,16 +4,8 @@ html {
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    background-image: url('../img/hisfa_bg_blur.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /*background: #00db4c;
-    background: -webkit-linear-gradient(bottom left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
-    background: -o-linear-gradient(top left, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
-    background: linear-gradient(to bottom right, #00db4c 11%, #009ec3 55%, #009ec3 74%, #e0dc69 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00db4c', endColorstr='#e0dc69',GradientType=1 ); */
 }
+
 body {
     /*position: relative;*/
 
@@ -32,49 +24,13 @@ hr{
     text-decoration: none !important;
 }
 
-.menu-text {
-    display: block;
-    font-size: 0.5em;
-    background-color: white;
-
-}
-
-.menuicon:first-child{
-    margin-top: 15px;
-}
-
-.menuicon{
-    width: 28px;
-    height: 6px;
-    background-color: #54626d;
-    margin: 6px 0;
-}
-
-.closebtn{
-    color: #54626d;
-    text-decoration: none;
-    font-size: 3em;
-
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
-
-#menu{
-    display: none;
-
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
+.menu{
     background-color: #ccc;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-
-
+    width: 20%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
     font-weight: 600;
     color: #454545;
 
@@ -82,13 +38,13 @@ hr{
 
 
 
-/*.menu_container{
+.menu_container{
     margin-top: 20px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 
-}*/
+}
 
 #user p{
     font-size: 1.6em;
@@ -99,12 +55,6 @@ hr{
 
 .menu_user a{
     color: inherit;
-}
-
-#profileimage{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
 }
 
 .nav_item{
@@ -131,26 +81,9 @@ hr{
     color: #2F2F2F;
 }
 
-.settings_link{
-    display: flex;
-    text-decoration: none;
-    color: #454545;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.settings_link span{
-    display: block;
-    height: 20px;
-    width: 20px;
-    margin: 2px 12px 0 7px;
-    background-image: url("../img/settings-icon.png");
-    background-size: cover;
-}
-
 .dash{
     position: absolute;
-    width: 96%;
+    width: 75%;
     height: 95%;
     margin: 0 2%;
     min-height: 100%;
@@ -230,6 +163,7 @@ hr{
 
 
 .silo_fill{
+    background-color: #4ebda9;
     margin-top:5px;
     height: 120px;
     color: #4ebda9;
@@ -237,7 +171,7 @@ hr{
     font-size: 2em;
 }
 
-h6 {
+h7 {
     color: white;
     font-size: 0.5em;
 
@@ -355,9 +289,8 @@ h6 {
 .stockres {
     flex-direction: row;
     width: 100%;
-
-    margin-top: 250px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
     background-color: #54626d;
 }
 
@@ -961,30 +894,6 @@ h6 {
     color: #fff;
 }
 
-/* Dashboard mediaquery */
-
-@media screen and (max-height: 750px) {
-    .silo_fill, .wsilo_fill, .resource_number_stock.dashboard{
-        height: 80px;
-        line-height: 80px;
-    }
-    .dash_container {
-        min-height: 635px;
-    }
-}
-
-@media screen and (max-height: 850px) {
-    .prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
-        margin: 0;
-    }
-    .material_loader{
-        top: 38px;
-    }
-    .dash_container {
-        min-height: 550px;
-    }
-}
-
 input[type='file'] {
     color: transparent;
     text-align: center;
@@ -1053,4 +962,32 @@ input[type='file'] {
     height: 20px;
     width: 20px;
     margin-top: 17px;
+}
+
+/* Mediaquery */
+
+@media screen and (max-height: 750px) {
+    .silo_fill, .wsilo_fill, .resource_number_stock.dashboard{
+        height: 80px;
+        line-height: 80px;
+    }
+    .dash_container {
+        min-height: 635px;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    .prime_title a, .waste_title a, .material_title a, .log_title a, .resource_title a{
+        margin: 0;
+    }
+    .material_loader{
+        top: 38px;
+    }
+    .dash_container {
+        min-height: 550px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
 }

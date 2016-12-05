@@ -1,5 +1,9 @@
 @extends('layouts/hisfa')
 
+@section('assets')
+    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+@endsection
+
 @section('content')
     <div class="permissions">
         <div class="material_title"><div class="title_dot" style="width: 10px; height: 10px; background-color: #FFF; margin-top: 3px"></div><p>Permissions of non admin users</p></div>
