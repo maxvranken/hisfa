@@ -43,135 +43,182 @@ class ResourceController extends Controller
 
     public function addresource()
     {
-        // add resource
-        $resource = new Resource;
-        $resource->name = Input::get('resourcename');
-        $resource->quantity = Input::get('resourceqnty');
-        $resource->save();
+        try {
+            // add resource
+            $resource = new Resource;
+            $resource->name = Input::get('resourcename');
+            $resource->quantity = Input::get('resourceqnty');
+            $resource->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        $post = $resource->name;
-        $user = Auth::user();
-        $user->notify(new AddResourceNotification($post));
-        return view('focus/resources', $data);
+            $resources = \App\Resource::All();
+            $data['resources'] = $resources;
+            $post = $resource->name;
+            $user = Auth::user();
+            $user->notify(new AddResourceNotification($post));
+            \Session::flash('flash_message', 'The resource has been added');
+            return view('focus/resources', $data);
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
 
 
     }
 
     public function editresource()
     {
-        // edit resource
-        $resource = \App\Resource::findOrFail(Input::get('editedid'));
-        $resource->name = Input::get('resourcename');
-        $resource->save();
+        try {
+            // edit resource
+            $resource = \App\Resource::findOrFail(Input::get('editedid'));
+            $resource->name = Input::get('resourcename');
+            $resource->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        return view('focus/resources', $data); //
+            $resources = \App\Resource::All();
+            $data['resources'] = $resources;
+            \Session::flash('flash_message', 'The resource has been edited');
+            return view('focus/resources', $data); //
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
     }
     
     public function editquantity()
     {
-        // edit resource
-        $resource = \App\Resource::findOrFail(Input::get('editedid'));
-        $resource->quantity = Input::get('quantity');
-        $resource->save();
+        try {
+            // edit resource
+            $resource = \App\Resource::findOrFail(Input::get('editedid'));
+            $resource->quantity = Input::get('quantity');
+            $resource->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        $date = date('Y-m-d H:i:s');
-        $log = new Log;
-        $log->date = $date;
-        $log->data_type = 'resource';
-        $log->object_id = Input::get('editedid');
-        $log->quantity = Input::get('quantity');
-        $log->percentage = 0;
-        $log->message = 'Changed resource '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' ton';
-        $log->save();
-        return view('focus/resources', $data); //
+            $resources = \App\Resource::All();
+            $data['resources'] = $resources;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'resource';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('quantity');
+            $log->percentage = 0;
+            $log->message = 'Changed resource '. Input::get('editedid') . ' to ' . Input::get('quantity') . ' ton';
+            $log->save();
+            \Session::flash('flash_message', 'The resource quantity has been changed');
+            return view('focus/resources', $data); //
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
     }
 
     public function editquantityplus()
     {
-        // edit resource
-        $resource = \App\Resource::findOrFail(Input::get('editedid'));
-        $resource->quantity = Input::get('editedqnty') + 1;
-        $resource->save();
+        try {
+            // edit resource
+            $resource = \App\Resource::findOrFail(Input::get('editedid'));
+            $resource->quantity = Input::get('editedqnty') + 1;
+            $resource->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        $date = date('Y-m-d H:i:s');
-        $log = new Log;
-        $log->date = $date;
-        $log->data_type = 'resource';
-        $log->object_id = Input::get('editedid');
-        $log->quantity = Input::get('editedqnty') + 1;
-        $log->percentage = 0;
-        $log->save();
-        return view('focus/resources', $data); //
+            $resources = \App\Resource::All();
+            $data['resources'] = $resources;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'resource';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('editedqnty') + 1;
+            $log->percentage = 0;
+            $log->save();
+            \Session::flash('flash_message', 'The resource quantity has been changed');
+            return view('focus/resources', $data); //
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
     }
 
     public function editquantityminus()
     {
-        // edit resource
-        $resource = \App\Resource::findOrFail(Input::get('editedid'));
-        $resource->quantity = Input::get('editedqnty') - 1;
-        $resource->save();
+        try {
+            // edit resource
+            $resource = \App\Resource::findOrFail(Input::get('editedid'));
+            $resource->quantity = Input::get('editedqnty') - 1;
+            $resource->save();
 
-        $resources = \App\Resource::All();
-        $data['resources'] = $resources;
-        $date = date('Y-m-d H:i:s');
-        $log = new Log;
-        $log->date = $date;
-        $log->data_type = 'resource';
-        $log->object_id = Input::get('editedid');
-        $log->quantity = Input::get('editedqnty') - 1;
-        $log->percentage = 0;
-        $log->save();
-        return view('focus/resources', $data); //
+            $resources = \App\Resource::All();
+            $data['resources'] = $resources;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'resource';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('editedqnty') - 1;
+            $log->percentage = 0;
+            $log->save();
+            \Session::flash('flash_message', 'The resource quantity has been changed');
+            return view('focus/resources', $data); //
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
     }
 
     public function deleteresource(){
-        // add resource
-        \App\Resource::findOrFail(Input::get('deletedid'))->delete();
+        try {
+            // add resource
+            \App\Resource::findOrFail(Input::get('deletedid'))->delete();
 
 
 
-        $prime = \App\PrimeSilo::All();
-        $data['primesilos'] = $prime;
-        $resources = \App\Resource::All();
-        $data2['resources'] = $resources;
-        //  $post = $resource->name;
-        //$user = Auth::user();
-        //$user->notify(new AddResourceNotification($post));
-        return view('focus/resources', $data, $data2);
+            $prime = \App\PrimeSilo::All();
+            $data['primesilos'] = $prime;
+            $resources = \App\Resource::All();
+            $data2['resources'] = $resources;
+            //  $post = $resource->name;
+            //$user = Auth::user();
+            //$user->notify(new AddResourceNotification($post));
+            \Session::flash('flash_message', 'The resource has been deleted');
+            return view('focus/resources', $data, $data2);
+
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
 
     }
 
     public function update_icon(Request $request){
-        if($request->hasFile('icon')){
-            $icon = $request->file('icon');
-            $filename= time() . '.' .$icon->getClientOriginalExtension();
-            $path = public_path('uploads/icons/' . $filename);
-            Image::make($icon->getRealPath())->resize(200, 200)->save($path);
+        try {
+            if($request->hasFile('icon')){
+                $icon = $request->file('icon');
+                $filename= time() . '.' .$icon->getClientOriginalExtension();
+                $path = public_path('uploads/icons/' . $filename);
+                Image::make($icon->getRealPath())->resize(200, 200)->save($path);
 
-            $resource = \App\Resource::findOrFail(Input::get('editedid'));
-            $resource->icon = $filename;
-            $resource->save();
+                $resource = \App\Resource::findOrFail(Input::get('editedid'));
+                $resource->icon = $filename;
+                $resource->save();
+            }
+            \Session::flash('flash_message', 'The resource icon has been changed');
+            return redirect('resources')->with('feedbackicon', 'Icon succesfully changed.');
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
         }
-        return redirect('resources')->with('feedbackicon', 'Icon succesfully changed.');
+
     }
 
     public function delete_icon(){
-        $resource = \App\Resource::findOrFail(Input::get('deletedid'));
+        try {
+            $resource = \App\Resource::findOrFail(Input::get('deletedid'));
 
-        File::delete('uploads/icons/' . $resource->icon);
+            File::delete('uploads/icons/' . $resource->icon);
 
-        $resource->icon = "f21MB-n.jpg";
-        $resource->save();
+            $resource->icon = "f21MB-n.jpg";
+            $resource->save();
+            \Session::flash('flash_message', 'The resource icon has been deleted');
+            return redirect('resources')->with('feedbackicon', 'Icon succesfully deleted.');
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
 
-        return redirect('resources')->with('feedbackicon', 'Icon succesfully deleted.');
     }
 }
 

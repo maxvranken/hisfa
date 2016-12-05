@@ -6,18 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/manage.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/prime.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/flash.css') }}">
+
     <script src="{{ URL::asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ URL::asset('js/dragscroll.js') }}" defer></script>
     <script src="{{ URL::asset('js/app.js') }}" defer></script>
     <script src="{{ URL::asset('js/main.js') }}" defer></script>
+
 </head>
 <body>
 <div class="dash">
     <div class="dash_container">
+        @if (Session::has('flash_message'))
+            <div class="alert_success">{{ Session::get('flash_message') }}<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+
+        @endif
+
         @yield('content')
     </div>
 </div>

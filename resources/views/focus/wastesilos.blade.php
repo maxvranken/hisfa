@@ -1,6 +1,7 @@
 @extends('layouts/hisfa')
 
 @section('content')
+
     <div class="prime_focus">
         <div class="waste_title">
             <div class="title_dot" style="width: 10px; height: 10px; background-color: #e14c27;"></div>
