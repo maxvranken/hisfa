@@ -37,7 +37,7 @@ class BlocksController extends Controller
      */
     public function store(Request $request)
     {
-        //\App\Block::create( $request->all() );
+        //
     }
 
     /**

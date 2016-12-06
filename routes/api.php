@@ -17,8 +17,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::group(['prefix' => 'v1'/*, 'before' => 'auth.basic'*/], function () {
-    Route::resource('blocks', 'api\v1\BlocksController');
+Route::group(['prefix' => 'v1'], function () {
+    Route::resource('blocks', 'BlocksController');
     Route::resource('resources','api\v1\ResourceController');
     Route::resource('foams','api\v1\FoamController');
     Route::resource('primesilos','api\v1\PrimesilosController');

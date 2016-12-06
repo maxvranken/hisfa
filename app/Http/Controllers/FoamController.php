@@ -187,4 +187,8 @@ class FoamController extends Controller
             return redirect('/');
         }
     }
+
+    public function vuejs(){
+        return view('vue/dashboard');
+    }
 }
