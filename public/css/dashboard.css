@@ -318,10 +318,33 @@ section.resources ul li p:last-child span{
     font-size: 1.5rem;
 }
 
+section.prime_silos ul{
+    height: 442px;
+}
+
+section.waste_silos ul{
+    height: 295px;
+}
+
+section.resources ul{
+    height: 322px;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width:481px){
     /* DASHBOARD SHARED CODE*/
+    section.prime_silos ul{
+        height: 295px;
+    }
+
+    section.waste_silos ul{
+        height: 148px;
+    }
+
+    section.resources ul{
+        height: 213px;
+    }
     section ul li{
         width: calc(33.33% - 2.5px);
         margin: 2.5px 0;
@@ -349,7 +372,20 @@ section.resources ul li p:last-child span{
     }
 }
 
-@media (min-width: 920px)  {
+@media (min-width: 920px) {
+    /* DASHBOARD SHARED CODE*/
+    section.prime_silos ul{
+        height: auto;
+    }
+
+    section.waste_silos ul{
+        height: auto;
+    }
+
+    section.resources ul{
+        height: auto;
+    }
+
     /* DASHBOARD SECTION SPECIFIC*/
     section.prime_silos{
         width: calc(66% - 10px);
@@ -406,187 +442,184 @@ section.resources ul li p:last-child span{
         width: calc(20% - 2.5px);
         min-width: 0;
     }
+}
 
-    /* MAKING IT SCALING ON ALL SCREEN HEIGHTS*/
-    @media screen and (min-height: 670px) {
-        section .title{
-            height: 50px;
-            line-height: 48px;
-        }
-        section.foam_stock .title ul{
-            top: 50px;
-        }
+/* MAKING IT SCALING ON ALL SCREEN HEIGHTS*/
+@media (min-height: 670px) and (min-width: 920px) {
+    section .title{
+        height: 50px;
+        line-height: 48px;
     }
-
-    @media screen and (min-height: 700px) {
-        section .title{
-            height: 60px;
-            line-height: 58px;
-        }
-        section.foam_stock .title ul{
-            top: 60px;
-        }
-    }
-
-    @media screen and (min-height: 730px) {
-        section .title{
-            height: 70px;
-            line-height: 68px;
-        }
-        section.foam_stock .title ul{
-            top: 70px;
-        }
-    }
-
-    @media screen and (min-height: 760px) {
-        section.resources ul li p:last-child{
-            height: 100px;
-            line-height: 100px;
-        }
-    }
-
-    @media screen and (min-height: 800px) {
-        section.resources ul li p:last-child{
-            height: 120px;
-            line-height: 120px;
-        }
-    }
-
-    @media screen and (min-height: 800px) {
-        section .title{
-            height: 80px;
-            line-height: 78px;
-        }
-        section.foam_stock .title ul{
-            top: 80px;
-        }
-    }
-
-    @media screen and (min-height: 850px) {
-        section.prime_silos ul li div,
-        section.foam_stock ul li div,
-        section.waste_silos ul li div{
-            height: 120px;
-        }
-        section.logs ul li p:last-child{
-            min-height: 44.6px;
-        }
+    section.foam_stock .title ul{
+        top: 50px;
     }
 }
 
-@media (min-width: 1350px) {
-    /* MAKING IT SCALING ON ALL SCREEN HEIGHTS*/
-    @media screen and (min-height: 620px) {
-        section .title{
-            height: 50px;
-            line-height: 48px;
-        }
-        section.foam_stock .title ul{
-            top: 50px;
-        }
+@media (min-height: 700px) and (min-width: 920px) {
+    section .title{
+        height: 60px;
+        line-height: 58px;
     }
-
-    @media screen and (min-height: 650px) {
-        section .title{
-            height: 60px;
-            line-height: 58px;
-        }
-        section.foam_stock .title ul{
-            top: 60px;
-        }
+    section.foam_stock .title ul{
+        top: 60px;
     }
+}
 
-    @media screen and (min-height: 680px) {
-        section .title{
-            height: 70px;
-            line-height: 68px;
-        }
-        section.foam_stock .title ul{
-            top: 70px;
-        }
-        section a.title{
-            font-size: 1.2rem;
-        }
-        section .title a{
-            font-size: 1.2rem;
-        }
+@media (min-height: 730px) and (min-width: 920px) {
+    section .title{
+        height: 70px;
+        line-height: 68px;
     }
-
-    @media screen and (min-height: 710px) {
-        section.resources ul li p:last-child{
-            height: 100px;
-            line-height: 100px;
-        }
+    section.foam_stock .title ul{
+        top: 70px;
     }
+}
 
-    @media screen and (min-height: 750px) {
-        section.resources ul li p:last-child{
-            height: 120px;
-            line-height: 120px;
-        }
+@media (min-height: 760px) and (min-width: 920px) {
+    section.resources ul li p:last-child{
+        height: 100px;
+        line-height: 100px;
     }
+}
 
-    @media screen and (min-height: 770px) {
-        section .title{
-            height: 80px;
-            line-height: 78px;
-        }
-        section.foam_stock .title ul{
-            top: 80px;
-        }
+@media (min-height: 800px) and (min-width: 920px) {
+    section.resources ul li p:last-child{
+        height: 120px;
+        line-height: 120px;
     }
+}
 
-    @media screen and (min-height: 800px) {
-        section.prime_silos ul li div,
-        section.foam_stock ul li div,
-        section.waste_silos ul li div{
-            height: 120px;
-        }
-        section.logs ul li p:last-child{
-            min-height: 44.6px;
-            line-height: 44.6px;
-        }
+@media (min-height: 830px) and (min-width: 920px) {
+    section .title{
+        height: 80px;
+        line-height: 78px;
     }
-
-    @media screen and (min-height: 900px) {
-        section.prime_silos ul li div,
-        section.foam_stock ul li div,
-        section.waste_silos ul li div{
-            height: 151px;
-        }
-        section.logs ul li p:last-child{
-            min-height: 52.4px;
-            line-height: 52.4px;
-        }
-        section .dot{
-            margin: 0 15px 0 20px;
-        }
-        section.prime_silos ul li div p:last-child,
-        section.waste_silos ul li div p:last-child{
-            font-size: 15rem;
-            right: -30px;
-            top: 15px;
-        }
-        section.prime_silos ul li div p:first-child span:first-child,
-        section.foam_stock ul li div p:first-child span:first-child{
-            font-size: 1.8rem;
-        }
-        section.resources ul li p:last-child{
-            font-size: 1.9rem;
-        }
+    section.foam_stock .title ul{
+        top: 80px;
     }
+}
 
-    @media screen and (min-height: 915px) {
-        section.resources ul li p:last-child {
-            height: 180px;
-            line-height: 180px;
-        }
+@media (min-height: 850px) and (min-width: 920px) {
+    section.prime_silos ul li div,
+    section.foam_stock ul li div,
+    section.waste_silos ul li div{
+        height: 120px;
     }
+    section.logs ul li p:last-child{
+        min-height: 44.6px;
+    }
+}
 
-    @media screen and (min-height: 935px) {
-        section.resources ul li p:last-child {
-            height: 200px;
-            line-height: 200px;
-        }
+@media (min-height: 620px) and (min-width: 1350px) {
+    section .title{
+        height: 50px;
+        line-height: 48px;
+    }
+    section.foam_stock .title ul{
+        top: 50px;
+    }
+}
+
+@media (min-height: 650px) and (min-width: 1350px) {
+    section .title{
+        height: 60px;
+        line-height: 58px;
+    }
+    section.foam_stock .title ul{
+        top: 60px;
+    }
+}
+
+@media (min-height: 680px) and (min-width: 1350px) {
+    section .title{
+        height: 70px;
+        line-height: 68px;
+    }
+    section.foam_stock .title ul{
+        top: 70px;
+    }
+    section a.title{
+        font-size: 1.2rem;
+    }
+    section .title a{
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-height: 710px) and (min-width: 1350px) {
+    section.resources ul li p:last-child{
+        height: 100px;
+        line-height: 100px;
+    }
+}
+
+@media (min-height: 750px) and (min-width: 1350px) {
+    section.resources ul li p:last-child{
+        height: 120px;
+        line-height: 120px;
+    }
+}
+
+@media (min-height: 770px) and (min-width: 1350px) {
+    section .title{
+        height: 80px;
+        line-height: 78px;
+    }
+    section.foam_stock .title ul{
+        top: 80px;
+    }
+}
+
+@media (min-height: 800px) and (min-width: 1350px) {
+    section.prime_silos ul li div,
+    section.foam_stock ul li div,
+    section.waste_silos ul li div{
+        height: 120px;
+    }
+    section.logs ul li p:last-child{
+        min-height: 44.6px;
+        line-height: 44.6px;
+    }
+}
+
+@media (min-height: 900px) and (min-width: 1350px) {
+    section.prime_silos ul li div,
+    section.foam_stock ul li div,
+    section.waste_silos ul li div{
+        height: 151px;
+    }
+    section.logs ul li p:last-child{
+        min-height: 52.4px;
+        line-height: 52.4px;
+    }
+    section .dot{
+        margin: 0 15px 0 20px;
+    }
+    section.prime_silos ul li div p:last-child,
+    section.waste_silos ul li div p:last-child{
+        font-size: 15rem;
+        right: -30px;
+        top: 15px;
+    }
+    section.prime_silos ul li div p:first-child span:first-child,
+    section.foam_stock ul li div p:first-child span:first-child{
+        font-size: 1.8rem;
+    }
+    section.resources ul li p:last-child{
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-height: 915px) and (min-width: 1350px) {
+    section.resources ul li p:last-child {
+        height: 180px;
+        line-height: 180px;
+    }
+}
+
+@media (min-height: 935px) and (min-width: 1350px) {
+    section.resources ul li p:last-child {
+        height: 200px;
+        line-height: 200px;
     }
 }

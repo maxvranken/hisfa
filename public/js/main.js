@@ -115,6 +115,15 @@ $(function(){
         var id = $(this).val();
         window.location.replace("/foam/" + id);
     });
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+        $( window ).resize(function() {
+            location.reload();
+        });
+    }
 });
 
 function materialAjax(id){
