@@ -28,7 +28,6 @@
                                 <span class='m3'>m³</span>
                             </div></div>
                     </div>
-                    <br><br>
 
                     <form action="/primesilos/changeqnty?={{ $primesilo->id }}" method="POST"
                           enctype="multipart/form-data">

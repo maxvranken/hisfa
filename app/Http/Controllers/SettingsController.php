@@ -12,7 +12,7 @@ use Auth;
 class SettingsController extends Controller
 {
     public function index(){
-        return view('/settings');
+        return view('/settings/menu');
     }
 
     public function register(){
@@ -23,7 +23,7 @@ class SettingsController extends Controller
         if( Auth::user()->hasRole('admin') ) {
             $users = \App\User::get();
             $data['users'] = $users;
-            return view('/users', $data);
+            return view('/settings/users', $data);
         }
     }
 
@@ -50,7 +50,7 @@ class SettingsController extends Controller
             return redirect('/users');
         }else{
             $user->removeRole('admin');
-            return redirect('/users');
+            return redirect('/settings/users');
         }
     }
 
@@ -73,7 +73,7 @@ class SettingsController extends Controller
         if( Auth::user()->can('change user permissions') ) {
             $users = \App\User::get();
             $data['users'] = $users;
-            return view('/permissions', $data);
+            return view('/settings/permissions', $data);
         }else{
             return redirect('/');
         }
@@ -90,7 +90,7 @@ class SettingsController extends Controller
                 return redirect('/permissions');
             }
 
-            return view('/permissions', $data);
+            return view('/settings/permissions', $data);
         }else{
             return redirect('/');
         }

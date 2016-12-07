@@ -1,46 +1,44 @@
 @extends('layouts/hisfa')
 
+@section('assets')
+    <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
+@endsection
+
 @section('content')
-    <div>
-        <h1>Create new user</h1>
-        <form class="register_form" method="POST" action="{{ url('register') }}">
-            <input type="hidden" name="_method" value="PUT">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <label for="name" >Name</label>
-            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-            @if ($errors->has('name'))
-                <span class="help-block">
+    @if ($errors->has('name'))
+        <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
                     </span>
-            @endif
-
-            <label for="email" >E-Mail Address</label>
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-            @if ($errors->has('email'))
-                <span class="help-block">
+    @endif
+    @if ($errors->has('email'))
+        <span class="help-block">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
-            @endif
-
-            <label for="password" >Password</label>
-            <input id="password" type="password" name="password" required>
-            @if ($errors->has('password'))
-                <span class="help-block">
+    @endif
+    @if ($errors->has('password'))
+        <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
-            @endif
+    @endif
 
-            <label for="password-confirm" >Confirm Password</label>
-            <input id="password-confirm" type="password" name="password_confirmation" required>
-            @if ($errors->has('password_confirmation'))
-                <span class="help-block">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                    </span>
-            @endif
+    <form class="register_form" method="POST" action="{{ url('register') }}">
+        <p class="title"><span class="dot white"></span>Create new user</p>
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <label for="name" >Name</label>
+        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-            <button type="submit">
-                Register User
-            </button>
-        </form>
-    </div>
+        <label for="email" >E-Mail Address</label>
+        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+        <label for="password" >Password</label>
+        <input id="password" type="password" name="password" required>
+
+        <label for="password-confirm" >Confirm Password</label>
+        <input id="password-confirm" type="password" name="password_confirmation" required>
+
+        <button type="submit" class="submit">
+            Register User
+        </button>
+    </form>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts/hisfa')
+@extends('../layouts/hisfa')
 
 @section('assets')
     <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">

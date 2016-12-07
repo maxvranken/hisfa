@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function profile(){
-        return view('profilesettings', array('user' => Auth::user()));
+        return view('settings/profile', array('user' => Auth::user()));
     }
 
     public function update_avatar(Request $request){
@@ -33,7 +33,6 @@ class UserController extends Controller
 
     public function changePwd(){
         $user = Auth::user();
-
         if (Hash::check($_POST['password3'], $user->password)){
            if($_POST['password1'] === $_POST['password2']){
 
@@ -46,13 +45,9 @@ class UserController extends Controller
                 return redirect('profile')->with('feedbackpwd', 'Passwords do not match.');
             }
         }else return redirect('profile')->with('feedbackpwd', 'Current password does not match');
-
-
     }
 
     public function changeUserInfo(){
-
-
         //trim = schrijft email aan elkaar weg
         $user = Auth::user();
         $user->name = trim($_POST['name']);
@@ -60,6 +55,4 @@ class UserController extends Controller
         $user->save();
         return redirect('profile')->with('feedbackname', 'Account information succesfully changed.');
     }
-
-
 }
