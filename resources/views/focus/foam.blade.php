@@ -54,7 +54,7 @@
                         </div>
 
                         <form class='change_foam_form' method='post'>
-                            <input type='text' name='number' placeholder='amount'>
+                            <input type='number' min="0" name='number' placeholder='amount'>
                             <input type='hidden' name='editedid' value='{{$block->id}}'>
                             <input type='hidden' name='_method' value='PUT'>
                             <input type='hidden' name='_token' value='{{csrf_token()}}'>

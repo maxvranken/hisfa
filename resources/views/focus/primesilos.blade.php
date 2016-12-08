@@ -34,7 +34,7 @@
                         <input type="hidden" name="editedid" value="{{ $primesilo->id }}">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" name="quantity" class="mngquantity" maxlength="2"
+                        <input type="number" min="0" name="quantity" class="mngquantity" maxlength="2"
                                value="{{$primesilo->quantity}}" id="resourcenumber{{ $primesilo->id }}">
                     </form>
                     <a href="/primesilos/edit?id={{ $primesilo->id }}" class="aeditbtn">
