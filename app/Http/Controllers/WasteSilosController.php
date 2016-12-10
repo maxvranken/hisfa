@@ -65,6 +65,68 @@ class WasteSilosController extends Controller
 
     }
 
+    public function editquantityplus()
+    {
+        try {
+            if(Auth::user()->can('edit waste silos')) {
+            // edit resource
+            $resource = \App\WasteSilo::findOrFail(Input::get('editedid'));
+            $resource->percentage = Input::get('editedqnty') + 1;
+            $resource->save();
+
+            $waste = \App\WasteSilo::All();
+            $data['wastesilos'] = $waste;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'waste';
+            $log->object_id = Input::get('editedid');
+            $log->percentage = Input::get('editedqnty') + 1;
+            $log->quantity = 0.00;
+            $log->message = 'Changed waste '. Input::get('editedid') . ' to ' . Input::get('percentage') . ' percent';
+            $log->save();
+            \Session::flash('flash_message', 'The waste quantity has been changed');
+            return view('focus/wastesilos', $data); //
+            }else{
+            return redirect('/');
+            }
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
+    }
+
+    public function editquantityminus()
+    {
+        try {
+            if(Auth::user()->can('edit waste silos')) {
+            // edit resource
+            $resource = \App\WasteSilo::findOrFail(Input::get('editedid'));
+            $resource->percentage = Input::get('editedqnty') - 1;
+            $resource->save();
+
+            $waste = \App\WasteSilo::All();
+            $data['wastesilos'] = $waste;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'waste';
+            $log->object_id = Input::get('editedid');
+            $log->percentage = Input::get('editedqnty') - 1;
+            $log->quantity = 0.00;
+            $log->message = 'Changed waste '. Input::get('editedid') . ' to ' . Input::get('percentage') . ' percent';
+            $log->save();
+            \Session::flash('flash_message', 'The waste quantity has been changed');
+            return view('focus/wastesilos', $data); //
+            }else{
+            return redirect('/');
+            }
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
+    }
+
     public function edit()
     {
         if(Auth::user()->can('edit waste silos')) {

@@ -97,6 +97,60 @@ class FoamController extends Controller
         }
     }
 
+    public function editquantityplus()
+    {
+        try {
+            // edit resource
+            $block = Block::findOrFail(Input::get('editedid'));
+            $block->quantity = Input::get('editedqnty') + 1;
+            $block->save();
+
+            //$block = \App\Block::All();
+            $data['blocks'] = $block;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'foam';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('editedqnty') + 1;
+            $log->percentage = 0;
+            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('editedqnty') . ' pcs';
+            $log->save();
+
+            return redirect('/foam/' . $block->foam_type_id);
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
+    }
+
+    public function editquantityminus()
+    {
+        try {
+            // edit resource
+            $block = \App\Block::findOrFail(Input::get('editedid'));
+            $block->quantity = Input::get('editedqnty') - 1;
+            $block->save();
+
+            //$block = \App\Block::All();
+            $data['blocks'] = $block;
+            $date = date('Y-m-d H:i:s');
+            $log = new Log;
+            $log->date = $date;
+            $log->data_type = 'block';
+            $log->object_id = Input::get('editedid');
+            $log->quantity = Input::get('editedqnty') - 1;
+            $log->percentage = 0;
+            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('editedqnty') . ' pcs';
+            $log->save();
+
+            return redirect('/foam/' . $block->foam_type_id);
+        } catch(Exception $e) {
+            \Session::flash('flash_error', $e);
+        }
+
+    }
+
     public function newlength(){
         if(Auth::user()->can('edit foam stock')) {
             $blocks = Block::where([
