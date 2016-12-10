@@ -21,7 +21,7 @@
                     $amount = $primesilo->weight;
                     ?>
                     <div class="silo_fill">
-                        <div class="silo_filled">{{ $primesilo->weight }}<span class="ton">kg/m³</span>
+                        <div class="silo_filled">{{ $primesilo->weight }}<span class="ton">kg/m³</span></div>
                     </div>
 
                     <form action="/primesilos/changeqnty?={{ $primesilo->id }}" method="POST"
