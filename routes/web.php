@@ -94,3 +94,4 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //VUE JS
 Route::get('/api/dashboard', 'FoamController@vuejs');
+//Route::resource('api/blocks', 'api\v1\BlocksController');
