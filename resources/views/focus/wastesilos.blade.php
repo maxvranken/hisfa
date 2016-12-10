@@ -26,7 +26,7 @@
                             @endif;">
                         <div class="silo_filled" style="height: calc(100% - {{ $wastesilo->percentage }}%);"></div>
                     </div>
-                    
+
                     <form action="/wastesilos/changeqntyplus?={{ $wastesilo->id }}" method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="editedid" value="{{ $wastesilo->id }}">
