@@ -40,8 +40,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
 
@@ -54,7 +55,7 @@ class PrimeSilosController extends Controller
                 // add primesilo
                 $prime = new PrimeSilo;
                 $prime->resource_id = Input::get('resourceid');
-                $prime->quantity = '0';
+                $prime->weight = '0';
                 $prime->save();
 
                 $primesilos = \App\PrimeSilo::All();
@@ -65,8 +66,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
     }
@@ -77,13 +79,13 @@ class PrimeSilosController extends Controller
             if(Auth::user()->can('edit prime silos')) {
                 // edit resource
                 $prime = \App\PrimeSilo::findOrFail(Input::get('editedid'));
-                $prime->quantity = Input::get('quantity');
+                $prime->weight = Input::get('quantity');
                 $prime->save();
 
-                if ($prime->quantity >= 90) {
+                if ($prime->weight >= 90) {
                     $post = $prime->id;
                     $post2 = $prime->resource->name;
-                    $post3 = $prime->quantity;
+                    $post3 = $prime->weight;
                     $user = Auth::user();
                     $user->notify(new PrimeSilo90Notification($post, $post2, $post3));
                 }
@@ -107,8 +109,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
     }
@@ -127,8 +130,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
     }
@@ -155,8 +159,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
 
@@ -181,8 +186,9 @@ class PrimeSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('primesilos');
         }
 
 
