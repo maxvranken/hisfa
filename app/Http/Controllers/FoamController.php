@@ -285,4 +285,8 @@ class FoamController extends Controller
         }
 
     }
+
+    public function vuejs(){
+        return view('vue/dashboard');
+    }
 }
