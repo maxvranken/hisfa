@@ -94,4 +94,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //VUE JS
 Route::get('/api/dashboard', 'FoamController@vuejs');
-//Route::resource('api/blocks', 'api\v1\BlocksController');
+Route::resource('api/blocks', 'api\v1\BlocksController');
+Route::resource('api/foams', 'api\v1\FoamController');
+Route::resource('api/primesilos', 'api\v1\PrimeSilosController');
+Route::resource('api/wastesilos', 'api\v1\WasteSilosController');
+Route::resource('api/resources', 'api\v1\ResourceController');
