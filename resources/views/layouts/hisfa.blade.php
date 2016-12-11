@@ -18,6 +18,14 @@
         </header>
 
         <main>
+            @if(Session::has('flash_error'))
+                <div class="flash_error">{{ Session::get('flash_error') }}</div>
+            @endif
+                <br>
+            @if(Session::has('flash_message'))
+                <div class="flash_success">{{ Session::get('flash_message') }}</div>
+            @endif
+                <br>
             @yield('content')
         </main>
 

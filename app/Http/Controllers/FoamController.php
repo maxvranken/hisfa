@@ -55,46 +55,58 @@ class FoamController extends Controller
     }
 
     public function qntyplus(){
-        if(Auth::user()->can('edit foam stock')) {
-            $block = Block::findOrFail(Input::get('editedid'));
-            $block->quantity = $block->quantity + Input::get('number');
-            $block->save();
-            $date = date('Y-m-d H:i:s');
-            $log = new Log;
-            $log->date = $date;
-            $log->data_type = 'foam';
-            $log->object_id = Input::get('editedid');
-            $log->quantity = Input::get('number');
-            $log->percentage = 0.00;
-            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
-            $log->save();
-            return redirect('/foam/' . $block->foam_type_id);
-        }else{
-            return redirect('/');
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $block = Block::findOrFail(Input::get('editedid'));
+                $block->quantity = $block->quantity + Input::get('number');
+                $block->save();
+                $date = date('Y-m-d H:i:s');
+                $log = new Log;
+                $log->date = $date;
+                $log->data_type = 'foam';
+                $log->object_id = Input::get('editedid');
+                $log->quantity = Input::get('number');
+                $log->percentage = 0.00;
+                $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
+                $log->save();
+                return redirect('/foam/' . $block->foam_type_id);
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function qntymin(){
-        if(Auth::user()->can('edit foam stock')) {
-            $block = Block::findOrFail(Input::get('editedid'));
-            if ($block->quantity - Input::get('number') >= 0) {
-                $block->quantity = $block->quantity - Input::get('number');
-                $block->save();
-            }
-            $date = date('Y-m-d H:i:s');
-            $log = new Log;
-            $log->date = $date;
-            $log->data_type = 'foam';
-            $log->object_id = Input::get('editedid');
-            $log->quantity = Input::get('number');
-            $log->percentage = 0.00;
-            $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
-            $log->save();
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $block = Block::findOrFail(Input::get('editedid'));
+                if ($block->quantity - Input::get('number') >= 0) {
+                    $block->quantity = $block->quantity - Input::get('number');
+                    $block->save();
+                }
+                $date = date('Y-m-d H:i:s');
+                $log = new Log;
+                $log->date = $date;
+                $log->data_type = 'foam';
+                $log->object_id = Input::get('editedid');
+                $log->quantity = Input::get('number');
+                $log->percentage = 0.00;
+                $log->message = 'Changed foam '. Input::get('editedid') . ' to ' . Input::get('number') . ' pcs';
+                $log->save();
 
-            return redirect('/foam/' . $block->foam_type_id);
-        }else{
-            return redirect('/');
+                return redirect('/foam/' . $block->foam_type_id);
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function editquantityplus()
@@ -118,8 +130,9 @@ class FoamController extends Controller
             $log->save();
 
             return redirect('/foam/' . $block->foam_type_id);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
 
     }
@@ -145,100 +158,131 @@ class FoamController extends Controller
             $log->save();
 
             return redirect('/foam/' . $block->foam_type_id);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
 
     }
 
     public function newlength(){
-        if(Auth::user()->can('edit foam stock')) {
-            $blocks = Block::where([
-                ['foam_type_id', '=', Input::get('foamid')],
-                ['length', '=', Input::get('length')],
-            ])->get();
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $blocks = Block::where([
+                    ['foam_type_id', '=', Input::get('foamid')],
+                    ['length', '=', Input::get('length')],
+                ])->get();
 
-            if (count($blocks) == 0) {
-                $block = new Block;
-                $block->length = Input::get('length');
-                $block->foam_type_id = Input::get('foamid');
-                $block->quantity = 0;
-                $block->save();
+                if (count($blocks) == 0) {
+                    $block = new Block;
+                    $block->length = Input::get('length');
+                    $block->foam_type_id = Input::get('foamid');
+                    $block->quantity = 0;
+                    $block->save();
+                }
+
+                return redirect('/foam/' . Input::get('foamid'));
+            }else{
+                return redirect('/');
             }
-
-            return redirect('/foam/' . Input::get('foamid'));
-        }else{
-            return redirect('/');
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function removelength(){
-        if(Auth::user()->can('edit foam stock')) {
-            $block = Block::findOrFail(Input::get('editedid'));
-            $block->delete();
-            return redirect('/foam/' . Input::get('foamid'));
-        }else{
-            return redirect('/');
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $block = Block::findOrFail(Input::get('editedid'));
+                $block->delete();
+                return redirect('/foam/' . Input::get('foamid'));
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function createtype(){
-        if(Auth::user()->can('edit foam stock')) {
-            $foamType = new FoamType;
-            $foamType->name = Input::get('name');
-            $foamType->density = 0;
-            $foamType->save();
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $foamType = new FoamType;
+                $foamType->name = Input::get('name');
+                $foamType->density = 0;
+                $foamType->save();
 
-            $block = new Block;
-            $block->length = 4;
-            $block->foam_type_id = $foamType->id;
-            $block->quantity = 0;
-            $block->save();
+                $block = new Block;
+                $block->length = 4;
+                $block->foam_type_id = $foamType->id;
+                $block->quantity = 0;
+                $block->save();
 
-            $block = new Block;
-            $block->length = 6;
-            $block->foam_type_id = $foamType->id;
-            $block->quantity = 0;
-            $block->save();
+                $block = new Block;
+                $block->length = 6;
+                $block->foam_type_id = $foamType->id;
+                $block->quantity = 0;
+                $block->save();
 
-            $block = new Block;
-            $block->length = 8;
-            $block->foam_type_id = $foamType->id;
-            $block->quantity = 0;
-            $block->save();
+                $block = new Block;
+                $block->length = 8;
+                $block->foam_type_id = $foamType->id;
+                $block->quantity = 0;
+                $block->save();
 
-            $block = new Block;
-            $block->length = 12;
-            $block->foam_type_id = $foamType->id;
-            $block->quantity = 0;
-            $block->save();
+                $block = new Block;
+                $block->length = 12;
+                $block->foam_type_id = $foamType->id;
+                $block->quantity = 0;
+                $block->save();
 
-            return redirect('/foams');
-        }else{
-            return redirect('/');
+                return redirect('/foams');
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function edittype(){
-        if(Auth::user()->can('edit foam stock')) {
-            $foamType = FoamType::findOrFail(Input::get('editedid'));
-            $foamType->name = Input::get('name');
-            $foamType->save();
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $foamType = FoamType::findOrFail(Input::get('editedid'));
+                $foamType->name = Input::get('name');
+                $foamType->save();
 
-            return redirect('/foams');
-        }else{
-            return redirect('/');
+                return redirect('/foams');
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 
     public function deletetype(){
-        if(Auth::user()->can('edit foam stock')) {
-            $foamType = FoamType::findOrFail(Input::get('editedid'));
-            $foamType->blocks()->delete();
-            $foamType->delete();
-            return redirect('/foams');
-        }else{
-            return redirect('/');
+        try {
+            if(Auth::user()->can('edit foam stock')) {
+                $foamType = FoamType::findOrFail(Input::get('editedid'));
+                $foamType->blocks()->delete();
+                $foamType->delete();
+                return redirect('/foams');
+            }else{
+                return redirect('/');
+            }
+        } catch(\Exception $e) {
+            \Session::flash('flash_error', $e);
+            return redirect('foam');
         }
+
     }
 }

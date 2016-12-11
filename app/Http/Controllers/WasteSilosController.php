@@ -59,8 +59,9 @@ class WasteSilosController extends Controller
             }else{
                 return redirect('/');
             }
-        } catch( Excetpion $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('wastesilos');
         }
 
     }
@@ -90,8 +91,9 @@ class WasteSilosController extends Controller
             }else{
             return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('wastesilos');
         }
 
     }
@@ -121,8 +123,9 @@ class WasteSilosController extends Controller
             }else{
             return redirect('/');
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('wastesilos');
         }
 
     }
@@ -160,8 +163,9 @@ class WasteSilosController extends Controller
                 return redirect('/');
             }
 
-        } catch (Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('wastesilos');
         }
 
     }

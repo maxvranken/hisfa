@@ -196,6 +196,20 @@ header .nav_button.open span:nth-child(3){
     transform: rotate(-135deg);
 }
 
+.flash_error {
+    width: 100%;
+    background-color: #ce8483;
+    color: #880000;
+    padding: 2%;
+}
+
+.flash_success {
+    width: 100%;
+    background-color: #4ebda9;
+    color: #0d3625;
+    padding: 2%;
+}
+
 nav{
     display: none;
     position: absolute;

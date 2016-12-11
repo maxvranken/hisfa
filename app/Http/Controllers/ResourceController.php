@@ -57,8 +57,9 @@ class ResourceController extends Controller
             $user->notify(new AddResourceNotification($post));
             \Session::flash('flash_message', 'The resource has been added');
             return view('focus/resources', $data);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
 
@@ -77,8 +78,9 @@ class ResourceController extends Controller
             $data['resources'] = $resources;
             \Session::flash('flash_message', 'The resource has been edited');
             return view('focus/resources', $data); //
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -104,8 +106,9 @@ class ResourceController extends Controller
             $log->save();
             \Session::flash('flash_message', 'The resource quantity has been changed');
             return view('focus/resources', $data); //
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -130,8 +133,9 @@ class ResourceController extends Controller
             $log->save();
             \Session::flash('flash_message', 'The resource quantity has been changed');
             return view('focus/resources', $data); //
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -156,8 +160,9 @@ class ResourceController extends Controller
             $log->save();
             \Session::flash('flash_message', 'The resource quantity has been changed');
             return view('focus/resources', $data); //
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -179,8 +184,9 @@ class ResourceController extends Controller
             \Session::flash('flash_message', 'The resource has been deleted');
             return view('focus/resources', $data, $data2);
 
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -199,8 +205,9 @@ class ResourceController extends Controller
             }
             \Session::flash('flash_message', 'The resource icon has been changed');
             return redirect('resources')->with('feedbackicon', 'Icon succesfully changed.');
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
@@ -215,8 +222,9 @@ class ResourceController extends Controller
             $resource->save();
             \Session::flash('flash_message', 'The resource icon has been deleted');
             return redirect('resources')->with('feedbackicon', 'Icon succesfully deleted.');
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             \Session::flash('flash_error', $e);
+            return redirect('resources');
         }
 
     }
