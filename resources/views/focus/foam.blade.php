@@ -42,6 +42,15 @@
                         $mass = round(1.03 * 1.29 * $block->length * $block->quantity, 1);
                         ?>
 
+                        <form action="/foam/changeqntyplus?={{ $block->id }}" method="POST"
+                              enctype="multipart/form-data">
+                            <input type="hidden" name="editedid" value="{{ $block->id }}">
+                            <input type="hidden" name="editedqnty" value="{{ $block->quantity }}">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="submit" class="mngbutton" id="resourceplus{{ $block->id }}" value="+">
+                        </form>
+
                         <div class='stock' id='stock{{$key}}'>
                             <div class='number_stock'>
                                 <span class='number'>{{$amount}}</span>
@@ -53,8 +62,17 @@
                             </div>
                         </div>
 
+                        <form action="/foam/changeqntyminus?={{ $block->id }}" method="POST"
+                              enctype="multipart/form-data">
+                            <input type="hidden" name="editedid" value="{{ $block->id }}">
+                            <input type="hidden" name="editedqnty" value="{{ $block->quantity }}">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="submit" class="mngbutton" id="resourceminus{{ $block->id }}" value="-">
+                        </form>
+
                         <form class='change_foam_form' method='post'>
-                            <input type='text' name='number' placeholder='amount'>
+                            <input type='number' min="0" name='number' placeholder='amount'>
                             <input type='hidden' name='editedid' value='{{$block->id}}'>
                             <input type='hidden' name='_method' value='PUT'>
                             <input type='hidden' name='_token' value='{{csrf_token()}}'>
@@ -64,6 +82,7 @@
                                 <button class='remove_amount' formaction='/foam/qntymin'>Remove</button>
                             </div>
                         </form>
+
                     </div>
                 @endforeach
                 <div class='stock_item add'>

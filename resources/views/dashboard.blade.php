@@ -13,8 +13,7 @@
                     <p class="name">{{ $primesilo->resource->name }}</p>
                     <div class="silo_filled">
                         <p>
-                            <span>{{ $primesilo->quantity }} <span>ton</span></span>
-                            <span>{{round(1.03 * 1.29 * 1 * $primesilo->quantity, 1)}} m³</span>
+                            <span>{{ $primesilo->weight }} <span>kg/m³</span></span>
                         </p>
                         <p>{{ $key+1 }}</p>
                     </div>

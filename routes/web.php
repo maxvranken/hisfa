@@ -35,6 +35,8 @@ Route::delete('/primesilos/edit/deleted', 'PrimeSilosController@deleteprime');
 // route naar wastesilos focus
 Route::get('/wastesilos', 'WasteSilosController@index');
 Route::put('/wastesilos/changeqnty', 'WasteSilosController@editquantity');
+Route::put('/wastesilos/changeqntyplus', 'WasteSilosController@editquantityplus');
+Route::put('/wastesilos/changeqntyminus', 'WastesilosController@editquantityminus');
 Route::get('/wastesilos/edit', 'WasteSilosController@edit');
 Route::put('/wastesilos/edit/edited', 'WasteSilosController@editwaste');
 
@@ -45,6 +47,8 @@ Route::get('/foams', 'FoamController@edit');
 Route::get('/blocks', 'FoamController@ajax');
 Route::put('/foam/qntyplus', 'FoamController@qntyplus');
 Route::put('/foam/qntymin', 'FoamController@qntymin');
+Route::put('/foam/changeqntyplus', 'FoamController@editquantityplus');
+Route::put('/foam/changeqntyminus', 'FoamController@editquantityminus');
 Route::put('/foam/newlength', 'FoamController@newlength');
 Route::put('/foam/removelength', 'FoamController@removelength');
 Route::put('/foams/createtype', 'FoamController@createtype');
@@ -91,3 +95,11 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+//VUE JS
+Route::get('/api/dashboard', 'FoamController@vuejs');
+Route::resource('api/blocks', 'api\v1\BlocksController');
+Route::resource('api/foams', 'api\v1\FoamController');
+Route::resource('api/primesilos', 'api\v1\PrimeSilosController');
+Route::resource('api/wastesilos', 'api\v1\WasteSilosController');
+Route::resource('api/resources', 'api\v1\ResourceController');

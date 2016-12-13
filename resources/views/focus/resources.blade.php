@@ -37,7 +37,7 @@
                         <input type="hidden" name="editedid" value="{{ $resource->id }}">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" name="quantity" class="mngquantity" value="{{$resource->quantity}}"
+                        <input type="number" min="0" name="quantity" class="mngquantity" value="{{$resource->quantity}}"
                                id="resourcenumber{{ $resource->id }}">
                     </form>
 

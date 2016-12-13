@@ -17,7 +17,7 @@ class CreatePrimeSilosTable extends Migration
             $table->increments('id');
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resources');
-            $table->tinyInteger('quantity');
+            $table->double('weight');
             $table->timestamps();
         });
     }

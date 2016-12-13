@@ -124,6 +124,10 @@ $(function(){
             location.reload();
         });
     }
+
+    $(".choose_file").change(function() {
+        $(".picture_form").submit();
+    });
 });
 
 function materialAjax(id){

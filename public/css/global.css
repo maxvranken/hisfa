@@ -69,6 +69,44 @@ body{
     background-color: #fff;
 }
 
+.title{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    line-height: 38px;
+    background-color: #54626d;
+    color: #fff;
+}
+
+.message{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0;
+    line-height: 38px;
+    text-align: center;
+    background-color: #708c9c;
+    color: #fff;
+}
+
+.message.green{
+    background-color: #8acd7b;
+}
+
+.message.red{
+    background-color: tomato;
+}
+
 /* SHARED LAYOUT (NAV, HEADER, MAIN) */
 
 header{
@@ -156,6 +194,20 @@ header .nav_button.open span:nth-child(3){
     top: 16px;
     -webkit-transform: rotate(-135deg);
     transform: rotate(-135deg);
+}
+
+.flash_error {
+    width: 100%;
+    background-color: #ce8483;
+    color: #880000;
+    padding: 2%;
+}
+
+.flash_success {
+    width: 100%;
+    background-color: #4ebda9;
+    color: #0d3625;
+    padding: 2%;
 }
 
 nav{

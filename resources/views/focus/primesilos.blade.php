@@ -18,25 +18,19 @@
                     <div class="silo_number">{{ $key+1 }}</div>
                     <div class="silo_number">{{ $primesilo->resource->name}}</div>
                     <?php
-                    $amount = $primesilo->quantity;
-                    $mass = round(1.03 * 1.29 * 1 * $primesilo->quantity, 1);
+                    $amount = $primesilo->weight;
                     ?>
                     <div class="silo_fill">
-                        <div class="silo_filled">{{ $primesilo->quantity }}<span class="ton">ton</span>
-                            <div class='volume_stock'>
-                                <span class='number'>{{$mass}}</span>
-                                <span class='m3'>m³</span>
-                            </div></div>
+                        <div class="silo_filled">{{ $primesilo->weight }}<span class="ton">kg/m³</span></div>
                     </div>
-                    <br><br>
 
                     <form action="/primesilos/changeqnty?={{ $primesilo->id }}" method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="editedid" value="{{ $primesilo->id }}">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="text" name="quantity" class="mngquantity" maxlength="2"
-                               value="{{$primesilo->quantity}}" id="resourcenumber{{ $primesilo->id }}">
+                        <input type="number" min="0" name="quantity" class="mngquantity" maxlength="2"
+                               value="{{$primesilo->weight}}" id="resourcenumber{{ $primesilo->id }}">
                     </form>
                     <a href="/primesilos/edit?id={{ $primesilo->id }}" class="aeditbtn">
                         <div class="editbtn">
