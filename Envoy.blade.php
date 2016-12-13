@@ -1,6 +1,11 @@
 @servers(['web' => 'deploybot@139.162.175.121'])
+{{--deploybot@139.162.175.121--}}
 
-@task('deploy')
+@task('deploy', ['on' => 'web'])
+cd /var/www/hisfa
+echo 'envoy command werkt'
+@endtask
+
 echo 'verbonden met deploybot'
 cd /var/www/hisfa
 echo 'hisfa map'
@@ -16,4 +21,3 @@ php artisan migrate:refresh --seed
 echo 'artisan migrate'
 php artisan up
 echo 'up'
-@endtask
