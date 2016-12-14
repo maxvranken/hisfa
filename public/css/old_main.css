@@ -398,6 +398,7 @@ h7 {
 .log_log_focus{
     background-color: #54626d;
     padding: 10px 0 10px 0;
+    margin-bottom: 2px;
 }
 
 .log_timestamp_focus{
@@ -696,7 +697,7 @@ h7 {
 }
 
 .stock_item.add .stock{
-    height: 252px;
+    height: 346px;
     background: none;
 }
 
@@ -920,6 +921,9 @@ input[type='file'] {
     text-align: center;
     padding: 10px;
     font-size: 1.2rem;
+    color: #fff;
+    background-color: #54626d;
+    margin-top: 5px;
 }
 
 .resource_stock_container{

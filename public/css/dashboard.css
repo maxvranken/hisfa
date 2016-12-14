@@ -233,7 +233,7 @@ section.prime_silos ul li div p:last-child,
 section.waste_silos ul li div p:last-child{
     position: absolute;
     background: none;
-    opacity: 0.06;
+    opacity: 0.07;
     top: 0;
     right: -10px;
     width: 100%;
@@ -301,15 +301,15 @@ section.resources ul li p:last-child span{
 }
 
 section.prime_silos ul{
-    height: 442px;
+    min-height: 442px;
 }
 
 section.waste_silos ul{
-    height: 295px;
+    min-height: 295px;
 }
 
 section.resources ul{
-    height: 322px;
+    min-height: 322px;
 }
 
 /* MEDIA QUERIES */
@@ -317,15 +317,15 @@ section.resources ul{
 @media (min-width:481px){
     /* DASHBOARD SHARED CODE*/
     section.prime_silos ul{
-        height: 295px;
+        min-height: 295px;
     }
 
     section.waste_silos ul{
-        height: 148px;
+        min-height: 148px;
     }
 
     section.resources ul{
-        height: 213px;
+        min-height: 213px;
     }
     section ul li{
         width: calc(33.33% - 2.5px);
@@ -357,15 +357,15 @@ section.resources ul{
 @media (min-width: 920px) {
     /* DASHBOARD SHARED CODE*/
     section.prime_silos ul{
-        height: auto;
+        min-height: 0;
     }
 
     section.waste_silos ul{
-        height: auto;
+        min-height: 0;
     }
 
     section.resources ul{
-        height: auto;
+        min-height: 0;
     }
 
     /* DASHBOARD SECTION SPECIFIC*/

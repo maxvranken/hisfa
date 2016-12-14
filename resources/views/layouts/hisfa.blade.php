@@ -16,16 +16,13 @@
             <a class="logo" href="{{ url('/') }}"></a>
             <div class="nav_button"><span></span><span></span><span></span></div>
         </header>
-
         <main>
             @if(Session::has('flash_error'))
                 <div class="flash_error">{{ Session::get('flash_error') }}</div>
             @endif
-                <br>
             @if(Session::has('flash_message'))
                 <div class="flash_success">{{ Session::get('flash_message') }}</div>
             @endif
-                <br>
             @yield('content')
         </main>
 

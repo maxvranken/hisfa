@@ -1,19 +1,15 @@
 @extends('layouts/hisfa')
 
 @section('assets')
-    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/silos.css') }}">
 @endsection
 
 @section('content')
     <div class="resource">
-        <div class="resource_title">
-            <div class="title_dot" style="width: 10px; height: 10px; background-color: #4ebda9;"></div>
-            <p>Add Primesilo</p>
-        </div>
+        <a href="{{ url('/primesilos') }}" class="title"><span class="dot bluegreen"></span>Choose resource</a>
         <div class="resource_container">
             <form enctype="multipart/form-data" action="/primesilos/create/store" method="POST" class="addform">
                 <div class="addrow">
-                    <div class="addlabel">Resource name</div>
                     <select class="addinput" name="resourceid">
 
                         @foreach($resources as $resource)
@@ -23,7 +19,7 @@
                 </div>
                 <div class="addrow">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="submit" name="confirm" value="Confirm" class="addsubmit">
+                    <input type="submit" name="confirm" value="Create" class="addsubmit">
                 </div>
             </form>
         </div>
