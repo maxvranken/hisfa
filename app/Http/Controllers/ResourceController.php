@@ -124,12 +124,14 @@ class ResourceController extends Controller
             $resources = \App\Resource::All();
             $data['resources'] = $resources;
             $date = date('Y-m-d H:i:s');
+            $date = date('Y-m-d H:i:s');
             $log = new Log;
             $log->date = $date;
             $log->data_type = 'resource';
             $log->object_id = Input::get('editedid');
-            $log->quantity = Input::get('editedqnty') + 1;
+            $log->quantity = Input::get('quantity') +1;
             $log->percentage = 0;
+            $log->message = 'Changed resource '. Input::get('editedid') . ' to ' . (Input::get('quantity')+1) . ' ton';
             $log->save();
             \Session::flash('flash_message', 'The resource quantity has been changed');
             return view('focus/resources', $data); //
@@ -155,8 +157,9 @@ class ResourceController extends Controller
             $log->date = $date;
             $log->data_type = 'resource';
             $log->object_id = Input::get('editedid');
-            $log->quantity = Input::get('editedqnty') - 1;
+            $log->quantity = Input::get('quantity')-1;
             $log->percentage = 0;
+            $log->message = 'Changed resource '. Input::get('editedid') . ' to ' . (Input::get('quantity')-1) . ' ton';
             $log->save();
             \Session::flash('flash_message', 'The resource quantity has been changed');
             return view('focus/resources', $data); //
