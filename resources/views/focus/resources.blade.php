@@ -1,28 +1,21 @@
 @extends('layouts/hisfa')
 
 @section('assets')
-    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/silos.css') }}">
 @endsection
 
 @section('content')
-
-    <div class="resource">
-        <div class="resource_title">
-            <div class="title_dot" style="width: 10px; height: 10px; background-color: #51B8F2;"></div>
-            <a href="/resources">Resources</a>
-        </div>
-
-        <div class="resource_stock_container">
+    <a href="{{ url('/resources') }}" class="title"><span class="dot blue"></span>Resources</a>
+    <ul class="resources_focus">
             @foreach($resources as $resource)
-
-                <div class="stockres">
+                <li>
                     <div class="resourcetype" id="resource {{ $resource->id }}">
-                        <div class="rsrcetype">{{ $resource->name }}</div>
+                        <div class="silo_resource">{{ $resource->name }}</div>
                     </div>
                     <div class="profimgcontainer iconimgcontainer">
                         <img src="/uploads/icons/{{$resource->icon}}" class="iconimg">
                     </div>
-                    <div class="resource_number_stock">{{$resource->quantity}}<span class="ton">ton</span></div>
+                    <div class="silo_fill">{{$resource->quantity}}<span class="ton">ton</span></div>
                     <form action="/resources/changeqntyplus?={{ $resource->id }}" method="POST"
                           enctype="multipart/form-data">
                         <input type="hidden" name="editedid" value="{{ $resource->id }}">
@@ -55,23 +48,13 @@
                             <div class="editbtn_txt">Edit</div>
                         </div>
                     </a>
-
-                </div>
+                </li>
 
             @endforeach
 
-            <div class="stockres">
-                <div class="resourcetype">
-                    <div class="rsrcetype" id="addres">Add resource</div>
-                </div>
-                <a href="/resources/create" class="additem" id="addresbtn">
-                    <div>+</div>
-                </a>
-            </div>
-
-
-        </div>
-
-    </div>
+            <li class="add_resource">
+                <div class="silo_resource">Add resource</div>
+                <a href="/resources/create" class="mngbutton">+</a>
+            </li>
+        </ul>
     @endsection
-            <!--<div class="mngbutton" id="resourceplus">+</div>--><!--<div class="mngbutton" id="resourceminus">-</div>-->

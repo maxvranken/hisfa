@@ -1,12 +1,12 @@
 @extends('../layouts/hisfa')
 
 @section('assets')
-    <link rel="stylesheet" href="{{ URL::asset('css/old_main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
 @endsection
 
 @section('content')
     <div class="permissions">
-        <div class="material_title"><div class="title_dot" style="width: 10px; height: 10px; background-color: #FFF; margin-top: 3px"></div><p>Permissions of non admin users</p></div>
+        <a href="{{ url('/primesilos') }}" class="title"><span class="dot white"></span>Permissions of non admin users</a>
         <form>
             <div>
                 <select name="users" onchange="permissions(this.value)">

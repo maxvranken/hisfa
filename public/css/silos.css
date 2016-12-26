@@ -1,4 +1,4 @@
-.prime_focus, .waste_focus{
+.prime_focus, .waste_focus, .resources_focus{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -6,7 +6,7 @@
     overflow-x: hidden;
 }
 
-.prime_focus li, .waste_focus li{
+.prime_focus li, .waste_focus li, .resources_focus li{
     width: calc(50% - 2.5px);
     margin-top: 5px;
     position: relative;
@@ -19,7 +19,7 @@
     flex-grow: 1;
 }
 
-.prime_focus li .silo_resource, .waste_focus li .silo_resource{
+.prime_focus li .silo_resource, .waste_focus li .silo_resource, .resources_focus .silo_resource{
     display: block;
     margin: 0;
     background-color: #54626d;
@@ -29,7 +29,7 @@
     text-align: center;
 }
 
-.prime_focus li .silo_fill, .waste_focus li .silo_fill{
+.prime_focus li .silo_fill, .waste_focus li .silo_fill, .resources_focus .silo_fill{
     display: block;
     height: 60px;
     line-height: 60px;
@@ -41,13 +41,13 @@
     color: #4ebda9;
 }
 
-.prime_focus li .silo_fill span, .waste_focus li .silo_fill span{
+.prime_focus li .silo_fill span, .waste_focus li .silo_fill span, .resources_focus .silo_fill span{
     display: inline;
     font-size: 1.3rem;
     font-weight: lighter;
 }
 
-.prime_focus li .silo_number, .waste_focus li .silo_number{
+.prime_focus li .silo_number, .waste_focus li .silo_number, .resources_focus .silo_number{
     position: absolute;
     color: #fff;
     background: none;
@@ -63,7 +63,7 @@
     pointer-events: none;
 }
 
-.prime_focus .mngquantity, .waste_focus .mngquantity{
+.prime_focus .mngquantity, .waste_focus .mngquantity, .resources_focus .mngquantity{
     height: 50px;
     width: 100%;
     text-align: center;
@@ -77,7 +77,7 @@
     box-sizing: border-box;
 }
 
-.waste_focus .mngbutton{
+.waste_focus .mngbutton, .resources_focus .mngbutton{
     height: 50px;
     width: 100%;
     background-color: #54626d;
@@ -85,7 +85,7 @@
     font-size: 1.3rem;
 }
 
-.waste_focus .mngbutton:hover{
+.waste_focus .mngbutton:hover, .resources_focus .mngbutton:hover{
     background-color: #758494;
 }
 
@@ -93,7 +93,7 @@
     margin-top: 5px;
 }
 
-.prime_focus .aeditbtn, .waste_focus .aeditbtn{
+.prime_focus .aeditbtn, .waste_focus .aeditbtn, .resources_focus .aeditbtn{
     display: block;
     height: 50px;
     line-height: 50px;
@@ -105,7 +105,7 @@
     font-size: 1.3rem;
 }
 
-.prime_focus .aeditbtn:hover, .waste_focus .aeditbtn:hover{
+.prime_focus .aeditbtn:hover, .waste_focus .aeditbtn:hover, .resources_focus .aeditbtn:hover{
     background-color: #758494;
 }
 
@@ -127,6 +127,35 @@
 
 .prime_focus .add_silo a span{
     font-size: 1.8rem;
+}
+
+.resources_focus li{
+    margin-bottom: 5px;
+}
+
+.resources_focus img.iconimg{
+    background-color: #54626d;
+    max-height: 150px;
+}
+
+.resources_focus .silo_fill{
+    margin-bottom: 4px;
+}
+
+.resources_focus .editbtn{
+    margin-top: 4px;
+}
+
+.resources_focus .stockres{
+    width: 100%;
+}
+
+.resources_focus .add_resource .mngbutton{
+    display: block;
+    text-align: center;
+    height: 421px;
+    line-height: 421px;
+    font-size: 4rem;
 }
 
 .resource_container{
@@ -171,12 +200,27 @@
     background-color: tomato;
 }
 
+.resource_container .addlabel{
+    width: calc(100% - 15px);
+    padding-left: 15px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 2rem;
+    margin-top: 5px;
+    color: #fff;
+    background-color: #303742;
+}
+
 .resource_container .deletebutton:hover{
     background-color: #cc4d31;
 }
 
+.resource_container img{
+    max-height: 150px;
+}
+
 @media (min-width:481px){
-    .prime_focus li, .waste_focus li{
+    .prime_focus li, .waste_focus li, .resources_focus li{
         width: calc(33% - 2.5px);
     }
 

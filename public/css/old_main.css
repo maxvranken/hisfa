@@ -859,42 +859,6 @@ h7 {
     flex-direction: column;
 }
 
-.permissions{
-    width: 100%;
-}
-
-.permissions form{
-    display: flex;
-    flex-direction: column;
-}
-
-.permissions form div{
-    margin: 10px 0;
-    display: flex;
-}
-
-.permissions form select{
-    height: 50px;
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 10px 5px;
-}
-
-.permissions form input[type=checkbox]{
-    height: 40px;
-    width: 40px;
-    margin: 0;
-}
-
-.permissions form label{
-    font-size: 1.5rem;
-    display: block;
-    height: 40px;
-    line-height: 40px;
-    margin-left: 10px;
-    color: #fff;
-}
-
 input[type='file'] {
     color: transparent;
     text-align: center;
@@ -1048,6 +1012,8 @@ input[type='file'] {
     }
 }
 
-@media screen and (max-width: 800px) {
-
+@media screen and (max-width: 1200px) {
+    .stock_item{
+        width: calc(50% - 4px);
+    }
 }
